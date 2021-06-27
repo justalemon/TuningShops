@@ -50,6 +50,8 @@ namespace TuningShops.Menus
 
         private void MenuTuning_Opening(object sender, CancelEventArgs e)
         {
+            Clear();
+
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
 
             if (vehicle == null)
