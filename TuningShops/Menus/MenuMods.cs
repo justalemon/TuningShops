@@ -27,7 +27,7 @@ namespace TuningShops.Menus
 
             int count = Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot);
 
-            for (int i = 0; i < count; i++)
+            for (int i = -1; i < count; i++)
             {
                 Add(new ItemSwap(Slot, i));
             }
