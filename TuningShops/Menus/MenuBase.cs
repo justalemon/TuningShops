@@ -20,7 +20,7 @@ namespace TuningShops.Menus
 
         #region Constructors
 
-        public MenuBase(int slot) : base("", "")
+        public MenuBase(int slot) : base("", slot.ToString())
         {
             Slot = slot;
         }
