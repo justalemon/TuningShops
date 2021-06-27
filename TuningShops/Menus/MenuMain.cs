@@ -30,6 +30,8 @@ namespace TuningShops.Menus
 
         public MenuMain() : base("", "Tuning")
         {
+            ItemCount = CountVisibility.Always;
+
             for (int i = 0; i < 50; i++)
             {
                 MenuBase menu;

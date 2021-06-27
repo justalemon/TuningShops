@@ -1,5 +1,6 @@
 ﻿using GTA;
 using GTA.Native;
+using LemonUI.Menus;
 using System.ComponentModel;
 
 namespace TuningShops.Menus
@@ -19,6 +20,7 @@ namespace TuningShops.Menus
 
         public MenuMods(int slot) : base(slot)
         {
+            ItemCount = CountVisibility.Always;
             Opening += MenuMods_Opening;
         }
 
