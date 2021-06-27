@@ -8,7 +8,7 @@ namespace TuningShops.Menus
     /// <summary>
     /// The item used to select a different item.
     /// </summary>
-    public class ModSwapItem : NativeItem
+    public class ItemSwap : NativeItem
     {
         #region Properties
 
@@ -25,7 +25,7 @@ namespace TuningShops.Menus
 
         #region Constructor
 
-        public ModSwapItem(int type, int value) : base(Function.Call<string>(Hash._GET_LABEL_TEXT, Function.Call<string>(Hash.GET_MOD_TEXT_LABEL, Game.Player.Character.CurrentVehicle, type, value)))
+        public ItemSwap(int type, int value) : base(Function.Call<string>(Hash._GET_LABEL_TEXT, Function.Call<string>(Hash.GET_MOD_TEXT_LABEL, Game.Player.Character.CurrentVehicle, type, value)))
         {
             Type = type;
             Value = value;
