@@ -63,7 +63,10 @@ namespace TuningShops.Menus
             {
                 if (Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, i) > 0 || (i >= 17 && i <= 22))
                 {
-                    Add(Menus[i]);
+                    NativeSubmenuItem item = Menus[i];
+                    MenuBase menu = item.Menu as MenuBase;
+                    menu.Subtitle = Function.Call<string>(Hash.GET_MOD_SLOT_NAME, Game.Player.Character.CurrentVehicle, menu.Slot);
+                    Add(item);
                 }
             }
         }

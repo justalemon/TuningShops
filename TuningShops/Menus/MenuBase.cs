@@ -20,7 +20,7 @@ namespace TuningShops.Menus
 
         #region Constructors
 
-        public MenuBase(int slot) : base("", Function.Call<string>(Hash.GET_MOD_SLOT_NAME, Game.Player.Character.CurrentVehicle, slot))
+        public MenuBase(int slot) : base("", "")
         {
             Slot = slot;
         }
