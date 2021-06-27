@@ -16,8 +16,14 @@ namespace TuningShops.Menus
             Opening += MenuMods_Opening;
         }
 
+        #endregion
+
+        #region Events
+
         private void MenuMods_Opening(object sender, CancelEventArgs e)
         {
+            Clear();
+
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
 
             if (vehicle == null)
