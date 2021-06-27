@@ -8,6 +8,8 @@
     <Version>1.0</Version>
     <OutputPath>..\bin\$(Configuration)\</OutputPath>
     <PlatformTarget>x64</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
