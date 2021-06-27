@@ -26,19 +26,22 @@ namespace TuningShops.Menus
         {
             for (int i = 0; i < 50; i++)
             {
-                NativeSubmenuItem sub;
+                MenuBase menu;
 
-                if (i >= 17 && i <= 22)
+                if (i == 22)
                 {
-                    sub = new NativeSubmenuItem(new MenuToggle(i), this);
-
+                    menu = new MenuHeadlights();
+                }
+                else if (i >= 17 && i <= 22)
+                {
+                    menu = new MenuToggle(i);
                 }
                 else
                 {
-                    sub = new NativeSubmenuItem(new MenuMods(i), this);
+                    menu = new MenuMods(i);
                 }
 
-                Menus[i] = sub;
+                Menus[i] = new NativeSubmenuItem(menu, this);
             }
 
             Opening += MenuTuning_Opening;
