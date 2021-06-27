@@ -9,6 +9,12 @@ namespace TuningShops.Menus
     /// </summary>
     public class MenuMods : MenuBase
     {
+        #region Fields
+
+        private Model lastModel = 0;
+
+        #endregion
+
         #region Constructors
 
         public MenuMods(int slot) : base(slot)
@@ -18,9 +24,9 @@ namespace TuningShops.Menus
 
         #endregion
 
-        #region Events
+        #region Functions
 
-        private void MenuMods_Opening(object sender, CancelEventArgs e)
+        public void Repopulate()
         {
             Clear();
 
@@ -36,6 +42,26 @@ namespace TuningShops.Menus
             for (int i = -1; i < count; i++)
             {
                 Add(new ItemSwap(Slot, i));
+            }
+        }
+
+        #endregion
+
+        #region Events
+
+        private void MenuMods_Opening(object sender, CancelEventArgs e)
+        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+
+            if (vehicle.Model != lastModel)
+            {
+                Repopulate();
+                lastModel = vehicle.Model;
             }
         }
 

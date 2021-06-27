@@ -11,6 +11,12 @@ namespace TuningShops.Menus
     /// </summary>
     public class MenuMain : NativeMenu
     {
+        #region Fields
+
+        private Model lastModel = 0;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -49,9 +55,9 @@ namespace TuningShops.Menus
 
         #endregion
 
-        #region Events
+        #region Functions
 
-        private void MenuTuning_Opening(object sender, CancelEventArgs e)
+        public void Repopulate()
         {
             Clear();
 
@@ -73,6 +79,26 @@ namespace TuningShops.Menus
                     menu.Subtitle = name;
                     Add(item);
                 }
+            }
+        }
+
+        #endregion
+
+        #region Events
+
+        private void MenuTuning_Opening(object sender, CancelEventArgs e)
+        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+
+            if (vehicle.Model != lastModel)
+            {
+                Repopulate();
+                lastModel = vehicle.Model;
             }
         }
 
