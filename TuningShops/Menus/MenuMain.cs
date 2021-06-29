@@ -76,9 +76,19 @@ namespace TuningShops.Menus
                 {
                     NativeSubmenuItem item = Menus[i];
                     MenuBase menu = item.Menu as MenuBase;
+
                     string name = Function.Call<string>(Hash.GET_MOD_SLOT_NAME, Game.Player.Character.CurrentVehicle, menu.Slot);
-                    item.Title = name;
-                    menu.Subtitle = name;
+
+#if DEBUG
+                    name = $"{name} ({i})";
+#endif
+
+                    if (!string.IsNullOrWhiteSpace(name))
+                    {
+                        item.Title = name;
+                        menu.Subtitle = name;
+                    }
+
                     Add(item);
                 }
             }
