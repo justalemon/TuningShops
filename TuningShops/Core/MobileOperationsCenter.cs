@@ -6,11 +6,11 @@ namespace TuningShops.Core
     /// <summary>
     /// Basics for the Mobile Operations Center related stuff.
     /// </summary>
-    public abstract class BennysOriginalMotorWorks : BaseType
+    public abstract class MobileOperationsCenter : BaseType
     {
         #region Constructor
 
-        public BennysOriginalMotorWorks(string title) : base(title)
+        public MobileOperationsCenter(string title) : base(title)
         {
         }
 
