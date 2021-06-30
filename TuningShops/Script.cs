@@ -49,6 +49,8 @@ namespace TuningShops
                 new BOMWVanityPlate(),
                 new BOMWWindows(),
 
+                new Liveries(),
+
                 new LSCArmor(),
                 new LSCBrakes(),
                 new LSCBumperFront(),
