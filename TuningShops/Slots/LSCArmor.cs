@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCArmor() : base(16)
+        public LSCArmor() : base(16, "Armor")
         {
         }
 

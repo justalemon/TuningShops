@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCGrille() : base(6)
+        public LSCGrille() : base(6, "Grille")
         {
         }
 

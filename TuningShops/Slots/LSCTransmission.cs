@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCTransmission() : base(13)
+        public LSCTransmission() : base(13, "Transmission")
         {
         }
 

@@ -67,60 +67,6 @@ namespace TuningShops.Base
             { 47, "" },  // Unknown
             { 48, "NONE" },  // Ditto
         };
-        private static readonly Dictionary<int, string> slotLabels = new Dictionary<int, string>()
-        {
-            // LSC
-            { 0, "CMOD_MOD_SPO" },
-            { 1, "CMOD_MOD_BUMF" },
-            { 2, "CMOD_MOD_BUMR" },
-            { 3, "CMOD_MOD_SKI" },
-            { 4, "CMOD_MOD_MUF" },
-            { 5, "" },  // Frame
-            { 6, "CMOD_MOD_GRL" },
-            { 7, "CMOD_MOD_HOD" },
-            { 8, "CMOD_MOD_FEN" },
-            { 9, "CMOD_MOD_FEN" },  // Right Fender
-            { 10, "CMOD_MOD_ROF" },
-            { 11, "CMOD_MOD_ENG2" },
-            { 12, "CMOD_MOD_BRA" },
-            { 13, "CMOD_MOD_TRN" },
-            { 14, "CMOD_MOD_HRN" },
-            { 15, "CMOD_MOD_SUS" },
-            { 16, "CMOD_MOD_ARM" },
-            { 17, "" },  // Unknown
-            { 18, "CMOD_MOD_TUR" },
-            { 19, "" },  // Unknown
-            { 20, "CMOD_MOD_TYR3" },
-            { 21, "" },  // Unknown
-            { 22, "CMOD_MOD_LGT" }, // Headlights, shown as Lights
-            { 23, "CMOD_MOD_WHEM" },  // Front Wheels, shown as just Wheels for now
-            { 24, "CMOD_WHE0_1" },  // Rear Wheels, shown as Rear Wheel
-            // Benny's
-            { 25, "CMM_MOD_S0" },
-            { 26, "CMM_MOD_S1" },
-            { 27, "CMM_MOD_S2" },
-            { 28, "CMM_MOD_S3" },
-            { 29, "CMM_MOD_S4" },
-            { 30, "CMM_MOD_S5" },
-            { 31, "CMM_MOD_S6" },
-            { 32, "CMM_MOD_S7" },
-            { 33, "CMM_MOD_S8" },
-            { 34, "CMM_MOD_S9" },
-            { 35, "CMM_MOD_S10" },
-            { 36, "CMM_MOD_S11" },  // Internally known as Speakers
-            { 37, "CMM_MOD_S12" },
-            { 38, "CMM_MOD_S13" },
-            { 39, "CMM_MOD_S14" },
-            { 40, "CMM_MOD_S15" },
-            { 41, "CMM_MOD_S16" },
-            { 42, "CMM_MOD_S17" },
-            { 43, "CMM_MOD_S18" },
-            { 44, "CMM_MOD_S19" },
-            { 45, "CMM_MOD_S20" },
-            { 46, "CMM_MOD_S21" },  // Windows, shown as Doors
-            { 47, "" },  // Unknown
-            { 48, "CMM_MOD_S23" }
-        };
         private Model lastModel = 0;
 
         #endregion
@@ -140,35 +86,10 @@ namespace TuningShops.Base
 
         #region Constructor
 
-        public LSC(int slot) : base(GetSlotName(slot))
+        public LSC(int slot, string name) : base(name)
         {
             Slot = slot;
             Opening += LSC_Opening;
-        }
-
-        #endregion
-
-        #region Tools
-
-        private static string GetSlotName(int slot)
-        {
-            if (slotLabels.ContainsKey(slot))
-            {
-                string text = Function.Call<string>(Hash._GET_LABEL_TEXT, slotLabels[slot]);
-
-                if (string.IsNullOrWhiteSpace(text) || text == "NULL")
-                {
-                    return slot.ToString();
-                }
-                else
-                {
-                    return text;
-                }
-            }
-            else
-            {
-                return slot.ToString();
-            }
         }
 
         #endregion

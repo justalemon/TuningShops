@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCSuspension() : base(15)
+        public LSCSuspension() : base(15, "Suspension")
         {
         }
 

@@ -2,11 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TuningShops.Base;
 
 namespace TuningShops.Slots
@@ -27,7 +23,7 @@ namespace TuningShops.Slots
 
         #region Constructor
 
-        public LSCTireSmoke() : base(20)
+        public LSCTireSmoke() : base(20, "Tire Smoke")
         {
             Add(new TireSmokeItem("White", Color.FromArgb(255, 255, 255, 255)));
             Add(new TireSmokeItem("Black", Color.FromArgb(255, 20, 20, 20)));

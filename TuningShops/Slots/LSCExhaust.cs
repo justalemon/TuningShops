@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCExhaust() : base(4)
+        public LSCExhaust() : base(4, "Exhaust")
         {
         }
 

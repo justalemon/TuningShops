@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCFenderRight() : base(9)
+        public LSCFenderRight() : base(9, "Right Fender")
         {
         }
 

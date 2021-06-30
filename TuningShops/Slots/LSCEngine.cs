@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCEngine() : base(11)
+        public LSCEngine() : base(11, "Engine")
         {
         }
 

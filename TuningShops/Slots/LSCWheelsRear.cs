@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCWheelsRear() : base(24)
+        public LSCWheelsRear() : base(24, "Rear Wheels")
         {
         }
 

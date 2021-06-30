@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCBumperRear() : base(2)
+        public LSCBumperRear() : base(2, "Rear Bumper")
         {
         }
 

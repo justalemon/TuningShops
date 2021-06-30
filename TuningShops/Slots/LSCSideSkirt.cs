@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCSideSkirt() : base(3)
+        public LSCSideSkirt() : base(3, "Side Skirt")
         {
         }
 

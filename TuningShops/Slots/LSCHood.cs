@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCHood() : base(7)
+        public LSCHood() : base(7, "Hood")
         {
         }
 

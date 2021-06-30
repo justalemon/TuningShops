@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCHorns() : base(14)
+        public LSCHorns() : base(14, "Horns")
         {
         }
 

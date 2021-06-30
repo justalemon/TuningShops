@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCSpoilers() : base(0)
+        public LSCSpoilers() : base(0, "Spoilers")
         {
         }
 

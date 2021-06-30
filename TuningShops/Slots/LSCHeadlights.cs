@@ -22,7 +22,7 @@ namespace TuningShops.Slots
 
         #region Constructors
 
-        public LSCHeadlights() : base(22)
+        public LSCHeadlights() : base(22, "Headlights")
         {
             Add(new ItemHeadlights("CMOD_LGT_0", false, -1));
             Add(new ItemHeadlights("CMOD_LGT_1", true, -1));

@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCRoof() : base(10)
+        public LSCRoof() : base(10, "Roof")
         {
         }
 

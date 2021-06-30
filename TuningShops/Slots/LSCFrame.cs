@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCFrame() : base(5)
+        public LSCFrame() : base(5, "Frame")
         {
         }
 

@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public LSCBrakes() : base(12)
+        public LSCBrakes() : base(12, "Brakes")
         {
         }
 
