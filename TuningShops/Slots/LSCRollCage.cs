@@ -3,13 +3,13 @@ using TuningShops.Base;
 namespace TuningShops.Slots
 {
     /// <summary>
-    /// The frame menu option.
+    /// The roll cage menu option.
     /// </summary>
-    public class LSCFrame : LSC
+    public class LSCRollCage : LSC
     {
         #region Constructor
 
-        public LSCFrame() : base(5, "Frame")
+        public LSCRollCage() : base(5, "Roll Cage")
         {
         }
 

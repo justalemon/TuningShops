@@ -35,7 +35,7 @@ namespace TuningShops
                 new LSCExhaust(),
                 new LSCFender(),
                 new LSCFenderRight(),
-                new LSCFrame(),
+                new LSCRollCage(),
                 new LSCGrille(),
                 new LSCHeadlights(),
                 new LSCHood(),
