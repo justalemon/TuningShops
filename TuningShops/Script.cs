@@ -73,6 +73,8 @@ namespace TuningShops
                 new LSCWheels(),
                 new LSCWheelsRear(),
 
+                new Plate(),
+
                 new TerrorbyteTint(),
                 new TerrorbyteDecal(),
                 new TerrorbyteTurretStation(),
