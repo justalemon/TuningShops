@@ -45,6 +45,7 @@ namespace TuningShops
                 new LSCSpoilers(),
                 new LSCSuspension(),
                 new LSCTransmission(),
+                new LSCTireSmoke(),
                 new LSCWheels(),
                 new LSCWheelsRear(),
 
