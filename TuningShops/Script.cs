@@ -27,6 +27,33 @@ namespace TuningShops
         {
             List<BaseType> created = new List<BaseType>()
             {
+                new LSCArmor(),
+                new LSCBrakes(),
+                new LSCBumperFront(),
+                new LSCBumperRear(),
+                new LSCEngine(),
+                new LSCExhaust(),
+                new LSCFender(),
+                new LSCFenderRight(),
+                new LSCFrame(),
+                new LSCGrille(),
+                new LSCHeadlights(),
+                new LSCHood(),
+                new LSCHorns(),
+                new LSCRoof(),
+                new LSCSideSkirt(),
+                new LSCSpoilers(),
+                new LSCSuspension(),
+                new LSCTransmission(),
+                new LSCWheels(),
+                new LSCWheelsRear(),
+
+                new TerrorbyteTint(),
+                new TerrorbyteDecal(),
+                new TerrorbyteTurretStation(),
+                new TerrorbyteDroneStation(),
+                new TerrorbyteWeaponWorkshop(),
+                new TerrorbyteSpecializedWorkshop(),
             };
 
             foreach (BaseType @base in created)
