@@ -2,7 +2,6 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace TuningShops.Core
 {
@@ -67,7 +66,6 @@ namespace TuningShops.Core
             { 47, "" },  // Unknown
             { 48, "NONE" },  // Ditto
         };
-        private Model lastModel = 0;
 
         #endregion
 
@@ -76,7 +74,7 @@ namespace TuningShops.Core
         /// <summary>
         /// If this menu should be repopulate when being opened.
         /// </summary>
-        public virtual bool Repopulate => true;
+        public virtual bool ShouldRepopulate => true;
         /// <summary>
         /// The tuning slot associated with the menu.
         /// </summary>
@@ -89,7 +87,6 @@ namespace TuningShops.Core
         public LosSantosCustoms(int slot, string name) : base(name)
         {
             Slot = slot;
-            Opening += LSC_Opening;
         }
 
         #endregion
@@ -104,6 +101,25 @@ namespace TuningShops.Core
         public override bool CanUse(Vehicle vehicle)
         {
             return Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot) > 0;
+        }
+        /// <summary>
+        /// Populates the menu with the items based on the mod slot.
+        /// </summary>
+        public override void Repopulate()
+        {
+            if (!ShouldRepopulate)
+            {
+                return;
+            }
+
+            Clear();
+
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            for (int i = -1; i < Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot); i++)
+            {
+                Add(new NativeItem(GetModName(i)));
+            }
         }
         /// <summary>
         /// Gets the name of the mod on the specified index.
@@ -124,33 +140,6 @@ namespace TuningShops.Core
             }
 
             return Function.Call<string>(Hash._GET_LABEL_TEXT, label);
-        }
-
-        #endregion
-
-        #region Events
-
-        private void LSC_Opening(object sender, CancelEventArgs e)
-        {
-            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-            Model model = vehicle != null ? vehicle.Model : new Model(0);
-
-            if (model == lastModel || !Repopulate)
-            {
-                return;
-            }
-
-            Clear();
-            
-            if (vehicle == null)
-            {
-                return;
-            }
-
-            for (int i = -1; i < Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot); i++)
-            {
-                Add(new NativeItem(GetModName(i)));
-            }
         }
 
         #endregion

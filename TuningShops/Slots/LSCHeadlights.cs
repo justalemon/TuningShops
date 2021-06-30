@@ -16,7 +16,7 @@ namespace TuningShops.Slots
         /// <summary>
         /// If the menu should be repopulated.
         /// </summary>
-        public override bool Repopulate => false;
+        public override bool ShouldRepopulate => false;
 
         #endregion
 

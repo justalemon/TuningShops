@@ -17,7 +17,7 @@ namespace TuningShops.Slots
         /// <summary>
         /// If the Tire Smoke option should be repopulated.
         /// </summary>
-        public override bool Repopulate => false;
+        public override bool ShouldRepopulate => false;
 
         #endregion
 

@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// The basics for all Terrorbyte customizations.
     /// </summary>
-    public class Terrorbyte : BaseType
+    public abstract class Terrorbyte : BaseType
     {
         #region Constructor
 
@@ -23,6 +23,12 @@ namespace TuningShops.Core
         /// <param name="vehicle">The vehicle to check.</param>
         /// <returns>true if is a Terrorbyte, false otherwise.</returns>
         public override bool CanUse(Vehicle vehicle) => vehicle.Model == VehicleHash.Terrorbyte;
+        /// <summary>
+        /// Does nothing.
+        /// </summary>
+        public override void Repopulate()
+        {
+        }
 
         #endregion
     }
