@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The second trim option.
     /// </summary>
-    public class BOMWTrim2 : LSC
+    public class BOMWTrim2 : LosSantosCustoms
     {
         #region Constructor
 

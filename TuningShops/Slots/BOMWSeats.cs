@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The seats option.
     /// </summary>
-    public class BOMWSeats : LSC
+    public class BOMWSeats : LosSantosCustoms
     {
         #region Constructor
 

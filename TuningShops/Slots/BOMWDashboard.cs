@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The dashboard option.
     /// </summary>
-    public class BOMWDashboard : LSC
+    public class BOMWDashboard : LosSantosCustoms
     {
         #region Constructor
 

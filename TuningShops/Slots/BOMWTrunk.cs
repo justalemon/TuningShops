@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The trunk option.
     /// </summary>
-    public class BOMWTrunk : LSC
+    public class BOMWTrunk : LosSantosCustoms
     {
         #region Constructor
 

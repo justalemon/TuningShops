@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The wheels (front wheel on a Bike) menu option.
     /// </summary>
-    public class LSCWheels : LSC
+    public class LSCWheels : LosSantosCustoms
     {
         #region Constructor
 

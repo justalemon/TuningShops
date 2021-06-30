@@ -1,11 +1,11 @@
-﻿using TuningShops.Base;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The front bumper menu option.
     /// </summary>
-    public class LSCBumperFront : LSC
+    public class LSCBumperFront : LosSantosCustoms
     {
         #region Constructor
 

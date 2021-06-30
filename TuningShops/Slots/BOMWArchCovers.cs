@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The arch covers option.
     /// </summary>
-    public class BOMWArchCovers : LSC
+    public class BOMWArchCovers : LosSantosCustoms
     {
         #region Constructor
 

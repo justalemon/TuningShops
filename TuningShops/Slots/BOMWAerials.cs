@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The aerials option.
     /// </summary>
-    public class BOMWAerials : LSC
+    public class BOMWAerials : LosSantosCustoms
     {
         #region Constructor
 

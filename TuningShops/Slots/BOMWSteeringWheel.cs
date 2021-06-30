@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The steering wheel option.
     /// </summary>
-    public class BOMWSteeringWheel : LSC
+    public class BOMWSteeringWheel : LosSantosCustoms
     {
         #region Constructor
 

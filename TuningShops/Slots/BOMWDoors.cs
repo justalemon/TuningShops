@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The doors option.
     /// </summary>
-    public class BOMWDoors : LSC
+    public class BOMWDoors : LosSantosCustoms
     {
         #region Constructor
 

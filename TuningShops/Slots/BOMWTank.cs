@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The tank option.
     /// </summary>
-    public class BOMWTank : LSC
+    public class BOMWTank : LosSantosCustoms
     {
         #region Constructor
 

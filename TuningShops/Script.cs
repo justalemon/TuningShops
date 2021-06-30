@@ -1,9 +1,8 @@
 ﻿using GTA;
 using LemonUI;
-using LemonUI.Menus;
 using System;
 using System.Collections.Generic;
-using TuningShops.Base;
+using TuningShops.Core;
 using TuningShops.Slots;
 
 namespace TuningShops

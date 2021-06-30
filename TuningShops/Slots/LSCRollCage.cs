@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The roll cage menu option.
     /// </summary>
-    public class LSCRollCage : LSC
+    public class LSCRollCage : LosSantosCustoms
     {
         #region Constructor
 

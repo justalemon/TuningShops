@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The horns menu option.
     /// </summary>
-    public class LSCHorns : LSC
+    public class LSCHorns : LosSantosCustoms
     {
         #region Constructor
 

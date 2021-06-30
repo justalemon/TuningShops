@@ -1,11 +1,11 @@
-﻿using TuningShops.Base;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The side skirt menu option.
     /// </summary>
-    public class LSCSideSkirt : LSC
+    public class LSCSideSkirt : LosSantosCustoms
     {
         #region Constructor
 

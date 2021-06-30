@@ -1,7 +1,7 @@
 ﻿using GTA;
 using LemonUI.Menus;
 
-namespace TuningShops.Base
+namespace TuningShops.Core
 {
     /// <summary>
     /// Represents the basics for a Mod Slot Type.

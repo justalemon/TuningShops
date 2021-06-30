@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The engine block option.
     /// </summary>
-    public class BOMWEngineBlock : LSC
+    public class BOMWEngineBlock : LosSantosCustoms
     {
         #region Constructor
 

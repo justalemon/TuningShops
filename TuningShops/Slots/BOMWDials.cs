@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The dials option.
     /// </summary>
-    public class BOMWDials : LSC
+    public class BOMWDials : LosSantosCustoms
     {
         #region Constructor
 

@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The plaque option.
     /// </summary>
-    public class BOMWPlaque : LSC
+    public class BOMWPlaque : LosSantosCustoms
     {
         #region Constructor
 

@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The engine menu option.
     /// </summary>
-    public class LSCEngine : LSC
+    public class LSCEngine : LosSantosCustoms
     {
         #region Constructor
 

@@ -3,14 +3,14 @@ using GTA.Native;
 using LemonUI.Menus;
 using System;
 using System.Drawing;
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The tire smoke menu option.
     /// </summary>
-    public class LSCTireSmoke : LSC
+    public class LSCTireSmoke : LosSantosCustoms
     {
         #region Properties
 

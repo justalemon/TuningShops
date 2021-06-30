@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The livery option.
     /// </summary>
-    public class BOMWLivery : LSC
+    public class BOMWLivery : LosSantosCustoms
     {
         #region Constructor
 

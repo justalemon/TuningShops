@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The roof menu option.
     /// </summary>
-    public class LSCRoof : LSC
+    public class LSCRoof : LosSantosCustoms
     {
         #region Constructor
 

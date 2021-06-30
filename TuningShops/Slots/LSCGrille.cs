@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The grille menu option.
     /// </summary>
-    public class LSCGrille : LSC
+    public class LSCGrille : LosSantosCustoms
     {
         #region Constructor
 

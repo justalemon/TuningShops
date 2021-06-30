@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The vanity plate option.
     /// </summary>
-    public class BOMWVanityPlate : LSC
+    public class BOMWVanityPlate : LosSantosCustoms
     {
         #region Constructor
 

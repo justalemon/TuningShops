@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The speakers option.
     /// </summary>
-    public class BOMWSpeakers : LSC
+    public class BOMWSpeakers : LosSantosCustoms
     {
         #region Constructor
 

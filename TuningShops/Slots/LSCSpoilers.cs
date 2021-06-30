@@ -1,11 +1,11 @@
-﻿using TuningShops.Base;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The spoilers menu option.
     /// </summary>
-    public class LSCSpoilers : LSC
+    public class LSCSpoilers : LosSantosCustoms
     {
         #region Constructor
 

@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The ornaments option.
     /// </summary>
-    public class BOMWOrnaments : LSC
+    public class BOMWOrnaments : LosSantosCustoms
     {
         #region Constructor
 

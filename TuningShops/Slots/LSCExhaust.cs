@@ -1,11 +1,11 @@
-﻿using TuningShops.Base;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The exhaust menu option.
     /// </summary>
-    public class LSCExhaust : LSC
+    public class LSCExhaust : LosSantosCustoms
     {
         #region Constructor
 

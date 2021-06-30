@@ -1,6 +1,6 @@
 ﻿using GTA;
 
-namespace TuningShops.Base
+namespace TuningShops.Core
 {
     /// <summary>
     /// The basics for all Terrorbyte customizations.

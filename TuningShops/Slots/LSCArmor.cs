@@ -1,11 +1,11 @@
-﻿using TuningShops.Base;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The armor menu option.
     /// </summary>
-    public class LSCArmor : LSC
+    public class LSCArmor : LosSantosCustoms
     {
         #region Constructor
 

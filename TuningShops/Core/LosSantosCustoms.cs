@@ -4,12 +4,12 @@ using LemonUI.Menus;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace TuningShops.Base
+namespace TuningShops.Core
 {
     /// <summary>
     /// Represents a basic Los Santos Customs slot.
     /// </summary>
-    public class LSC : BaseType
+    public class LosSantosCustoms : BaseType
     {
         #region Fields
 
@@ -86,7 +86,7 @@ namespace TuningShops.Base
 
         #region Constructor
 
-        public LSC(int slot, string name) : base(name)
+        public LosSantosCustoms(int slot, string name) : base(name)
         {
             Slot = slot;
             Opening += LSC_Opening;

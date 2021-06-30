@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The struts option.
     /// </summary>
-    public class BOMWStruts : LSC
+    public class BOMWStruts : LosSantosCustoms
     {
         #region Constructor
 

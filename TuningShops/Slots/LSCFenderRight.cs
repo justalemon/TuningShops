@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The right fender menu option.
     /// </summary>
-    public class LSCFenderRight : LSC
+    public class LSCFenderRight : LosSantosCustoms
     {
         #region Constructor
 

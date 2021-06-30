@@ -1,16 +1,16 @@
 ﻿using GTA;
 using TuningShops.Extensions;
 
-namespace TuningShops.Base
+namespace TuningShops.Core
 {
     /// <summary>
     /// Basics for the Mobile Operations Center related stuff.
     /// </summary>
-    public abstract class MOC : BaseType
+    public abstract class BennysOriginalMotorWorks : BaseType
     {
         #region Constructor
 
-        public MOC(string title) : base(title)
+        public BennysOriginalMotorWorks(string title) : base(title)
         {
         }
 

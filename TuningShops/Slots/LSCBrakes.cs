@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The brakes menu option.
     /// </summary>
-    public class LSCBrakes : LSC
+    public class LSCBrakes : LosSantosCustoms
     {
         #region Constructor
 

@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The windows option.
     /// </summary>
-    public class BOMWWindows : LSC
+    public class BOMWWindows : LosSantosCustoms
     {
         #region Constructor
 

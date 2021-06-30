@@ -2,14 +2,14 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// Menu used for specifically changing Xenon Lights.
     /// </summary>
-    public class LSCHeadlights : LSC
+    public class LSCHeadlights : LosSantosCustoms
     {
         #region Properties
 

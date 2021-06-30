@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The shifter leaver option.
     /// </summary>
-    public class BOMWShifterLeaver : LSC
+    public class BOMWShifterLeaver : LosSantosCustoms
     {
         #region Constructor
 

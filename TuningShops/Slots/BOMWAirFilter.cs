@@ -1,11 +1,11 @@
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The air filter option.
     /// </summary>
-    public class BOMWAirFilter : LSC
+    public class BOMWAirFilter : LosSantosCustoms
     {
         #region Constructor
 

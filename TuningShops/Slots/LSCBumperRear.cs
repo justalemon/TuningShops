@@ -1,11 +1,11 @@
-﻿using TuningShops.Base;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// The rear bumper menu option.
     /// </summary>
-    public class LSCBumperRear : LSC
+    public class LSCBumperRear : LosSantosCustoms
     {
         #region Constructor
 

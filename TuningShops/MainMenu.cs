@@ -2,7 +2,7 @@
 using LemonUI.Menus;
 using System.Collections.Generic;
 using System.ComponentModel;
-using TuningShops.Base;
+using TuningShops.Core;
 
 namespace TuningShops
 {
