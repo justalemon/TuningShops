@@ -3,7 +3,8 @@ using LemonUI;
 using LemonUI.Menus;
 using System;
 using System.Collections.Generic;
-using TuningShops.Menus;
+using TuningShops.Base;
+using TuningShops.Slots;
 
 namespace TuningShops
 {
@@ -14,8 +15,9 @@ namespace TuningShops
     {
         #region Fields
 
+        private static readonly Dictionary<string, BaseType> menus = new Dictionary<string, BaseType>();
         private static readonly ObjectPool pool = new ObjectPool();
-        private static readonly MenuMain main = new MenuMain();
+        private static readonly MainMenu main = new MainMenu();
 
         #endregion
 
@@ -23,13 +25,23 @@ namespace TuningShops
 
         public TuningShops()
         {
+            List<BaseType> created = new List<BaseType>()
+            {
+            };
+
+            foreach (BaseType @base in created)
+            {
+                Type type = @base.GetType();
+                menus.Add(type.FullName, @base);
+
+                pool.Add(@base);
+
+                main.AddMenu(@base);  // TODO: Make this dynamic
+            }
+
             Tick += TuningShops_Tick;
 
             pool.Add(main);
-            foreach (KeyValuePair<int, NativeSubmenuItem> pair in main.Menus)
-            {
-                pool.Add(pair.Value.Menu);
-            }
         }
 
         #endregion
