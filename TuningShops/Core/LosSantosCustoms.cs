@@ -1,6 +1,7 @@
 ﻿using GTA;
 using GTA.Native;
 using LemonUI.Menus;
+using System;
 using System.Collections.Generic;
 
 namespace TuningShops.Core
@@ -118,7 +119,7 @@ namespace TuningShops.Core
 
             for (int i = -1; i < Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot); i++)
             {
-                Add(new NativeItem(GetModName(i)));
+                Add(new LosSantosCustomsItem(Slot, i, GetModName(i)));
             }
         }
         /// <summary>
@@ -140,6 +141,57 @@ namespace TuningShops.Core
             }
 
             return Function.Call<string>(Hash._GET_LABEL_TEXT, label);
+        }
+
+        #endregion
+
+        #region Item
+
+        /// <summary>
+        /// The item used to select Los Santos Customs modifications.
+        /// </summary>
+        public class LosSantosCustomsItem : NativeItem
+        {
+            #region Properties
+
+            /// <summary>
+            /// The slot of the modification.
+            /// </summary>
+            public int Slot { get; }
+            /// <summary>
+            /// The index of the modification.
+            /// </summary>
+            public int Index { get; }
+
+            #endregion
+
+            #region Constructor
+
+            public LosSantosCustomsItem(int slot, int index, string name) : base(name)
+            {
+                Slot = slot;
+                Index = index;
+
+                Activated += LosSantosCustomsItem_Activated;
+            }
+
+            #endregion
+
+            #region Events
+
+            private void LosSantosCustomsItem_Activated(object sender, EventArgs e)
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle == null)
+                {
+                    return;
+                }
+
+                Function.Call(Hash.SET_VEHICLE_MOD, vehicle, Slot, Index, false);
+            }
+
+            #endregion
         }
 
         #endregion
