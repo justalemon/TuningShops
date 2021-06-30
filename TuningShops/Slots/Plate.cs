@@ -2,10 +2,6 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
