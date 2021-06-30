@@ -59,6 +59,7 @@ namespace TuningShops.Core
             }
 
             Repopulate();
+            lastModel = model;
         }
 
         #endregion
