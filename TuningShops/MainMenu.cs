@@ -1,4 +1,5 @@
 ﻿using GTA;
+using LemonUI.Elements;
 using LemonUI.Menus;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,9 @@ namespace TuningShops
 
         #region Constructor
 
-        public MainMenu() : base("", "Test")
+        public MainMenu(ShopLocation location, ScaledTexture texture) : base("", location.Name)
         {
+            Banner = texture;
             UseMouse = false;
             Opening += MainMenu_Opening;
         }
