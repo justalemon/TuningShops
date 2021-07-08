@@ -2,6 +2,8 @@
 using LemonUI;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using TuningShops.Core;
 using TuningShops.Slots;
 
@@ -14,6 +16,7 @@ namespace TuningShops
     {
         #region Fields
 
+        internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
         private static readonly Dictionary<string, BaseType> menus = new Dictionary<string, BaseType>();
         private static readonly ObjectPool pool = new ObjectPool();
         private static readonly MainMenu main = new MainMenu();
