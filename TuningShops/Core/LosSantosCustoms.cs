@@ -193,6 +193,7 @@ namespace TuningShops.Core
                     return;
                 }
 
+                Function.Call(Hash.SET_​VEHICLE_​MOD_​KIT, vehicle, 0);
                 Function.Call(Hash.SET_VEHICLE_MOD, vehicle, Slot, Index, false);
             }
 
