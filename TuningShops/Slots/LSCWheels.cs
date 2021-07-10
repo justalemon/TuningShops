@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,16 @@ namespace TuningShops.Slots
 
         public LSCWheels() : base(23, "Wheels")
         {
+        }
+
+        #endregion
+
+        #region Functions
+
+        /// <inheritdoc/>
+        public override bool CanUse(Vehicle vehicle)
+        {
+            return base.CanUse(vehicle) && !vehicle.Model.IsBike;
         }
 
         #endregion
