@@ -1,11 +1,16 @@
 ﻿using GTA;
+using GTA.Math;
+using GTA.Native;
+using GTA.UI;
 using LemonUI;
+using LemonUI.Elements;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using TuningShops.Core;
-using TuningShops.Slots;
 
 namespace TuningShops
 {
@@ -17,9 +22,8 @@ namespace TuningShops
         #region Fields
 
         internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
-        private static readonly Dictionary<string, BaseType> menus = new Dictionary<string, BaseType>();
         private static readonly ObjectPool pool = new ObjectPool();
-        private static readonly MainMenu main = new MainMenu();
+        private static readonly List<ShopLocation> locations = new List<ShopLocation>();
 
         #endregion
 
@@ -27,99 +31,162 @@ namespace TuningShops
 
         public TuningShops()
         {
-            List<BaseType> created = new List<BaseType>()
+            // We are going to need the current assembly later
+            Assembly assembly = Assembly.GetAssembly(typeof(TuningShops));
+
+            // Try to load all of the locations
+            string locationsPath = Path.Combine(location, "Locations");
+            if (Directory.Exists(locationsPath))
             {
-                new BOMWAerials(),
-                new BOMWAirFilter(),
-                new BOMWArchCovers(),
-                new BOMWDashboard(),
-                new BOMWDials(),
-                new BOMWDoors(),
-                new BOMWEngineBlock(),
-                new BOMWLivery(),
-                new BOMWOrnaments(),
-                new BOMWPlaque(),
-                new BOMWPlateHolder(),
-                new BOMWShifterLeaver(),
-                new BOMWSpeakers(),
-                new BOMWSeats(),
-                new BOMWSteeringWheel(),
-                new BOMWStruts(),
-                new BOMWTank(),
-                new BOMWTrim(),
-                new BOMWTrim2(),
-                new BOMWTrunk(),
-                new BOMWVanityPlate(),
-                new BOMWWindows(),
+                foreach (string file in Directory.EnumerateFiles(locationsPath))
+                {
+                    if (Path.GetExtension(file).ToLowerInvariant() != ".json")
+                    {
+                        Notification.Show($"~o~Warning~s~: Non JSON file found in the Locations Directory! ({Path.GetFileName(file)})");
+                        continue;
+                    }
 
-                new Liveries(),
+                    string contents = File.ReadAllText(file);
+                    ShopLocation location;
+                    try
+                    {
+                        location = JsonConvert.DeserializeObject<ShopLocation>(contents);
+                    }
+                    catch (Exception e)
+                    {
+                        Notification.Show($"~o~Warning~s~: Unable to load Location {Path.GetFileName(file)}:\n{e.Message}");
+                        continue;
+                    }
 
-                new LSCArmor(),
-                new LSCBrakes(),
-                new LSCBumperFront(),
-                new LSCBumperRear(),
-                new LSCEngine(),
-                new LSCExhaust(),
-                new LSCFender(),
-                new LSCFenderRight(),
-                new LSCRollCage(),
-                new LSCGrille(),
-                new LSCHeadlights(),
-                new LSCHood(),
-                new LSCHorns(),
-                new LSCRoof(),
-                new LSCSideSkirt(),
-                new LSCSpoilers(),
-                new LSCSuspension(),
-                new LSCTransmission(),
-                new LSCTireSmoke(),
-                new LSCWheels(),
-                new LSCWheelsRear(),
+                    if (location.Interior.HasValue)
+                    {
+                        if (Function.Call<int>(Hash.GET_INTERIOR_AT_COORDS, location.Interior.Value.X, location.Interior.Value.Y, location.Interior.Value.Z) == 0)
+                        {
+                            Notification.Show($"~o~Warning~s~: Interior of {location.Name} is not available! Maybe you forgot to install it?");
+                            continue;
+                        }
+                    }
 
-                new Plate(),
+                    if (!location.PedInfo.Model.IsPed)
+                    {
+                        Notification.Show($"~o~Warning~s~: Model {location.PedInfo.Model} is not a Ped!");
+                        continue;
+                    }
 
-                new TerrorbyteTint(),
-                new TerrorbyteDecal(),
-                new TerrorbyteTurretStation(),
-                new TerrorbyteDroneStation(),
-                new TerrorbyteWeaponWorkshop(),
-                new TerrorbyteSpecializedWorkshop(),
-            };
+                    ScaledTexture texture = null;
+                    if (!string.IsNullOrWhiteSpace(location.BannerTXD) && !string.IsNullOrWhiteSpace(location.BannerTexture))
+                    {
+                        texture = new ScaledTexture(PointF.Empty, new SizeF(0, 108), location.BannerTXD, location.BannerTexture);
+                    }
+                    MainMenu menu = new MainMenu(location, texture);
+                    pool.Add(menu);
+                    location.Menu = menu;
+                    locations.Add(location);
 
-            foreach (BaseType @base in created)
+                    foreach (string @class in location.Mods)
+                    {
+                        Type type = assembly.GetType(@class);
+
+                        if (type == null || !type.IsSubclassOf(typeof(BaseType)) || type == typeof(BaseType))
+                        {
+                            Notification.Show($"~o~Warning~s~: Modification Type {@class} is not valid!");
+                            continue;
+                        }
+
+                        BaseType newMenu;
+                        try
+                        {
+                            newMenu = (BaseType)Activator.CreateInstance(type);
+                        }
+                        catch (MissingMethodException)
+                        {
+                            Notification.Show($"~o~Warning~s~: Unable to load {@class}: No matching public constructor");
+                            continue;
+                        }
+
+                        pool.Add(newMenu);
+                        menu.AddMenu(newMenu);
+                        ScaledTexture newBanner = null;
+                        if (!string.IsNullOrWhiteSpace(location.BannerTXD) && !string.IsNullOrWhiteSpace(location.BannerTexture))
+                        {
+                            newBanner = new ScaledTexture(PointF.Empty, new SizeF(0, 108), location.BannerTXD, location.BannerTexture);
+                        }
+                        newMenu.Banner = newBanner;
+                    }
+                }
+            }
+            else
             {
-                Type type = @base.GetType();
-                menus.Add(type.FullName, @base);
-
-                pool.Add(@base);
-
-                main.AddMenu(@base);  // TODO: Make this dynamic
+                Notification.Show($"~o~Warning~s~: Locations Directory was not found!");
             }
 
-            Tick += TuningShops_Tick;
-
-            pool.Add(main);
+            // Finally, add the tick event and start working
+            Tick += TuningShops_Tick_Init;
+            Aborted += TuningShops_Aborted;
         }
 
         #endregion
 
         #region Events
 
-        private void TuningShops_Tick(object sender, EventArgs e)
+        private void TuningShops_Tick_Init(object sender, EventArgs e)
         {
-            if (Game.IsControlJustPressed(Control.MultiplayerInfo))
+            foreach (ShopLocation location in locations)
             {
-                if (pool.AreAnyVisible)
-                {
-                    pool.HideAll();
-                }
-                else
-                {
-                    main.Visible = true;
-                }
+                location.Initialize();
+            }
+            Tick -= TuningShops_Tick_Init;
+            Tick += TuningShops_Tick_Run;
+        }
+        private void TuningShops_Tick_Run(object sender, EventArgs e)
+        {
+            // Process the contents of the menus and return if anything is open
+            pool.Process();
+            if (pool.AreAnyVisible)
+            {
+                return;
             }
 
-            pool.Process();
+            // Get some of the user's information to use it later
+            Vector3 pos = Game.Player.Character.Position;
+
+            // Time to check every single location
+            foreach (ShopLocation location in locations)
+            {
+                // If the player is very far away, skip it completely
+                if (pos.DistanceTo(location.Trigger) > 50)
+                {
+                    continue;
+                }
+
+                // Draw the marker
+                World.DrawMarker(MarkerType.VerticalCylinder, location.Trigger, Vector3.Zero, Vector3.Zero, new Vector3(location.TriggerSize, location.TriggerSize, 1), Color.Purple);
+
+                // Check if the activation distance and open the menu if requested
+                if (pos.DistanceTo(location.Trigger) < 5)
+                {
+                    if (Game.IsControlJustPressed(Control.Context))
+                    {
+                        location.Menu.Visible = true;
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void TuningShops_Aborted(object sender, EventArgs e)
+        {
+            Game.Player.CanControlCharacter = true;
+
+            pool.HideAll();
+            // Just in case HideAll() didn't worked
+            Game.Player.Character.Opacity = 255;
+            World.RenderingCamera = null;
+
+            foreach (ShopLocation location in locations)
+            {
+                location.DoCleanup();
+            }
         }
 
         #endregion
