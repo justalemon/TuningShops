@@ -34,6 +34,11 @@ namespace TuningShops.Core
         /// <returns>true if the vehicle can use the options of the menu, false otherwise.</returns>
         public abstract bool CanUse(Vehicle vehicle);
         /// <summary>
+        /// Selets the currently used modification by the vehicle.
+        /// </summary>
+        /// <param name="vehicle">The vehicle to check.</param>
+        public abstract void SelectCurrent(Vehicle vehicle);
+        /// <summary>
         /// Repopulates the number of menu items.
         /// </summary>
         public abstract void Repopulate();
@@ -47,19 +52,19 @@ namespace TuningShops.Core
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
             Model model = vehicle != null ? vehicle.Model : new Model(0);
 
-            if (model == lastModel)
-            {
-                return;
-            }
-
             if (vehicle == null)
             {
                 Clear();
                 return;
             }
 
-            Repopulate();
-            lastModel = model;
+            if (model != lastModel)
+            {
+                Repopulate();
+                lastModel = model;
+            }
+
+            SelectCurrent(vehicle);
         }
 
         #endregion

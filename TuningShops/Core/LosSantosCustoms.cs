@@ -103,6 +103,11 @@ namespace TuningShops.Core
         {
             return Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot) > 0;
         }
+        /// <inheritdoc/>
+        public override void SelectCurrent(Vehicle vehicle)
+        {
+            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD, vehicle, Slot) + 1;
+        }
         /// <summary>
         /// Populates the menu with the items based on the mod slot.
         /// </summary>

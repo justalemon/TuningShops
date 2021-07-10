@@ -49,6 +49,11 @@ namespace TuningShops.Slots
                 Add(new LiveryItem(i == -1 ? "NONE" : Function.Call<string>(Hash.GET_LIVERY_NAME, vehicle, i), i));
             }
         }
+        /// <inheritdoc/>
+        public override void SelectCurrent(Vehicle vehicle)
+        {
+            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_LIVERY, vehicle) + 1;
+        }
 
         #endregion
 

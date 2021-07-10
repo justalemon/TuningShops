@@ -55,6 +55,10 @@ namespace TuningShops.Slots
             Model model = vehicle.Model;
             return model.IsVehicle || model.IsBike;
         }
+        /// <inheritdoc/>
+        public override void SelectCurrent(Vehicle vehicle)
+        {
+        }
 
         #endregion
 
