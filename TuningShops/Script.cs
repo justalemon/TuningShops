@@ -67,7 +67,7 @@ namespace TuningShops
                         }
                     }
 
-                    if (!location.PedInfo.Model.IsPed)
+                    if (location.PedInfo != null && !location.PedInfo.Model.IsPed)
                     {
                         Notification.Show($"~o~Warning~s~: Model {location.PedInfo.Model} is not a Ped!");
                         continue;

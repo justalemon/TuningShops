@@ -47,7 +47,7 @@ namespace TuningShops
         /// <summary>
         /// The information of the shop ped.
         /// </summary>
-        [JsonProperty("ped", Required = Required.Always)]
+        [JsonProperty("ped", Required = Required.AllowNull)]
         public ShopPed PedInfo { get; set; }
         /// <summary>
         /// The modifications allowed by this shop.
@@ -87,19 +87,22 @@ namespace TuningShops
         public void Initialize()
         {
             // Request the ped and create it
-            PedInfo.Model.Request();
-            while (!PedInfo.Model.IsLoaded)
+            if (PedInfo != null)
             {
-                Script.Yield();
+                PedInfo.Model.Request();
+                while (!PedInfo.Model.IsLoaded)
+                {
+                    Script.Yield();
+                }
+                Ped = World.CreatePed(PedInfo.Model, PedInfo.Position, PedInfo.Heading);
+                Ped.IsPositionFrozen = true;
+                Ped.BlockPermanentEvents = true;
+                Ped.CanBeTargetted = false;
+                Ped.CanRagdoll = false;
+                Ped.CanWrithe = false;
+                Ped.IsInvincible = true;
+                PedInfo.Model.MarkAsNoLongerNeeded();
             }
-            Ped = World.CreatePed(PedInfo.Model, PedInfo.Position, PedInfo.Heading);
-            Ped.IsPositionFrozen = true;
-            Ped.BlockPermanentEvents = true;
-            Ped.CanBeTargetted = false;
-            Ped.CanRagdoll = false;
-            Ped.CanWrithe = false;
-            Ped.IsInvincible = true;
-            PedInfo.Model.MarkAsNoLongerNeeded();
 
             // Then, create the blip of the Food Shop
             Blip = World.CreateBlip(Trigger);
