@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using TuningShops.Core;
+using Color = System.Drawing.Color;
 
 namespace TuningShops
 {
