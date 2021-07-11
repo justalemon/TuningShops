@@ -12,7 +12,7 @@ namespace TuningShops.Core
     {
         #region Constructor
 
-        public Color(ColorSlot slot, string type) : base($"{slot} Color: {type}")
+        public Color(ColorSlot slot, string type) : base($"{slot} Color" + (string.IsNullOrWhiteSpace(type) ? "" : $": {type}"))
         {
         }
 
@@ -41,6 +41,8 @@ namespace TuningShops.Core
         {
             Primary,
             Secondary,
+            Pearlescent,
+            Wheels,
         }
 
         /// <summary>
@@ -85,10 +87,11 @@ namespace TuningShops.Core
 
                 Function.Call(Hash.SET_VEHICLE_MOD_KIT, vehicle, 0);
 
-                int primary, secondary;
+                int primary, secondary, pearlescent, wheel;
                 unsafe
                 {
                     Function.Call(Hash.GET_VEHICLE_COLOURS, vehicle, &primary, &secondary);
+                    Function.Call(Hash.GET_VEHICLE_EXTRA_COLOURS, vehicle, &pearlescent, &wheel);
                 }
 
                 switch (Slot)
@@ -98,6 +101,12 @@ namespace TuningShops.Core
                         break;
                     case ColorSlot.Secondary:
                         Function.Call(Hash.SET_VEHICLE_COLOURS, vehicle, primary, Id);
+                        break;
+                    case ColorSlot.Pearlescent:
+                        Function.Call(Hash.SET_VEHICLE_EXTRA_COLOURS, vehicle, Id, wheel);
+                        break;
+                    case ColorSlot.Wheels:
+                        Function.Call(Hash.SET_VEHICLE_EXTRA_COLOURS, vehicle, pearlescent, Id);
                         break;
                 }
 
