@@ -23,7 +23,7 @@ namespace TuningShops
         #region Fields
 
         internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
-        private static readonly ObjectPool pool = new ObjectPool();
+        internal static readonly ObjectPool pool = new ObjectPool();
         private static readonly List<ShopLocation> locations = new List<ShopLocation>();
 
         #endregion
