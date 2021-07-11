@@ -55,6 +55,7 @@ namespace TuningShops.Core
             if (vehicle == null)
             {
                 Clear();
+                lastModel = model;
                 return;
             }
 
