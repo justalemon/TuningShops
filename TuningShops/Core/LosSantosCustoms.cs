@@ -134,6 +134,61 @@ namespace TuningShops.Core
         /// <returns>The name of the mod or NULL if it was not found</returns>
         public string GetModName(int index)
         {
+            if (Slot == 11)
+            {
+                switch (index)
+                {
+                    case -1: return "Stock Engine";
+                    case 0: return "EMS Upgrade, Level 1";
+                    case 1: return "EMS Upgrade, Level 2";
+                    case 2: return "EMS Upgrade, Level 3";
+                    case 3: return "EMS Upgrade, Level 4";
+                }
+            }
+            else if (Slot == 12)
+            {
+                switch (index)
+                {
+                    case -1: return "Stock Brakes";
+                    case 0: return "Street Brakes";
+                    case 1: return "Sport Brakes";
+                    case 2: return "Race Brakes";
+                }
+            }
+            else if (Slot == 13)
+            {
+                switch (index)
+                {
+                    case -1: return "Stock Transmission";
+                    case 0: return "Street Transmission";
+                    case 1: return "Sport Transmission";
+                    case 2: return "Race Transmission";
+                }
+            }
+            else if (Slot == 15)
+            {
+                switch (index)
+                {
+                    case -1: return "Stock Suspension";
+                    case 0: return "Lowered Suspension";
+                    case 1: return "Street Suspension";
+                    case 2: return "Sport Suspension";
+                    case 3: return "Competition Suspension";
+                }
+            }
+            else if (Slot == 16)
+            {
+                switch (index)
+                {
+                    case -1: return "None";
+                    case 0: return "Armor Upgrade 20%";
+                    case 1: return "Armor Upgrade 40%";
+                    case 2: return "Armor Upgrade 60%";
+                    case 3: return "Armor Upgrade 80%";
+                    case 4: return "Armor Upgrade 100%";
+                }
+            }
+
             string label;
 
             if (index == -1)
