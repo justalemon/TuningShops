@@ -39,6 +39,17 @@ namespace TuningShops
         [JsonProperty("trigger_size", Required = Required.Always)]
         public float TriggerSize { get; set; }
         /// <summary>
+        /// The position of the vehicle when arriving at the tuning shop.
+        /// </summary>
+        [JsonProperty("veh_pos", Required = Required.Always)]
+        [JsonConverter(typeof(Vector3Converter))]
+        public Vector3 VehiclePos { get; set; }
+        /// <summary>
+        /// The heading of the vehicle when arriving at the tuning shop.
+        /// </summary>
+        [JsonProperty("veh_heading", Required = Required.Always)]
+        public float VehicleHeading { get; set; }
+        /// <summary>
         /// The location where an interior should be checked.
         /// </summary>
         [JsonProperty("interior", Required = Required.AllowNull)]

@@ -1,6 +1,7 @@
 ﻿using GTA;
 using LemonUI.Elements;
 using LemonUI.Menus;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using TuningShops.Core;
@@ -15,6 +16,7 @@ namespace TuningShops
         #region Fields
 
         private readonly List<BaseType> menus = new List<BaseType>();
+        private ShopLocation location;
         private Model lastModel = 0;
 
         #endregion
@@ -23,9 +25,11 @@ namespace TuningShops
 
         public MainMenu(ShopLocation location, ScaledTexture texture) : base("", location.Name)
         {
+            this.location = location;
             Banner = texture;
             UseMouse = false;
             Opening += MainMenu_Opening;
+            Closed += MainMenu_Closed;
         }
 
         #endregion
@@ -67,6 +71,10 @@ namespace TuningShops
                 return;
             }
 
+            vehicle.PositionNoOffset = location.VehiclePos;
+            vehicle.Heading = location.VehicleHeading;
+            vehicle.IsPositionFrozen = true;
+
             foreach (BaseType menu in menus)
             {
                 if (menu.CanUse(vehicle))
@@ -76,6 +84,20 @@ namespace TuningShops
             }
 
             lastModel = model;
+        }
+
+        private void MainMenu_Closed(object sender, EventArgs e)
+        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (!TuningShops.pool.AreAnyVisible)
+            {
+                if (vehicle != null)
+                {
+                    vehicle.IsPositionFrozen = false;
+                }
+                lastModel = 0;
+            }
         }
 
         #endregion
