@@ -7,7 +7,7 @@
     {
         #region Constructor
 
-        public ColorClassic(ColorSlot slot) : base(slot, "Classic")
+        public ColorClassic(ColorSlot slot, string name) : base(slot, name)
         {
             Add(new ColorItem("Black", 0, slot));
             Add(new ColorItem("Carbon Black", 147, slot));
