@@ -38,5 +38,25 @@ namespace TuningShops
             camera.PointAt(vehicle);
             World.RenderingCamera = camera;
         }
+
+        private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
+        {
+            ClearCamera();
+
+            EntityBone bone = vehicle.Bones[boneName];
+
+            if (bone == null)
+            {
+                General(vehicle);
+                return;
+            }
+
+            Vector3 source = bone.RelativePosition;
+            Vector3 center = new Vector3(0, source.Y, source.Z) + centerOffset;
+
+            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(center.X + camOffset.X, center.Y + camOffset.Y, center.Z + camOffset.Z)), Vector3.Zero, 30);
+            camera.PointAt(vehicle.GetOffsetPosition(center));
+            World.RenderingCamera = camera;
+        }
     }
 }
