@@ -1,4 +1,5 @@
-﻿using TuningShops.Core;
+﻿using GTA;
+using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
@@ -11,6 +12,7 @@ namespace TuningShops.Slots
 
         public LSCBumperFront() : base(1, "Front Bumper")
         {
+            Opening += (sender, e) => Cameras.FrontBumper(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

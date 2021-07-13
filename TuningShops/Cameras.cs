@@ -38,6 +38,10 @@ namespace TuningShops
             camera.PointAt(vehicle);
             World.RenderingCamera = camera;
         }
+        /// <summary>
+        /// Points at the front bumper of the vehicle.
+        /// </summary>
+        public static void FrontBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bumper_f", new Vector3(0, 5, 0), Vector3.Zero);
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {
