@@ -1,4 +1,5 @@
 ﻿using GTA;
+using GTA.Math;
 using LemonUI.Elements;
 using LemonUI.Menus;
 using System;
@@ -59,22 +60,23 @@ namespace TuningShops
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
             Model model = vehicle != null ? vehicle.Model : new Model(0);
 
-            if (model == lastModel)
-            {
-                return;
-            }
-
-            Clear();
-
             if (vehicle == null)
             {
+                Clear();
                 return;
             }
 
             vehicle.PositionNoOffset = location.VehiclePos;
             vehicle.Heading = location.VehicleHeading;
             vehicle.IsPositionFrozen = true;
+            Cameras.General(vehicle);
 
+            if (model == lastModel)
+            {
+                return;
+            }
+
+            Clear();
             foreach (BaseType menu in menus)
             {
                 if (menu.CanUse(vehicle))
@@ -96,7 +98,7 @@ namespace TuningShops
                 {
                     vehicle.IsPositionFrozen = false;
                 }
-                lastModel = 0;
+                Cameras.ClearCamera();
             }
         }
 
