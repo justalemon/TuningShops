@@ -58,6 +58,10 @@ namespace TuningShops
         /// Points at the headlights pipes of the vehicle.
         /// </summary>
         public static void Headlights(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "headlight_l", new Vector3(0, 5, 0), Vector3.Zero);
+        /// <summary>
+        /// Points at the hood of the vehicle.
+        /// </summary>
+        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 2, 5), new Vector3(0, 2, 0));
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {

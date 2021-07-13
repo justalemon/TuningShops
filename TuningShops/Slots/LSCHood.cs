@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,7 @@ namespace TuningShops.Slots
 
         public LSCHood() : base(7, "Hood")
         {
+            Opening += (sender, e) => Cameras.Hood(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
