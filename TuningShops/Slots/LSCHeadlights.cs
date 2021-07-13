@@ -39,6 +39,13 @@ namespace TuningShops.Slots
             Add(new ItemHeadlights("CMOD_LGT_12", true, 10));
             Add(new ItemHeadlights("CMOD_LGT_13", true, 11));
             Add(new ItemHeadlights("CMOD_LGT_14", true, 12));
+
+            Opening += (sender, e) =>
+            {
+                Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 2);
+                Cameras.Headlights(Game.Player.Character.CurrentVehicle);
+            };
+            Closing += (sender, e) => Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 0);
         }
 
         #endregion
