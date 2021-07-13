@@ -46,6 +46,10 @@ namespace TuningShops
         /// Points at the rear bumper of the vehicle.
         /// </summary>
         public static void RearBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bumper_r", new Vector3(0, -5, 0), Vector3.Zero);
+        /// <summary>
+        /// Points at the engine of the vehicle.
+        /// </summary>
+        public static void Engine(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 5, 1), Vector3.Zero);
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {

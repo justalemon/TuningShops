@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,12 @@ namespace TuningShops.Slots
 
         public LSCEngine() : base(11, "Engine")
         {
+            Opening += (sender, e) =>
+            {
+                Game.Player.Character.CurrentVehicle.Doors[VehicleDoorIndex.Hood].Open();
+                Cameras.Engine(Game.Player.Character.CurrentVehicle);
+            };
+            Closing += (sender, e) => Game.Player.Character.CurrentVehicle?.Doors[VehicleDoorIndex.Hood].Close();
         }
 
         #endregion
