@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using System.ComponentModel;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -15,6 +16,7 @@ namespace TuningShops.Slots
 
         public Liveries() : base("Liveries")
         {
+            Opening += (sender, e) => Cameras.General(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
@@ -30,11 +32,6 @@ namespace TuningShops.Slots
         {
             return Function.Call<int>(Hash.GET_VEHICLE_LIVERY_COUNT, vehicle) > 0;
         }
-
-        #endregion
-
-        #region Functions
-
         /// <summary>
         /// Adds the list of Liveries to the menu.
         /// </summary>

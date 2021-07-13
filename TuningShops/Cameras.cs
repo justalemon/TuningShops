@@ -23,5 +23,20 @@ namespace TuningShops
                 camera = null;
             }
         }
+        /// <summary>
+        /// Sets a general camera near the player's vehicle.
+        /// </summary>
+        public static void General(Vehicle vehicle)
+        {
+            ClearCamera();
+
+            (Vector3 rearBottomLeft, Vector3 frontTopRight) = vehicle.Model.Dimensions;
+            Vector3 relPos = new Vector3(-frontTopRight.X, frontTopRight.Y, frontTopRight.Z);
+            GTA.UI.Screen.ShowSubtitle($"{rearBottomLeft} - {frontTopRight}");
+            Vector3 camPos = vehicle.GetOffsetPosition(new Vector3(relPos.X - 8.262f, relPos.Y - 3.401f, relPos.Z + 0.048f));
+            camera = World.CreateCamera(camPos, Vector3.Zero, 25);
+            camera.PointAt(vehicle);
+            World.RenderingCamera = camera;
+        }
     }
 }

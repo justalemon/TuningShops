@@ -14,6 +14,7 @@ namespace TuningShops.Core
 
         public Color(ColorSlot slot, string type) : base($"{slot} Color" + (string.IsNullOrWhiteSpace(type) ? "" : $": {type}"))
         {
+            Opening += (sender, e) => Cameras.General(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
