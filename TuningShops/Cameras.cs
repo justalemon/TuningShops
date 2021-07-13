@@ -50,6 +50,10 @@ namespace TuningShops
         /// Points at the engine of the vehicle.
         /// </summary>
         public static void Engine(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 5, 1), Vector3.Zero);
+        /// <summary>
+        /// Points at the exhaust pipes of the vehicle.
+        /// </summary>
+        public static void Exhaust(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "exhaust", new Vector3(0, -5, 0), Vector3.Zero);
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {
