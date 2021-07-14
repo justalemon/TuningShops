@@ -12,6 +12,7 @@ namespace TuningShops.Slots
 
         public LSCWheels() : base(23, "Wheels")
         {
+            Opening += (sender, e) => Cameras.FrontLeftWheel(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

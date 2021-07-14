@@ -62,6 +62,14 @@ namespace TuningShops
         /// Points at the hood of the vehicle.
         /// </summary>
         public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0));
+        /// <summary>
+        /// Points at the front left wheel of the vehicle.
+        /// </summary>
+        public static void FrontLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lf", new Vector3(-3, 0, 0), Vector3.Zero);
+        /// <summary>
+        /// Points at the rear left wheel of the vehicle.
+        /// </summary>
+        public static void RearLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lr", new Vector3(-3, 0, 0), Vector3.Zero);
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {
