@@ -69,6 +69,10 @@ namespace TuningShops
         /// Points at the rear left wheel of the vehicle.
         /// </summary>
         public static void RearLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lr", new Vector3(-3, 0, 0), Vector3.Zero);
+        /// <summary>
+        /// Points at the plate light of the vehicle.
+        /// </summary>
+        public static void PlateLight(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero);
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {

@@ -19,6 +19,8 @@ namespace TuningShops.Slots
             {
                 Add(new PlateItem(i));
             }
+
+            Opening += (sender, e) => Cameras.PlateLight(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
@@ -26,9 +28,9 @@ namespace TuningShops.Slots
         #region Functions
 
         /// <summary>
-        /// Returns true.
+        /// Checks if the vehicle takes a plate.
         /// </summary>
-        public override bool CanUse(Vehicle vehicle) => true;
+        public override bool CanUse(Vehicle vehicle) => vehicle.Bones.Contains("platelight");
         /// <summary>
         /// Does nothing.
         /// </summary>
