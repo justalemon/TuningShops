@@ -61,7 +61,7 @@ namespace TuningShops
         /// <summary>
         /// Points at the hood of the vehicle.
         /// </summary>
-        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 2, 5), new Vector3(0, 2, 0));
+        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0));
 
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {
