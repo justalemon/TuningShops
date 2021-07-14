@@ -182,7 +182,7 @@ namespace TuningShops
             pool.HideAll();
             // Just in case HideAll() didn't worked
             Game.Player.Character.Opacity = 255;
-            World.RenderingCamera = null;
+            Cameras.ClearCamera();
 
             foreach (ShopLocation location in locations)
             {
