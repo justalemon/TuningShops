@@ -30,6 +30,13 @@ namespace TuningShops.Slots
 
             Add(n);
             Add(y);
+
+            Opening += (sender, e) =>
+            {
+                Game.Player.Character.CurrentVehicle.Doors[VehicleDoorIndex.Hood].Open();
+                Cameras.Engine(Game.Player.Character.CurrentVehicle);
+            };
+            Closing += (sender, e) => Game.Player.Character.CurrentVehicle?.Doors[VehicleDoorIndex.Hood].Close();
         }
 
         #endregion
