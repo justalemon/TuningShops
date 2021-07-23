@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using TuningShops.Core;
+using TuningShops.Memory;
 using Color = System.Drawing.Color;
 
 namespace TuningShops
@@ -24,6 +25,7 @@ namespace TuningShops
 
         internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
         internal static readonly ObjectPool pool = new ObjectPool();
+        internal static unsafe CVehicleModelInfoVarGlobal** gVehicleModelInfoVarGlobal = null;
         private static readonly List<ShopLocation> locations = new List<ShopLocation>();
 
         #endregion
@@ -32,6 +34,17 @@ namespace TuningShops
 
         public TuningShops()
         {
+            // Get the pattern of the global vehicle info
+            unsafe
+            {
+                byte* address = MemoryPatterns.FindPattern("\x48\x8B\x0D\x00\x00\x00\x00\x44\x8B\xC6\x8B\xD5\x8B\xD8", "xxx????xxxxxxx");
+                if (address == null)
+                {
+                    throw new NullReferenceException(nameof(address));
+                }
+                gVehicleModelInfoVarGlobal = (CVehicleModelInfoVarGlobal**)(address + *(int*)(address + 3) + 7);
+            }
+
             // We are going to need the current assembly later
             Assembly assembly = Assembly.GetAssembly(typeof(TuningShops));
 
