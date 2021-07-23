@@ -74,6 +74,10 @@ namespace TuningShops
         /// Points at the plate light of the vehicle.
         /// </summary>
         public static void PlateLight(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero);
+        /// <summary>
+        /// Points at the spoiler of the vehicle.
+        /// </summary>
+        public static void Spoiler(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_SPOILER, new Vector3(0, -7, 1), Vector3.Zero);
 
         public static unsafe void PointAtBoneWithOffset(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset)
         {
