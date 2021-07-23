@@ -1,6 +1,7 @@
 ﻿using GTA;
 using GTA.Math;
 using GTA.Native;
+using TuningShops.Memory;
 
 namespace TuningShops
 {
@@ -40,11 +41,11 @@ namespace TuningShops
         /// <summary>
         /// Points at the front bumper of the vehicle.
         /// </summary>
-        public static void FrontBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bumper_f", new Vector3(0, 5, 0), Vector3.Zero);
+        public static void FrontBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_F, new Vector3(0, 5, 0), Vector3.Zero);
         /// <summary>
         /// Points at the rear bumper of the vehicle.
         /// </summary>
-        public static void RearBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bumper_r", new Vector3(0, -5, 0), Vector3.Zero);
+        public static void RearBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_R, new Vector3(0, -5, 0), Vector3.Zero);
         /// <summary>
         /// Points at the engine of the vehicle.
         /// </summary>
@@ -52,7 +53,7 @@ namespace TuningShops
         /// <summary>
         /// Points at the exhaust pipes of the vehicle.
         /// </summary>
-        public static void Exhaust(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "exhaust", new Vector3(0, -5, 0), Vector3.Zero);
+        public static void Exhaust(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_EXHAUST, new Vector3(0, -5, 0), Vector3.Zero);
         /// <summary>
         /// Points at the headlights pipes of the vehicle.
         /// </summary>
@@ -60,7 +61,7 @@ namespace TuningShops
         /// <summary>
         /// Points at the hood of the vehicle.
         /// </summary>
-        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0));
+        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BONNET, new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0));
         /// <summary>
         /// Points at the front left wheel of the vehicle.
         /// </summary>
@@ -74,11 +75,44 @@ namespace TuningShops
         /// </summary>
         public static void PlateLight(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero);
 
+        public static unsafe void PointAtBoneWithOffset(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset)
+        {
+            int kitIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD_KIT, vehicle);
+
+            if (kitIndex == 0xFFFF)
+            {
+                General(vehicle);
+                return;
+            }
+
+            CVehicleModelInfoVarGlobal* varGlobal = *TuningShops.gVehicleModelInfoVarGlobal;
+
+            if (kitIndex < 0 || kitIndex >= varGlobal -> Kits.Count)
+            {
+                General(vehicle);
+                return;
+            }
+
+            CVehicleKit* kit = &varGlobal -> Kits.Items[kitIndex];
+
+            for (int i = 0; i < kit->visibleMods.Count; i++)
+            {
+                CVehicleModVisible* mod = &kit->visibleMods.Items[i];
+
+                if (mod->type == slot)
+                {
+                    PointAtBoneWithOffset(vehicle, vehicle.Bones[(int)mod->bone], camOffset, centerOffset);
+                    return;
+                }
+            }
+        }
         private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset)
         {
+            PointAtBoneWithOffset(vehicle, vehicle.Bones[boneName], camOffset, centerOffset);
+        }
+        private static void PointAtBoneWithOffset(Vehicle vehicle, EntityBone bone, Vector3 camOffset, Vector3 centerOffset)
+        {
             ClearCamera();
-
-            EntityBone bone = vehicle.Bones[boneName];
 
             if (bone == null)
             {
