@@ -53,7 +53,6 @@ namespace TuningShops.Slots
                 return;
             }
 
-            GTA.UI.Screen.ShowSubtitle(enabled.ToString());
             Function.Call(Hash.TOGGLE_VEHICLE_MOD, vehicle, 18, enabled);
         }
 
