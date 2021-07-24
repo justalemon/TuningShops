@@ -16,6 +16,7 @@ namespace TuningShops
         CenterBoneX = 1,
         HidePlayer = 2,
         WideFov = 4,
+        FromDriver = 8,
     }
 
     /// <summary>
@@ -128,10 +129,12 @@ namespace TuningShops
                 Game.Player.Character.IsVisible = false;
             }
 
-            Vector3 source = bone.RelativePosition;
-            Vector3 target = new Vector3(flags.HasFlag(ViewFlags.CenterBoneX) ? 0 : source.X, source.Y, source.Z) + centerOffset;
+            Vector3 bonePos = bone.RelativePosition;
+            Vector3 camPos = flags.HasFlag(ViewFlags.FromDriver) ? vehicle.GetPositionOffset(vehicle.GetPedOnSeat(VehicleSeat.Driver).Bones[Bone.SkelHead].Position) : bonePos;
 
-            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(source.X + camOffset.X, source.Y + camOffset.Y, source.Z + camOffset.Z)), Vector3.Zero, flags.HasFlag(ViewFlags.WideFov) ? 50 : 30);
+            Vector3 target = new Vector3(flags.HasFlag(ViewFlags.CenterBoneX) ? 0 : bonePos.X, bonePos.Y, bonePos.Z) + centerOffset;
+
+            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(camPos.X + camOffset.X, camPos.Y + camOffset.Y, camPos.Z + camOffset.Z)), Vector3.Zero, flags.HasFlag(ViewFlags.WideFov) ? 50 : 30);
             camera.PointAt(vehicle.GetOffsetPosition(target));
             World.RenderingCamera = camera;
         }
