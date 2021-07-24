@@ -152,10 +152,10 @@ namespace TuningShops
             }
 
             Vector3 source = bone.RelativePosition;
-            Vector3 final = new Vector3(flags.HasFlag(ViewFlags.CenterBoneX) ? 0 : source.X, source.Y, source.Z) + centerOffset;
+            Vector3 target = new Vector3(flags.HasFlag(ViewFlags.CenterBoneX) ? 0 : source.X, source.Y, source.Z) + centerOffset;
 
-            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(final.X + camOffset.X, final.Y + camOffset.Y, final.Z + camOffset.Z)), Vector3.Zero, flags.HasFlag(ViewFlags.WideFov) ? 50 : 30);
-            camera.PointAt(vehicle.GetOffsetPosition(final));
+            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(source.X + camOffset.X, source.Y + camOffset.Y, source.Z + camOffset.Z)), Vector3.Zero, flags.HasFlag(ViewFlags.WideFov) ? 50 : 30);
+            camera.PointAt(vehicle.GetOffsetPosition(target));
             World.RenderingCamera = camera;
         }
     }
