@@ -12,7 +12,7 @@ namespace TuningShops.Slots
 
         public LSCBrakes() : base(12, "Brakes")
         {
-            Opening += (sender, e) => Cameras.General(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => Cameras.FrontLeftWheel(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
