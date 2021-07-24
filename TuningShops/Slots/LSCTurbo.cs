@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -34,7 +35,7 @@ namespace TuningShops.Slots
             Opening += (sender, e) =>
             {
                 Game.Player.Character.CurrentVehicle.Doors[VehicleDoorIndex.Hood].Open();
-                Cameras.Engine(Game.Player.Character.CurrentVehicle);
+                CameraSet.Engine.Create(Game.Player.Character.CurrentVehicle);
             };
             Closing += (sender, e) => Game.Player.Character.CurrentVehicle?.Doors[VehicleDoorIndex.Hood].Close();
         }

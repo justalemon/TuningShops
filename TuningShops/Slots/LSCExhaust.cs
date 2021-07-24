@@ -1,4 +1,5 @@
 ﻿using GTA;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -12,7 +13,7 @@ namespace TuningShops.Slots
 
         public LSCExhaust() : base(4, "Exhaust")
         {
-            Opening += (sender, e) => Cameras.Exhaust(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraSet.Exhaust.Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

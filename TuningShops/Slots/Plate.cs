@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -20,7 +21,7 @@ namespace TuningShops.Slots
                 Add(new PlateItem(i));
             }
 
-            Opening += (sender, e) => Cameras.PlateLight(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraSet.PlateLight.Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using TuningShops.Cameras;
 
 namespace TuningShops.Core
 {
@@ -14,7 +15,7 @@ namespace TuningShops.Core
 
         public Color(ColorSlot slot, string type) : base($"{slot} Color" + (string.IsNullOrWhiteSpace(type) ? "" : $": {type}"))
         {
-            Opening += (sender, e) => Cameras.General(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraSet.General.Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

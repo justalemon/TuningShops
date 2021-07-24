@@ -4,6 +4,7 @@ using LemonUI.Menus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops
@@ -74,7 +75,7 @@ namespace TuningShops
             }
 
             vehicle.IsPositionFrozen = true;
-            Cameras.General(vehicle);
+            CameraSet.General.Create(vehicle);
 
             if (model == lastModel)
             {
@@ -103,7 +104,7 @@ namespace TuningShops
                 {
                     vehicle.IsPositionFrozen = false;
                 }
-                Cameras.ClearCamera();
+                SimpleCamera.Destroy();
             }
         }
 

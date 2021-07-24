@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using TuningShops.Cameras;
 using TuningShops.Core;
 using TuningShops.Memory;
 using Color = System.Drawing.Color;
@@ -195,7 +196,7 @@ namespace TuningShops
             pool.HideAll();
             // Just in case HideAll() didn't worked
             Game.Player.Character.Opacity = 255;
-            Cameras.ClearCamera();
+            SimpleCamera.Destroy();
 
             foreach (ShopLocation location in locations)
             {

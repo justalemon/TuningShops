@@ -1,4 +1,5 @@
 using GTA;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -12,7 +13,7 @@ namespace TuningShops.Slots
 
         public BOMWLivery() : base(48, "Livery")
         {
-            Opening += (sender, e) => Cameras.General(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraSet.General.Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

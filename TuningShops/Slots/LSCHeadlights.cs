@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -43,7 +44,7 @@ namespace TuningShops.Slots
             Opening += (sender, e) =>
             {
                 Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 2);
-                Cameras.Headlights(Game.Player.Character.CurrentVehicle);
+                CameraSet.Headlights.Create(Game.Player.Character.CurrentVehicle);
             };
             Closing += (sender, e) => Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 0);
         }
