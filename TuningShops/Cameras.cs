@@ -60,25 +60,25 @@ namespace TuningShops
             camera.PointAt(vehicle);
             World.RenderingCamera = camera;
         }
-        public static void FrontBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bumper_f", new Vector3(0, 5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void RearBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_R, new Vector3(0, -5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void Engine(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 5, 1), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void Exhaust(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_EXHAUST, new Vector3(0, -5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void Headlights(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "headlight_l", new Vector3(0, 5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BONNET, new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0), ViewFlags.CenterBoneX);
-        public static void FrontLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lf", new Vector3(-3, 0, 0), Vector3.Zero, ViewFlags.None);
-        public static void RearLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lr", new Vector3(-3, 0, 0), Vector3.Zero, ViewFlags.None);
-        public static void PlateLight(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void Spoiler(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_SPOILER, new Vector3(0, -7, 1), Vector3.Zero, ViewFlags.CenterBoneX);
-        public static void Fender(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_WING_L, new Vector3(-7, 0, 0), Vector3.Zero, ViewFlags.None);
-        public static void SteeringWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), Vector3.Zero, ViewFlags.HidePlayer | ViewFlags.WideFov);
-        public static void Dashboard(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), new Vector3(-0.25f, 0, 0), ViewFlags.CenterBoneX | ViewFlags.HidePlayer | ViewFlags.WideFov);
+        public static void FrontBumper(Vehicle vehicle) => PointAtBone(vehicle, "bumper_f", new Vector3(0, 5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void RearBumper(Vehicle vehicle) => PointAtBone(vehicle, EVehicleModType.VMT_BUMPER_R, new Vector3(0, -5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void Engine(Vehicle vehicle) => PointAtBone(vehicle, "bonnet", new Vector3(0, 5, 1), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void Exhaust(Vehicle vehicle) => PointAtBone(vehicle, EVehicleModType.VMT_EXHAUST, new Vector3(0, -5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void Headlights(Vehicle vehicle) => PointAtBone(vehicle, "headlight_l", new Vector3(0, 5, 0), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void Hood(Vehicle vehicle) => PointAtBone(vehicle, EVehicleModType.VMT_BONNET, new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0), ViewFlags.CenterBoneX);
+        public static void FrontLeftWheel(Vehicle vehicle) => PointAtBone(vehicle, "wheel_lf", new Vector3(-3, 0, 0), Vector3.Zero, ViewFlags.None);
+        public static void RearLeftWheel(Vehicle vehicle) => PointAtBone(vehicle, "wheel_lr", new Vector3(-3, 0, 0), Vector3.Zero, ViewFlags.None);
+        public static void PlateLight(Vehicle vehicle) => PointAtBone(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void Spoiler(Vehicle vehicle) => PointAtBone(vehicle, EVehicleModType.VMT_SPOILER, new Vector3(0, -7, 1), Vector3.Zero, ViewFlags.CenterBoneX);
+        public static void Fender(Vehicle vehicle) => PointAtBone(vehicle, EVehicleModType.VMT_WING_L, new Vector3(-7, 0, 0), Vector3.Zero, ViewFlags.None);
+        public static void SteeringWheel(Vehicle vehicle) => PointAtBone(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), Vector3.Zero, ViewFlags.HidePlayer | ViewFlags.WideFov);
+        public static void Dashboard(Vehicle vehicle) => PointAtBone(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), new Vector3(-0.25f, 0, 0), ViewFlags.CenterBoneX | ViewFlags.HidePlayer | ViewFlags.WideFov);
 
         #endregion
 
         #region Bone Camera Pointers
 
-        public static unsafe void PointAtBoneWithOffset(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
+        public static unsafe void PointAtBone(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {
             int kitIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD_KIT, vehicle);
 
@@ -104,16 +104,16 @@ namespace TuningShops
 
                 if (mod->type == slot)
                 {
-                    PointAtBoneWithOffset(vehicle, vehicle.Bones[(int)mod->bone], camOffset, centerOffset, flags);
+                    PointAtBone(vehicle, vehicle.Bones[(int)mod->bone], camOffset, centerOffset, flags);
                     return;
                 }
             }
         }
-        private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
+        private static void PointAtBone(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {
-            PointAtBoneWithOffset(vehicle, vehicle.Bones[boneName], camOffset, centerOffset, flags);
+            PointAtBone(vehicle, vehicle.Bones[boneName], camOffset, centerOffset, flags);
         }
-        private static void PointAtBoneWithOffset(Vehicle vehicle, EntityBone bone, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
+        private static void PointAtBone(Vehicle vehicle, EntityBone bone, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {
             ClearCamera();
 
