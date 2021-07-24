@@ -50,6 +50,11 @@ namespace TuningShops
         [JsonProperty("veh_heading", Required = Required.Always)]
         public float VehicleHeading { get; set; }
         /// <summary>
+        /// If the vehicle should be placed on the ground when opening the menu.
+        /// </summary>
+        [JsonProperty("place_on_ground", Required = Required.Always)]
+        public bool PlaceOnGround { get; set; }
+        /// <summary>
         /// The location where an interior should be checked.
         /// </summary>
         [JsonProperty("interior", Required = Required.AllowNull)]

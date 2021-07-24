@@ -44,6 +44,10 @@ namespace TuningShops
                 camera = null;
             }
             Game.Player.Character.IsVisible = true;
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+            {
+                vehicle.IsInteriorLightOn = false;
+            }
         }
 
         #endregion
@@ -130,6 +134,7 @@ namespace TuningShops
             {
                 Game.Player.Character.IsVisible = false;
             }
+            vehicle.IsInteriorLightOn = true;
 
             Vector3 bonePos = bone.RelativePosition;
             Vector3 camPos = flags.HasFlag(ViewFlags.FromDriver) ? vehicle.GetPositionOffset(vehicle.GetPedOnSeat(VehicleSeat.Driver).Bones[Bone.SkelHead].Position) : bonePos;

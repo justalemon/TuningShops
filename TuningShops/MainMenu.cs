@@ -1,5 +1,4 @@
 ﻿using GTA;
-using GTA.Math;
 using LemonUI.Elements;
 using LemonUI.Menus;
 using System;
@@ -68,6 +67,12 @@ namespace TuningShops
 
             vehicle.PositionNoOffset = location.VehiclePos;
             vehicle.Heading = location.VehicleHeading;
+
+            if (location.PlaceOnGround)
+            {
+                vehicle.PlaceOnGround();
+            }
+
             vehicle.IsPositionFrozen = true;
             Cameras.General(vehicle);
 
