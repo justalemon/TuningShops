@@ -93,6 +93,10 @@ namespace TuningShops
         /// </summary>
         public static void Spoiler(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_SPOILER, new Vector3(0, -7, 1), Vector3.Zero, ViewFlags.Center);
         /// <summary>
+        /// Points at the fender of the vehicle.
+        /// </summary>
+        public static void Fender(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_WING_L, new Vector3(-7, 0, 0), Vector3.Zero, ViewFlags.None);
+        /// <summary>
         /// Points at the steering wheel of the vehicle.
         /// </summary>
         public static void SteeringWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), Vector3.Zero, ViewFlags.HidePlayer | ViewFlags.WideFov);

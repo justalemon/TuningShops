@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,7 @@ namespace TuningShops.Slots
 
         public LSCFender() : base(8, "Fender")
         {
+            Opening += (sender, e) => Cameras.Fender(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
