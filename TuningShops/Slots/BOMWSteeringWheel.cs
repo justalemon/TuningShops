@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,7 @@ namespace TuningShops.Slots
 
         public BOMWSteeringWheel() : base(33, "Steering Wheel")
         {
+            Opening += (sender, e) => Cameras.SteeringWheel(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
