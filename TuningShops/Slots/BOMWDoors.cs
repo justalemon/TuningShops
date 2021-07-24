@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,12 @@ namespace TuningShops.Slots
 
         public BOMWDoors() : base(31, "Doors")
         {
+            Opening += (sender, e) =>
+            {
+                Game.Player.Character.CurrentVehicle.Doors[VehicleDoorIndex.FrontLeftDoor].Open();
+                Cameras.FrontLeftDoor(Game.Player.Character.CurrentVehicle);
+            };
+            Closing += (sender, e) => Game.Player.Character.CurrentVehicle?.Doors[VehicleDoorIndex.FrontLeftDoor].Close();
         }
 
         #endregion
