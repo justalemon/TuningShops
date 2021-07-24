@@ -75,6 +75,7 @@ namespace TuningShops
         public static void SteeringWheel(Vehicle vehicle) => PointAtBone(vehicle, "steeringwheel", Vector3.Zero, Vector3.Zero, ViewFlags.HidePlayer | ViewFlags.WideFov | ViewFlags.FromDriver);
         public static void Dashboard(Vehicle vehicle) => PointAtBone(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), new Vector3(-0.25f, 0, 0), ViewFlags.CenterBoneX | ViewFlags.HidePlayer | ViewFlags.WideFov);
         public static void FrontLeftDoor(Vehicle vehicle) => PointAtBone(vehicle, "door_dside_f", new Vector3(0, 0, 0), new Vector3(-1f, 0, 0), ViewFlags.HidePlayer | ViewFlags.WideFov | ViewFlags.FromDriver);
+        public static void Ornament(Vehicle vehicle) => PointAtBone(vehicle, "bobble_head", Vector3.Zero, Vector3.Zero, ViewFlags.HidePlayer | ViewFlags.FromDriver);
 
         #endregion
 

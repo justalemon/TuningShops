@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,7 @@ namespace TuningShops.Slots
 
         public BOMWOrnaments() : base(28, "Ornaments")
         {
+            Opening += (sender, e) => Cameras.Ornament(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
