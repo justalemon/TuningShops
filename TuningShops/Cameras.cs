@@ -1,10 +1,21 @@
 ﻿using GTA;
 using GTA.Math;
 using GTA.Native;
+using System;
 using TuningShops.Memory;
 
 namespace TuningShops
 {
+    /// <summary>
+    /// Represents the different mod camera flags.
+    /// </summary>
+    [Flags]
+    public enum ViewFlags
+    {
+        None = 0,
+        Center = 1,
+    }
+
     /// <summary>
     /// Simple tool to set the camera on specific vehicle positions.
     /// </summary>
@@ -41,45 +52,45 @@ namespace TuningShops
         /// <summary>
         /// Points at the front bumper of the vehicle.
         /// </summary>
-        public static void FrontBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_F, new Vector3(0, 5, 0), Vector3.Zero, true);
+        public static void FrontBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_F, new Vector3(0, 5, 0), Vector3.Zero, ViewFlags.Center);
         /// <summary>
         /// Points at the rear bumper of the vehicle.
         /// </summary>
-        public static void RearBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_R, new Vector3(0, -5, 0), Vector3.Zero, true);
+        public static void RearBumper(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BUMPER_R, new Vector3(0, -5, 0), Vector3.Zero, ViewFlags.Center);
         /// <summary>
         /// Points at the engine of the vehicle.
         /// </summary>
-        public static void Engine(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 5, 1), Vector3.Zero, true);
+        public static void Engine(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "bonnet", new Vector3(0, 5, 1), Vector3.Zero, ViewFlags.Center);
         /// <summary>
         /// Points at the exhaust pipes of the vehicle.
         /// </summary>
-        public static void Exhaust(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_EXHAUST, new Vector3(0, -5, 0), Vector3.Zero, true);
+        public static void Exhaust(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_EXHAUST, new Vector3(0, -5, 0), Vector3.Zero, ViewFlags.Center);
         /// <summary>
         /// Points at the headlights pipes of the vehicle.
         /// </summary>
-        public static void Headlights(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "headlight_l", new Vector3(0, 5, 0), Vector3.Zero, true);
+        public static void Headlights(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "headlight_l", new Vector3(0, 5, 0), Vector3.Zero, ViewFlags.Center);
         /// <summary>
         /// Points at the hood of the vehicle.
         /// </summary>
-        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BONNET, new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0), true);
+        public static void Hood(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_BONNET, new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0), ViewFlags.Center);
         /// <summary>
         /// Points at the front left wheel of the vehicle.
         /// </summary>
-        public static void FrontLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lf", new Vector3(-3, 0, 0), Vector3.Zero, true);
+        public static void FrontLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lf", new Vector3(-3, 0, 0), Vector3.Zero, ViewFlags.None);
         /// <summary>
         /// Points at the rear left wheel of the vehicle.
         /// </summary>
-        public static void RearLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lr", new Vector3(-3, 0, 0), Vector3.Zero, true);
+        public static void RearLeftWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "wheel_lr", new Vector3(-3, 0, 0), Vector3.Zero, ViewFlags.None);
         /// <summary>
         /// Points at the plate light of the vehicle.
         /// </summary>
-        public static void PlateLight(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero, true);
+        public static void PlateLight(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "platelight", new Vector3(0, -1, 0), Vector3.Zero, ViewFlags.Center);
         /// <summary>
         /// Points at the spoiler of the vehicle.
         /// </summary>
-        public static void Spoiler(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_SPOILER, new Vector3(0, -7, 1), Vector3.Zero, true);
+        public static void Spoiler(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, EVehicleModType.VMT_SPOILER, new Vector3(0, -7, 1), Vector3.Zero, ViewFlags.Center);
 
-        public static unsafe void PointAtBoneWithOffset(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset, bool center)
+        public static unsafe void PointAtBoneWithOffset(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {
             int kitIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD_KIT, vehicle);
 
@@ -105,16 +116,16 @@ namespace TuningShops
 
                 if (mod->type == slot)
                 {
-                    PointAtBoneWithOffset(vehicle, vehicle.Bones[(int)mod->bone], camOffset, centerOffset, center);
+                    PointAtBoneWithOffset(vehicle, vehicle.Bones[(int)mod->bone], camOffset, centerOffset, flags);
                     return;
                 }
             }
         }
-        private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset, bool center)
+        private static void PointAtBoneWithOffset(Vehicle vehicle, string boneName, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {
-            PointAtBoneWithOffset(vehicle, vehicle.Bones[boneName], camOffset, centerOffset, center);
+            PointAtBoneWithOffset(vehicle, vehicle.Bones[boneName], camOffset, centerOffset, flags);
         }
-        private static void PointAtBoneWithOffset(Vehicle vehicle, EntityBone bone, Vector3 camOffset, Vector3 centerOffset, bool center)
+        private static void PointAtBoneWithOffset(Vehicle vehicle, EntityBone bone, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {
             ClearCamera();
 
@@ -125,7 +136,7 @@ namespace TuningShops
             }
 
             Vector3 source = bone.RelativePosition;
-            Vector3 final = new Vector3(center ? 0 : source.X, source.Y, source.Z) + centerOffset;
+            Vector3 final = new Vector3(flags.HasFlag(ViewFlags.Center) ? 0 : source.X, source.Y, source.Z) + centerOffset;
 
             camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(final.X + camOffset.X, final.Y + camOffset.Y, final.Z + camOffset.Z)), Vector3.Zero, 30);
             camera.PointAt(vehicle.GetOffsetPosition(final));
