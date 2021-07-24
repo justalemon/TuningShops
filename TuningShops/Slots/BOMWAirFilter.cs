@@ -1,3 +1,5 @@
+using GTA;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +13,7 @@ namespace TuningShops.Slots
 
         public BOMWAirFilter() : base(40, "Air Filter")
         {
+            Opening += (sender, e) => CameraSet.Engine.Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
