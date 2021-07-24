@@ -100,6 +100,7 @@ namespace TuningShops
         /// Points at the steering wheel of the vehicle.
         /// </summary>
         public static void SteeringWheel(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), Vector3.Zero, ViewFlags.HidePlayer | ViewFlags.WideFov);
+        public static void Dashboard(Vehicle vehicle) => PointAtBoneWithOffset(vehicle, "steeringwheel", new Vector3(0, -0.6f, 0.25f), new Vector3(-0.25f, 0, 0), ViewFlags.CenterBoneX | ViewFlags.HidePlayer | ViewFlags.WideFov);
 
         public static unsafe void PointAtBoneWithOffset(Vehicle vehicle, EVehicleModType slot, Vector3 camOffset, Vector3 centerOffset, ViewFlags flags)
         {

@@ -1,3 +1,4 @@
+using GTA;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,7 @@ namespace TuningShops.Slots
 
         public BOMWDashboard() : base(29, "Dashboard")
         {
+            Opening += (sender, e) => Cameras.Dashboard(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
