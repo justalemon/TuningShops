@@ -14,6 +14,7 @@ namespace TuningShops
     {
         None = 0,
         Center = 1,
+        HidePlayer = 2,
     }
 
     /// <summary>
@@ -34,6 +35,7 @@ namespace TuningShops
                 camera.Delete();
                 camera = null;
             }
+            Game.Player.Character.IsVisible = true;
         }
         /// <summary>
         /// Sets a general camera near the player's vehicle.
@@ -133,6 +135,11 @@ namespace TuningShops
             {
                 General(vehicle);
                 return;
+            }
+
+            if (flags.HasFlag(ViewFlags.HidePlayer))
+            {
+                Game.Player.Character.IsVisible = false;
             }
 
             Vector3 source = bone.RelativePosition;
