@@ -134,8 +134,6 @@ namespace TuningShops
             camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(source.X + camOffset.X, source.Y + camOffset.Y, source.Z + camOffset.Z)), Vector3.Zero, flags.HasFlag(ViewFlags.WideFov) ? 50 : 30);
             camera.PointAt(vehicle.GetOffsetPosition(target));
             World.RenderingCamera = camera;
-
-            GTA.UI.Notification.Show(bone.Index.ToString());
         }
 
         #endregion
