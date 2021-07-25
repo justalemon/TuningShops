@@ -32,9 +32,11 @@ namespace TuningShops.Cameras
 
             (_, Vector3 frontTopRight) = vehicle.Model.Dimensions;
             Vector3 relPos = new Vector3(-frontTopRight.X, frontTopRight.Y, frontTopRight.Z);
-            Vector3 camPos = vehicle.GetOffsetPosition(new Vector3(relPos.X - 8.262f, relPos.Y - 3.401f, relPos.Z + 0.048f));
-            camera = World.CreateCamera(camPos, Vector3.Zero, 25);
-            camera.PointAt(vehicle);
+
+            Vector3 camPos = vehicle.GetOffsetPosition(new Vector3(relPos.X - 2.319f, relPos.Y + 1.058f, relPos.Z - 0.613f));
+
+            camera = World.CreateCamera(camPos, Vector3.Zero, 42.5f);
+            camera.PointAt(vehicle, new Vector3(0, frontTopRight.Y * 0.3f, 0));
             World.RenderingCamera = camera;
         }
 
