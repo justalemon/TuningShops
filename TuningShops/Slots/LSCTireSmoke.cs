@@ -36,6 +36,21 @@ namespace TuningShops.Slots
             Add(new TireSmokeItem("Pink", Color.FromArgb(255, 203, 54, 148)));
             Add(new TireSmokeItem("Brown", Color.FromArgb(255, 180, 130, 97)));
             Add(new TireSmokeItem("Patriot", Color.FromArgb(255, 0, 0, 0)));
+
+            Shown += (sender, e) =>
+            {
+                Game.Player.CanControlCharacter = false;
+                Game.Player.Character.CurrentVehicle.IsPositionFrozen = false;
+                Game.Player.Character.CurrentVehicle.CanTiresBurst = false;
+                Function.Call(Hash.TASK_VEHICLE_TEMP_ACTION, Game.Player.Character, Game.Player.Character.CurrentVehicle, 30, 60 * 60 * 24);
+            };
+            Closed += (sender, e) =>
+            {
+                Game.Player.CanControlCharacter = true;
+                Game.Player.Character.CurrentVehicle.IsPositionFrozen = true;
+                Game.Player.Character.CurrentVehicle.CanTiresBurst = true;
+                Game.Player.Character.Task.ClearAll();
+            };
         }
 
         #endregion
