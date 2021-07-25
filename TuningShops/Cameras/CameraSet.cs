@@ -26,5 +26,6 @@ namespace TuningShops.Cameras
         public static BoneCameraPosition Ornament { get; } = new BoneCameraPosition(Vector3.Zero, Vector3.Zero, CameraFlags.HidePlayer | CameraFlags.FromDriver, "bobble_head");
         public static BoneCameraPosition EngineBlock { get; } = new BoneCameraPosition(new Vector3(-3, 0, 2), new Vector3(0, -1, 0), CameraFlags.None, "bonnet");
         public static ModCameraPosition Grille { get; } = new ModCameraPosition(new Vector3(0, 5, 0), Vector3.Zero, CameraFlags.CenterBoneX, EVehicleModType.VMT_GRILL);
+        public static ModCameraPosition Aerials { get; } = new ModCameraPosition(new Vector3(0, 5, 0), Vector3.Zero, CameraFlags.CenterBoneX, EVehicleModType.VMT_CHASSIS3);
     }
 }

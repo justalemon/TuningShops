@@ -1,3 +1,5 @@
+using GTA;
+using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +13,7 @@ namespace TuningShops.Slots
 
         public BOMWAerials() : base(43, "Aerials")
         {
+            Opening += (sender, e) => CameraSet.Aerials.Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
