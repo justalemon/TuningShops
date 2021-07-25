@@ -22,7 +22,7 @@
     <PackageReference Include="LemonUI.SHVDN3" Version="1.4.0">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
-    <None Update="TuningShops\Locations\*.json">
+    <None Update="TuningShops\**\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
