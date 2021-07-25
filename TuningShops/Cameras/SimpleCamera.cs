@@ -77,7 +77,7 @@ namespace TuningShops.Cameras
 
             Vector3 target = new Vector3(Flags.HasFlag(CameraFlags.CenterBoneX) ? 0 : bonePos.X, bonePos.Y, bonePos.Z) + BoneOffset;
 
-            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(camPos.X + CameraOffset.X, camPos.Y + CameraOffset.Y, camPos.Z + CameraOffset.Z)), Vector3.Zero, Flags.HasFlag(CameraFlags.WideFov) ? 50 : 30);
+            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(Flags.HasFlag(CameraFlags.CenterBoneX) ? 0 : camPos.X + CameraOffset.X, camPos.Y + CameraOffset.Y, camPos.Z + CameraOffset.Z)), Vector3.Zero, Flags.HasFlag(CameraFlags.WideFov) ? 50 : 30);
             camera.PointAt(vehicle.GetOffsetPosition(target));
             World.RenderingCamera = camera;
         }
