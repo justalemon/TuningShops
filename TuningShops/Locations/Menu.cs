@@ -30,6 +30,7 @@ namespace TuningShops.Locations
             Banner = texture;
             UseMouse = false;
             Opening += MainMenu_Opening;
+            Shown += Menu_Shown;
         }
 
         #endregion
@@ -65,8 +66,6 @@ namespace TuningShops.Locations
                 return;
             }
 
-            CameraManager.Get(Guid.Empty).Create(vehicle);
-
             if (model == lastModel)
             {
                 return;
@@ -82,6 +81,11 @@ namespace TuningShops.Locations
             }
 
             lastModel = model;
+        }
+
+        private void Menu_Shown(object sender, EventArgs e)
+        {
+            CameraManager.Get(Guid.Empty).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
