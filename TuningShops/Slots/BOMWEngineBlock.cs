@@ -16,7 +16,7 @@ namespace TuningShops.Slots
             Opening += (sender, e) =>
             {
                 Game.Player.Character.CurrentVehicle.Doors[VehicleDoorIndex.Hood].Open();
-                CameraSet.EngineBlock.Create(Game.Player.Character.CurrentVehicle);
+                CameraSet.Engine.Create(Game.Player.Character.CurrentVehicle);
             };
             Closing += (sender, e) => Game.Player.Character.CurrentVehicle?.Doors[VehicleDoorIndex.Hood].Close();
         }
