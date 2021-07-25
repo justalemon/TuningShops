@@ -9,10 +9,10 @@ namespace TuningShops.Cameras
     public static class CameraSet
     {
         public static GeneralCamera General { get; } = new GeneralCamera();
-        public static BoneCameraPosition FrontBumper { get; } = new BoneCameraPosition(new Vector3(0, 5, 0), Vector3.Zero, CameraFlags.CenterBoneX, "bumper_f");
-        public static ModCameraPosition RearBumper { get; } = new ModCameraPosition(new Vector3(0, -5, 0), Vector3.Zero, CameraFlags.CenterBoneX, EVehicleModType.VMT_BUMPER_R);
-        public static BoneCameraPosition Engine { get; } = new BoneCameraPosition(new Vector3(0, 5, 1), Vector3.Zero, CameraFlags.CenterBoneX, "bonnet");
-        public static ModCameraPosition Exhaust { get; } = new ModCameraPosition(new Vector3(0, -5, 0), Vector3.Zero, CameraFlags.CenterBoneX, EVehicleModType.VMT_EXHAUST);
+        public static BoneCameraPosition FrontBumper { get; } = new BoneCameraPosition(new Vector3(0, 5, 0), Vector3.Zero, CameraFlags.CenterBoneX | CameraFlags.CenterCameraX, "bumper_f");
+        public static ModCameraPosition RearBumper { get; } = new ModCameraPosition(new Vector3(0, -5, 0), Vector3.Zero, CameraFlags.CenterBoneX | CameraFlags.CenterCameraX, EVehicleModType.VMT_BUMPER_R);
+        public static BoneCameraPosition Engine { get; } = new BoneCameraPosition(new Vector3(0, 5, 1), Vector3.Zero, CameraFlags.CenterBoneX | CameraFlags.CenterCameraX, "bonnet");
+        public static ModCameraPosition Exhaust { get; } = new ModCameraPosition(new Vector3(0, -5, 0), Vector3.Zero, CameraFlags.CenterBoneX | CameraFlags.CenterCameraX, EVehicleModType.VMT_EXHAUST);
         public static BoneCameraPosition Headlights { get; } = new BoneCameraPosition(new Vector3(0, 5, 0), Vector3.Zero, CameraFlags.CenterBoneX, "headlight_l");
         public static ModCameraPosition Hood { get; } = new ModCameraPosition(new Vector3(0, 3, 2), new Vector3(0, 0.5f, 0), CameraFlags.CenterBoneX, EVehicleModType.VMT_BONNET);
         public static BoneCameraPosition FrontLeftWheel { get; } = new BoneCameraPosition(new Vector3(-3, 0, 0), Vector3.Zero, CameraFlags.None, "wheel_lf");

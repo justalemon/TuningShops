@@ -13,5 +13,6 @@ namespace TuningShops.Cameras
         HidePlayer = 2,
         WideFov = 4,
         FromDriver = 8,
+        CenterCameraX = 16,
     }
 }
