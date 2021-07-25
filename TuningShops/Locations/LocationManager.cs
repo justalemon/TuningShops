@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using TuningShops.Cameras;
 using TuningShops.Core;
 using Color = System.Drawing.Color;
 
@@ -159,10 +160,24 @@ namespace TuningShops.Locations
         /// </summary>
         public static void Process()
         {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
             if (Active != null)
             {
                 if (!TuningShops.pool.AreAnyVisible)
                 {
+                    if (Active.Menu.Items.Count > 0)
+                    {
+                        Active.Menu.SelectedIndex = 0;
+                    }
+
+                    if (vehicle != null)
+                    {
+                        vehicle.IsPositionFrozen = false;
+                    }
+
+                    CameraCore.Destroy();
+
                     Active = null;
                 }
                 return;
@@ -179,14 +194,22 @@ namespace TuningShops.Locations
 
                 World.DrawMarker(MarkerType.VerticalCylinder, location.Trigger, Vector3.Zero, Vector3.Zero, new Vector3(location.TriggerSize, location.TriggerSize, 1), Color.Purple);
 
-                if (pos.DistanceTo(location.Trigger) < 5)
+                if (pos.DistanceTo(location.Trigger) < 5 && Game.IsControlJustPressed(Control.Context) && vehicle != null)
                 {
-                    if (Game.IsControlJustPressed(Control.Context))
+                    location.Menu.Visible = true;
+
+                    vehicle.PositionNoOffset = location.VehiclePos;
+                    vehicle.Heading = location.VehicleHeading;
+
+                    if (location.PlaceOnGround)
                     {
-                        location.Menu.Visible = true;
-                        Active = location;
-                        return;
+                        vehicle.PlaceOnGround();
                     }
+
+                    vehicle.IsPositionFrozen = true;
+
+                    Active = location;
+                    return;
                 }
             }
         }

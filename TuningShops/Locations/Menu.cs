@@ -30,7 +30,6 @@ namespace TuningShops.Locations
             Banner = texture;
             UseMouse = false;
             Opening += MainMenu_Opening;
-            Closed += MainMenu_Closed;
         }
 
         #endregion
@@ -66,15 +65,6 @@ namespace TuningShops.Locations
                 return;
             }
 
-            vehicle.PositionNoOffset = location.VehiclePos;
-            vehicle.Heading = location.VehicleHeading;
-
-            if (location.PlaceOnGround)
-            {
-                vehicle.PlaceOnGround();
-            }
-
-            vehicle.IsPositionFrozen = true;
             CameraManager.Get(Guid.Empty).Create(vehicle);
 
             if (model == lastModel)
@@ -92,20 +82,6 @@ namespace TuningShops.Locations
             }
 
             lastModel = model;
-        }
-
-        private void MainMenu_Closed(object sender, EventArgs e)
-        {
-            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-            if (!TuningShops.pool.AreAnyVisible)
-            {
-                if (vehicle != null)
-                {
-                    vehicle.IsPositionFrozen = false;
-                }
-                SimpleCamera.Destroy();
-            }
         }
 
         #endregion
