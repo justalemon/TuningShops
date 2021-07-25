@@ -1,0 +1,58 @@
+{
+    "TuningShops.Slots.BOMWAerials": "16d5e2ea-c3d4-46b4-8129-6fc83acf1785",
+    "TuningShops.Slots.BOMWAirFilter": "d0699f69-4b97-4e14-93aa-020b9a6a47e5",
+
+    "TuningShops.Slots.BOMWDashboard": "93852b14-3d0c-42bc-bbbc-cc76d18e8fce",
+
+    "TuningShops.Slots.BOMWDoors": "f69346c6-6b13-4d89-923f-f101e327c71e",
+    "TuningShops.Slots.BOMWEngineBlock": "d0699f69-4b97-4e14-93aa-020b9a6a47e5",
+    "TuningShops.Slots.BOMWLivery": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.BOMWOrnaments": "1950becc-7be9-409e-98ae-fcb6a85e2f32",
+
+
+    
+    "TuningShops.Slots.BOMWSteeringWheel": "21551f30-a959-48ac-846c-89fca39409dd",
+
+
+
+
+
+
+
+    "TuningShops.Slots.ColorPearlescent": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorPrimaryChrome": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorPrimaryClassic": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorPrimaryMatte": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorPrimaryMetals": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorSecondaryChrome": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorSecondaryClassic": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorSecondaryMatte": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.ColorSecondaryMetals": "00000000-0000-0000-0000-000000000000",
+
+    "TuningShops.Slots.Liveries": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.LSCArmor": "00000000-0000-0000-0000-000000000000",
+    "TuningShops.Slots.LSCBrakes": "dd182935-09ae-45e9-b81c-888a09afbd69",
+    "TuningShops.Slots.LSCBumperFront": "cfd055ed-a292-4862-9681-16c015a6fd4f",
+    "TuningShops.Slots.LSCBumperRear": "fa9362d1-fff3-43bf-ae36-79b917ded591",
+    "TuningShops.Slots.LSCEngine": "d0699f69-4b97-4e14-93aa-020b9a6a47e5",
+    "TuningShops.Slots.LSCExhaust": "e4887a89-c12c-4085-ab9c-d47e1aa5a923",
+    "TuningShops.Slots.LSCFender": "fe02bfe7-0794-4919-a4b2-6a5b1e7b51ca",
+
+    "TuningShops.Slots.LSCGrille": "6c939927-7448-4639-80b0-ea1c04571753",
+    "TuningShops.Slots.LSCHeadlights": "1403c06e-9093-430a-aba5-e07659583633",
+    "TuningShops.Slots.LSCHood": "6e16303b-f64b-4aea-8368-7d29fae07898",
+
+
+
+
+    "TuningShops.Slots.LSCSpoilers": "eb3fb67e-9008-40c5-af1d-12f4856b3fbc",
+    "TuningShops.Slots.LSCSuspension": "dd182935-09ae-45e9-b81c-888a09afbd69",
+
+    "TuningShops.Slots.LSCTransmission": "d0699f69-4b97-4e14-93aa-020b9a6a47e5",
+    "TuningShops.Slots.LSCTurbo": "d0699f69-4b97-4e14-93aa-020b9a6a47e5",
+    "TuningShops.Slots.LSCWheels": "dd182935-09ae-45e9-b81c-888a09afbd69",
+    "TuningShops.Slots.LSCWheelsFront": "dd182935-09ae-45e9-b81c-888a09afbd69",
+    "TuningShops.Slots.LSCWheelsRear": "ac9cee71-6828-41b8-b3e1-80d07519bd44",
+    "TuningShops.Slots.Plate": "b0f42275-e93c-4603-85f0-3092308ce8b3",
+    "TuningShops.Slots.Repair": "00000000-0000-0000-0000-000000000000",
+}
