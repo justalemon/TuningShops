@@ -150,6 +150,7 @@ namespace TuningShops
             {
                 location.Initialize();
             }
+            CameraManager.Populate();
             Tick -= TuningShops_Tick_Init;
             Tick += TuningShops_Tick_Run;
         }
