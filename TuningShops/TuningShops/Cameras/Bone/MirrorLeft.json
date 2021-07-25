@@ -1,0 +1,15 @@
+{
+    "id": "b31bd28c-5b6a-42e3-90e6-9a37771e5796",
+    "offset_camera": {
+        "x": -1,
+        "y": 0,
+        "z": 0.3
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": -0.25,
+        "z": 0.3
+    },
+    "flags": 0,
+    "bone_name": "door_dside_f"
+}
