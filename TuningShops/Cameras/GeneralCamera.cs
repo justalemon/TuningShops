@@ -30,13 +30,14 @@ namespace TuningShops.Cameras
 
             Destroy();
 
-            (_, Vector3 frontTopRight) = vehicle.Model.Dimensions;
-            Vector3 relPos = new Vector3(-frontTopRight.X, frontTopRight.Y, frontTopRight.Z);
+            (_, Vector3 baseFrontTopRight) = vehicle.Model.Dimensions;
 
-            Vector3 camPos = vehicle.GetOffsetPosition(new Vector3(relPos.X - 2.319f, relPos.Y + 1.058f, relPos.Z - 0.613f));
+            Vector3 camPosRel = new Vector3(-baseFrontTopRight.X - 2.319f, baseFrontTopRight.Y + 1.058f, baseFrontTopRight.Z - 0.613f);
+            Vector3 camPosAbs = vehicle.GetOffsetPosition(camPosRel);
 
-            camera = World.CreateCamera(camPos, Vector3.Zero, 42.5f);
-            camera.PointAt(vehicle, new Vector3(0, frontTopRight.Y * 0.3f, 0));
+            camera = World.CreateCamera(camPosAbs, Vector3.Zero, 42.5f);
+            camera.PointAt(vehicle, new Vector3(0, baseFrontTopRight.Y * 0.3f, 0));
+
             World.RenderingCamera = camera;
         }
 
