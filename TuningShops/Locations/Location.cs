@@ -90,50 +90,11 @@ namespace TuningShops.Locations
         /// The Blip used to mark the location of the Food Shop.
         /// </summary>
         [JsonIgnore]
-        public Blip Blip { get; private set; }
+        public Blip Blip { get; internal set; }
         /// <summary>
         /// The Ped over the counter that speaks with the player.
         /// </summary>
         [JsonIgnore]
-        public Ped Ped { get; private set; }
-
-        /// <summary>
-        /// Initializes the Entities and Camera.
-        /// </summary>
-        public void Initialize()
-        {
-            // Request the ped and create it
-            if (PedInfo != null)
-            {
-                PedInfo.Model.Request();
-                while (!PedInfo.Model.IsLoaded)
-                {
-                    Script.Yield();
-                }
-                Ped = World.CreatePed(PedInfo.Model, PedInfo.Position, PedInfo.Heading);
-                Ped.IsPositionFrozen = true;
-                Ped.BlockPermanentEvents = true;
-                Ped.CanBeTargetted = false;
-                Ped.CanRagdoll = false;
-                Ped.CanWrithe = false;
-                Ped.IsInvincible = true;
-                PedInfo.Model.MarkAsNoLongerNeeded();
-            }
-
-            // Then, create the blip of the Food Shop
-            Blip = World.CreateBlip(Trigger);
-            Blip.Sprite = BlipSprite.LosSantosCustoms;
-            Function.Call(Hash.SET_BLIP_COLOUR, Blip, (192 << 24) + (157 << 16) + (227 << 8) + 255);
-            Blip.Name = $"Tuning Shop: {Name}";
-            Blip.IsShortRange = true;
-        }
-        /// <summary>
-        /// Cleans up the entities and camera.
-        /// </summary>
-        public void DoCleanup()
-        {
-            Ped?.Delete();
-            Blip?.Delete();
-        }
+        public Ped Ped { get; internal set; }
     }
 }
