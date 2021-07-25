@@ -1,4 +1,5 @@
 ﻿using GTA;
+using System;
 using TuningShops.Cameras;
 using TuningShops.Core;
 
@@ -13,7 +14,7 @@ namespace TuningShops.Slots
 
         public LSCSpoilers() : base(0, "Spoilers")
         {
-            Opening += (sender, e) => CameraSet.Spoiler.Create(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraManager.Get(Guid.Parse("eb3fb67e-9008-40c5-af1d-12f4856b3fbc")).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

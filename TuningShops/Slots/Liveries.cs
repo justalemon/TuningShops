@@ -17,7 +17,7 @@ namespace TuningShops.Slots
 
         public Liveries() : base("Liveries")
         {
-            Opening += (sender, e) => CameraSet.General.Create(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraManager.Get(Guid.Empty).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

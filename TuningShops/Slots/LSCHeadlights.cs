@@ -44,7 +44,7 @@ namespace TuningShops.Slots
             Opening += (sender, e) =>
             {
                 Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 2);
-                CameraSet.Headlights.Create(Game.Player.Character.CurrentVehicle);
+                CameraManager.Get(Guid.Parse("1403c06e-9093-430a-aba5-e07659583633")).Create(Game.Player.Character.CurrentVehicle);
             };
             Closing += (sender, e) => Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 0);
         }

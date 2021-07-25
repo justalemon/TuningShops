@@ -21,7 +21,7 @@ namespace TuningShops.Slots
                 Add(new PlateItem(i));
             }
 
-            Opening += (sender, e) => CameraSet.PlateLight.Create(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraManager.Get(Guid.Parse("b0f42275-e93c-4603-85f0-3092308ce8b3")).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

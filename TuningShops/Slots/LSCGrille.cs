@@ -1,4 +1,5 @@
 using GTA;
+using System;
 using TuningShops.Cameras;
 using TuningShops.Core;
 
@@ -13,7 +14,7 @@ namespace TuningShops.Slots
 
         public LSCGrille() : base(6, "Grille")
         {
-            Opening += (sender, e) => CameraSet.Grille.Create(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraManager.Get(Guid.Parse("6c939927-7448-4639-80b0-ea1c04571753")).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

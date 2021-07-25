@@ -1,5 +1,6 @@
 ﻿using GTA;
 using LemonUI.Menus;
+using System;
 using TuningShops.Cameras;
 using TuningShops.Core;
 
@@ -14,7 +15,7 @@ namespace TuningShops.Slots
 
         public Repair() : base("Repair Vehicle")
         {
-            Opening += (sender, e) => CameraSet.General.Create(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraManager.Get(Guid.Empty).Create(Game.Player.Character.CurrentVehicle);
 
             NativeItem item = new NativeItem("Repair");
             item.Activated += (sender, e) => Game.Player.Character.CurrentVehicle?.Repair();

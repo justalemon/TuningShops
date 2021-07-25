@@ -1,4 +1,5 @@
 using GTA;
+using System;
 using TuningShops.Cameras;
 using TuningShops.Core;
 
@@ -16,7 +17,7 @@ namespace TuningShops.Slots
             Opening += (sender, e) =>
             {
                 Game.Player.Character.CurrentVehicle.Doors[VehicleDoorIndex.FrontLeftDoor].Open();
-                CameraSet.FrontLeftDoor.Create(Game.Player.Character.CurrentVehicle);
+                CameraManager.Get(Guid.Parse("f69346c6-6b13-4d89-923f-f101e327c71e")).Create(Game.Player.Character.CurrentVehicle);
             };
             Closing += (sender, e) => Game.Player.Character.CurrentVehicle?.Doors[VehicleDoorIndex.FrontLeftDoor].Close();
         }

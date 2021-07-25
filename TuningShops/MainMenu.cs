@@ -75,7 +75,7 @@ namespace TuningShops
             }
 
             vehicle.IsPositionFrozen = true;
-            CameraSet.General.Create(vehicle);
+            CameraManager.Get(Guid.Empty).Create(vehicle);
 
             if (model == lastModel)
             {

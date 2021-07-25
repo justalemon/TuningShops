@@ -1,4 +1,5 @@
 ﻿using GTA;
+using System;
 using TuningShops.Cameras;
 using TuningShops.Core;
 
@@ -13,7 +14,7 @@ namespace TuningShops.Slots
 
         public LSCBumperRear() : base(2, "Rear Bumper")
         {
-            Opening += (sender, e) => CameraSet.RearBumper.Create(Game.Player.Character.CurrentVehicle);
+            Opening += (sender, e) => CameraManager.Get(Guid.Parse("fa9362d1-fff3-43bf-ae36-79b917ded591")).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
