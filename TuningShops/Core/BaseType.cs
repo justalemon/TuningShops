@@ -1,6 +1,7 @@
 ﻿using GTA;
 using LemonUI.Menus;
 using System.ComponentModel;
+using TuningShops.Cameras;
 
 namespace TuningShops.Core
 {
@@ -51,6 +52,8 @@ namespace TuningShops.Core
         {
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
             Model model = vehicle != null ? vehicle.Model : new Model(0);
+
+            CameraManager.Get(this).Create(vehicle);
 
             if (vehicle == null)
             {

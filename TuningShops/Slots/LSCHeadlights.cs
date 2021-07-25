@@ -2,7 +2,6 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -41,11 +40,7 @@ namespace TuningShops.Slots
             Add(new ItemHeadlights("CMOD_LGT_13", true, 11));
             Add(new ItemHeadlights("CMOD_LGT_14", true, 12));
 
-            Opening += (sender, e) =>
-            {
-                Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 2);
-                CameraManager.Get(Guid.Parse("1403c06e-9093-430a-aba5-e07659583633")).Create(Game.Player.Character.CurrentVehicle);
-            };
+            Opening += (sender, e) =>Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 2);
             Closing += (sender, e) => Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 0);
         }
 

@@ -1,6 +1,4 @@
 using GTA;
-using System;
-using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -14,7 +12,6 @@ namespace TuningShops.Slots
 
         public LSCWheelsRear() : base(24, "Rear Wheel")
         {
-            Opening += (sender, e) => CameraManager.Get(Guid.Parse("ac9cee71-6828-41b8-b3e1-80d07519bd44")).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

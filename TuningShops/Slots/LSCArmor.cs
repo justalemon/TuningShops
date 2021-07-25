@@ -1,7 +1,4 @@
-﻿using GTA;
-using System;
-using TuningShops.Cameras;
-using TuningShops.Core;
+﻿using TuningShops.Core;
 
 namespace TuningShops.Slots
 {
@@ -14,7 +11,6 @@ namespace TuningShops.Slots
 
         public LSCArmor() : base(16, "Armor")
         {
-            Opening += (sender, e) => CameraManager.Get(Guid.Empty).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion

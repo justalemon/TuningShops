@@ -2,8 +2,6 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using System.ComponentModel;
-using TuningShops.Cameras;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -17,7 +15,6 @@ namespace TuningShops.Slots
 
         public Liveries() : base("Liveries")
         {
-            Opening += (sender, e) => CameraManager.Get(Guid.Empty).Create(Game.Player.Character.CurrentVehicle);
         }
 
         #endregion
