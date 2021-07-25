@@ -13,11 +13,6 @@ namespace TuningShops.Cameras
         #region Properties
 
         /// <summary>
-        /// The Unique Identifier of this Camera Position.
-        /// </summary>
-        [JsonProperty("id", Required = Required.Always)]
-        public Guid Id { get; set; }
-        /// <summary>
         /// The Offset of the camera.
         /// </summary>
         [JsonProperty("offset_camera", Required = Required.Always)]

@@ -1,4 +1,6 @@
 ﻿using GTA;
+using Newtonsoft.Json;
+using System;
 
 namespace TuningShops.Cameras
 {
@@ -10,6 +12,16 @@ namespace TuningShops.Cameras
         #region Fields
 
         protected static Camera camera = null;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// The Unique Identifier of this Camera Position.
+        /// </summary>
+        [JsonProperty("id", Required = Required.Always)]
+        public Guid Id { get; set; }
 
         #endregion
 
