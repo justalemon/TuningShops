@@ -196,8 +196,6 @@ namespace TuningShops.Locations
 
                 if (pos.DistanceTo(location.Trigger) < 5 && Game.IsControlJustPressed(Control.Context) && vehicle != null)
                 {
-                    location.Menu.Visible = true;
-
                     vehicle.PositionNoOffset = location.VehiclePos;
                     vehicle.Heading = location.VehicleHeading;
 
@@ -208,6 +206,7 @@ namespace TuningShops.Locations
 
                     vehicle.IsPositionFrozen = true;
 
+                    location.Menu.Visible = true;
                     Active = location;
                     return;
                 }
