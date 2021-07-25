@@ -9,6 +9,17 @@ namespace TuningShops.Cameras
     /// </summary>
     public class GeneralCamera : CameraCore
     {
+        #region Constructor
+
+        public GeneralCamera()
+        {
+            Id = Guid.Empty;
+        }
+
+        #endregion
+
+        #region Functions
+
         /// <inheritdoc/>
         public override void Create(Vehicle vehicle)
         {
@@ -26,5 +37,7 @@ namespace TuningShops.Cameras
             camera.PointAt(vehicle);
             World.RenderingCamera = camera;
         }
+
+        #endregion
     }
 }
