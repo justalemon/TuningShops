@@ -1,0 +1,15 @@
+{
+    "id": "1950becc-7be9-409e-98ae-fcb6a85e2f32",
+    "offset_camera": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 10,
+    "bone_name": "bobble_head"
+}

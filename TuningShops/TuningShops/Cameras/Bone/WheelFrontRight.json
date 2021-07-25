@@ -1,0 +1,15 @@
+{
+    "id": "ac9cee71-6828-41b8-b3e1-80d07519bd44",
+    "offset_camera": {
+        "x": -3,
+        "y": 0,
+        "z": 0
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 0,
+    "bone_name": "wheel_lr"
+}

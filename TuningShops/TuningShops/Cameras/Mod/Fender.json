@@ -1,0 +1,15 @@
+{
+    "id": "fe02bfe7-0794-4919-a4b2-6a5b1e7b51ca",
+    "offset_camera": {
+        "x": -7,
+        "y": 0,
+        "z": 0
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 0,
+    "mod_slot": 8
+}

@@ -1,0 +1,15 @@
+{
+    "id": "f69346c6-6b13-4d89-923f-f101e327c71e",
+    "offset_camera": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 14,
+    "bone_name": "steeringwheel"
+}

@@ -1,0 +1,15 @@
+{
+    "id": "b0f42275-e93c-4603-85f0-3092308ce8b3",
+    "offset_camera": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 1,
+    "bone_name": "platelight"
+}
