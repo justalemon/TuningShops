@@ -5,12 +5,12 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using TuningShops.Converters;
 
-namespace TuningShops
+namespace TuningShops.Locations
 {
     /// <summary>
     /// Represents the location of a tuning shop.
     /// </summary>
-    public class ShopLocation
+    public class Location
     {
         /// <summary>
         /// The name of this Shop.
@@ -85,7 +85,7 @@ namespace TuningShops
         /// The menu used at this location.
         /// </summary>
         [JsonIgnore]
-        public MainMenu Menu { get; internal set; }
+        public Menu Menu { get; internal set; }
         /// <summary>
         /// The Blip used to mark the location of the Food Shop.
         /// </summary>

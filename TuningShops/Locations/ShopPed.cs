@@ -3,7 +3,7 @@ using GTA.Math;
 using Newtonsoft.Json;
 using TuningShops.Converters;
 
-namespace TuningShops
+namespace TuningShops.Locations
 {
     /// <summary>
     /// The Spawn information of a Ped.

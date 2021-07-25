@@ -12,6 +12,7 @@ using System.IO;
 using System.Reflection;
 using TuningShops.Cameras;
 using TuningShops.Core;
+using TuningShops.Locations;
 using TuningShops.Memory;
 using Color = System.Drawing.Color;
 
@@ -27,7 +28,7 @@ namespace TuningShops
         internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
         internal static readonly ObjectPool pool = new ObjectPool();
         internal static unsafe CVehicleModelInfoVarGlobal** gVehicleModelInfoVarGlobal = null;
-        private static readonly List<ShopLocation> locations = new List<ShopLocation>();
+        private static readonly List<Location> locations = new List<Location>();
 
         #endregion
 
@@ -62,10 +63,10 @@ namespace TuningShops
                     }
 
                     string contents = File.ReadAllText(file);
-                    ShopLocation location;
+                    Location location;
                     try
                     {
-                        location = JsonConvert.DeserializeObject<ShopLocation>(contents);
+                        location = JsonConvert.DeserializeObject<Location>(contents);
                     }
                     catch (Exception e)
                     {
@@ -93,7 +94,7 @@ namespace TuningShops
                     {
                         texture = new ScaledTexture(PointF.Empty, new SizeF(0, 108), location.BannerTXD, location.BannerTexture);
                     }
-                    MainMenu menu = new MainMenu(location, texture);
+                    Menu menu = new Menu(location, texture);
                     pool.Add(menu);
                     location.Menu = menu;
                     locations.Add(location);
@@ -146,7 +147,7 @@ namespace TuningShops
 
         private void TuningShops_Tick_Init(object sender, EventArgs e)
         {
-            foreach (ShopLocation location in locations)
+            foreach (Location location in locations)
             {
                 location.Initialize();
             }
@@ -167,7 +168,7 @@ namespace TuningShops
             Vector3 pos = Game.Player.Character.Position;
 
             // Time to check every single location
-            foreach (ShopLocation location in locations)
+            foreach (Location location in locations)
             {
                 // If the player is very far away, skip it completely
                 if (pos.DistanceTo(location.Trigger) > 50)
@@ -199,7 +200,7 @@ namespace TuningShops
             Game.Player.Character.Opacity = 255;
             SimpleCamera.Destroy();
 
-            foreach (ShopLocation location in locations)
+            foreach (Location location in locations)
             {
                 location.DoCleanup();
             }

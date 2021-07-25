@@ -7,24 +7,24 @@ using System.ComponentModel;
 using TuningShops.Cameras;
 using TuningShops.Core;
 
-namespace TuningShops
+namespace TuningShops.Locations
 {
     /// <summary>
     /// Represents a main menu in a specific location.
     /// </summary>
-    public class MainMenu : NativeMenu
+    public class Menu : NativeMenu
     {
         #region Fields
 
         private readonly List<BaseType> menus = new List<BaseType>();
-        private ShopLocation location;
+        private Location location;
         private Model lastModel = 0;
 
         #endregion
 
         #region Constructor
 
-        public MainMenu(ShopLocation location, ScaledTexture texture) : base("", location.Name)
+        public Menu(Location location, ScaledTexture texture) : base("", location.Name)
         {
             this.location = location;
             Banner = texture;
