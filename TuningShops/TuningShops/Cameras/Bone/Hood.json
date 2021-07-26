@@ -2,14 +2,14 @@
     "id": "6e16303b-f64b-4aea-8368-7d29fae07898",
     "offset_camera": {
         "x": 0,
-        "y": 3,
-        "z": 2
+        "y": 2,
+        "z": 2.25
     },
     "offset_bone": {
         "x": 0,
         "y": 0.5,
         "z": 0
     },
-    "flags": 1,
-    "mod_slot": 7
+    "flags": 5,
+    "bone_name": "bonnet"
 }
