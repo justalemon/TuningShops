@@ -9,7 +9,7 @@
 
         public ColorChrome(ColorSlot slot, int value) : base(slot, "Chrome")
         {
-            Add(new ColorItem(this, "Chrome", 120, slot, value));
+            Add(new ColorItem("Chrome", 120, slot, value));
         }
 
         #endregion

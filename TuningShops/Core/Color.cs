@@ -1,6 +1,5 @@
 ﻿using GTA;
 using GTA.Native;
-using LemonUI.Menus;
 using System;
 
 namespace TuningShops.Core
@@ -121,12 +120,6 @@ namespace TuningShops.Core
         /// </summary>
         public class ColorItem : ModItem
         {
-            #region Fields
-
-            private readonly Color menu;
-
-            #endregion
-
             #region Properties
 
             /// <summary>
@@ -142,21 +135,10 @@ namespace TuningShops.Core
 
             #region Constructor
 
-            public ColorItem(Color menu, string name, int id, ColorSlot slot, int value) : base(name, "", value)
+            public ColorItem(string name, int id, ColorSlot slot, int value) : base(id, name, "", value)
             {
-                this.menu = menu;
                 Id = id;
                 Slot = slot;
-                Activated += ColorItem_Activated;
-            }
-
-            #endregion
-
-            #region Events
-
-            private void ColorItem_Activated(object sender, EventArgs e)
-            {
-                menu.ModValue = Id;
             }
 
             #endregion
