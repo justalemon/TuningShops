@@ -39,18 +39,38 @@ namespace TuningShops.Slots
 
             Shown += (sender, e) =>
             {
-                Game.Player.CanControlCharacter = false;
-                Game.Player.Character.CurrentVehicle.IsPositionFrozen = false;
-                Game.Player.Character.CurrentVehicle.CanTiresBurst = false;
-                Function.Call(Hash.TASK_VEHICLE_TEMP_ACTION, Game.Player.Character, Game.Player.Character.CurrentVehicle, 30, 60 * 60 * 24);
             };
             Closed += (sender, e) =>
             {
-                Game.Player.CanControlCharacter = true;
-                Game.Player.Character.CurrentVehicle.IsPositionFrozen = true;
-                Game.Player.Character.CurrentVehicle.CanTiresBurst = true;
-                Game.Player.Character.Task.ClearAll();
             };
+
+            Shown += LSCTireSmoke_Shown;
+            Closed += LSCTireSmoke_Closed;
+        }
+
+        #endregion
+
+        #region Events
+
+        private void LSCTireSmoke_Shown(object sender, EventArgs e)
+        {
+            Ped ped = Game.Player.Character;
+            Vehicle vehicle = ped.CurrentVehicle;
+
+            Game.Player.CanControlCharacter = false;
+            vehicle.IsPositionFrozen = false;
+            vehicle.CanTiresBurst = false;
+            Function.Call(Hash.TASK_VEHICLE_TEMP_ACTION, ped, vehicle, 30, 60 * 60 * 24);
+        }
+        private void LSCTireSmoke_Closed(object sender, EventArgs e)
+        {
+            Ped ped = Game.Player.Character;
+            Vehicle vehicle = ped.CurrentVehicle;
+
+            Game.Player.CanControlCharacter = true;
+            vehicle.IsPositionFrozen = true;
+            vehicle.CanTiresBurst = true;
+            ped.Task.ClearAll();
         }
 
         #endregion
