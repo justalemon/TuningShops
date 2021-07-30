@@ -1,5 +1,6 @@
 ﻿using GTA;
 using LemonUI.Menus;
+using System;
 using System.ComponentModel;
 using TuningShops.Cameras;
 
@@ -19,6 +20,10 @@ namespace TuningShops.Core
         #region Properties
 
         /// <summary>
+        /// The last modification value used on this shop.
+        /// </summary>
+        public int LastValue { get; set; }
+        /// <summary>
         /// The value of the modification.
         /// </summary>
         public abstract int ModValue { get; set; }
@@ -31,6 +36,7 @@ namespace TuningShops.Core
         {
             UseMouse = false;
             Opening += BaseType_Opening;
+            Closed += BaseType_Closed;
         }
 
         #endregion
@@ -77,7 +83,13 @@ namespace TuningShops.Core
                 lastModel = model;
             }
 
+            LastValue = ModValue;
+
             SelectCurrent(vehicle);
+        }
+        private void BaseType_Closed(object sender, EventArgs e)
+        {
+            ModValue = LastValue;
         }
 
         #endregion
