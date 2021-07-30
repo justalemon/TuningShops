@@ -6,7 +6,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Basics for the Mobile Operations Center related stuff.
     /// </summary>
-    public abstract class MobileOperationsCenter : BaseType
+    public abstract class MobileOperationsCenter : SpecialVehicle
     {
         #region Constructor
 

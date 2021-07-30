@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// The basics for all Terrorbyte customizations.
     /// </summary>
-    public abstract class Terrorbyte : BaseType
+    public abstract class Terrorbyte : SpecialVehicle
     {
         #region Constructor
 
