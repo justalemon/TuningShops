@@ -3,6 +3,7 @@ using GTA.Native;
 using LemonUI.Menus;
 using System;
 using TuningShops.Core;
+using TuningShops.Items;
 using Color = System.Drawing.Color;
 
 namespace TuningShops.Slots
@@ -86,52 +87,6 @@ namespace TuningShops.Slots
         {
             Model model = vehicle.Model;
             return model.IsVehicle || model.IsBike || model.IsBicycle;
-        }
-
-        #endregion
-
-        #region Tire Smoke Item
-
-        /// <summary>
-        /// The item used to select the tire smoke options.
-        /// </summary>
-        public class TireSmokeItem : NativeItem
-        {
-            #region Properties
-
-            /// <summary>
-            /// THe color of the tire smoke.
-            /// </summary>
-            public Color Color { get; }
-
-            #endregion
-
-            #region Constructor
-
-            public TireSmokeItem(string text, Color color) : base($"{text} Tire Smoke")
-            {
-                Color = color;
-                Activated += TireSmokeItem_Activated;
-            }
-
-            #endregion
-
-            #region Events
-
-            private void TireSmokeItem_Activated(object sender, EventArgs e)
-            {
-                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-                if (vehicle == null)
-                {
-                    return;
-                }
-
-                Function.Call(Hash.TOGGLE_VEHICLE_MOD, vehicle, 20, true);
-                Function.Call(Hash.SET_VEHICLE_TYRE_SMOKE_COLOR, vehicle, Color.R, Color.G, Color.B);
-            }
-
-            #endregion
         }
 
         #endregion
