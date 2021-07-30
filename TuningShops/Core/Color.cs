@@ -116,6 +116,12 @@ namespace TuningShops.Core
         /// </summary>
         public class ColorItem : NativeItem
         {
+            #region Fields
+
+            private readonly Color menu;
+
+            #endregion
+
             #region Properties
 
             /// <summary>
@@ -131,8 +137,9 @@ namespace TuningShops.Core
 
             #region Constructor
 
-            public ColorItem(string name, int id, ColorSlot slot) : base(name)
+            public ColorItem(Color menu, string name, int id, ColorSlot slot) : base(name)
             {
+                this.menu = menu;
                 Id = id;
                 Slot = slot;
                 Activated += ColorItem_Activated;
@@ -144,38 +151,7 @@ namespace TuningShops.Core
 
             private void ColorItem_Activated(object sender, EventArgs e)
             {
-                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-                if (vehicle == null)
-                {
-                    return;
-                }
-
-                Function.Call(Hash.SET_VEHICLE_MOD_KIT, vehicle, 0);
-
-                int primary, secondary, pearlescent, wheel;
-                unsafe
-                {
-                    Function.Call(Hash.GET_VEHICLE_COLOURS, vehicle, &primary, &secondary);
-                    Function.Call(Hash.GET_VEHICLE_EXTRA_COLOURS, vehicle, &pearlescent, &wheel);
-                }
-
-                switch (Slot)
-                {
-                    case ColorSlot.Primary:
-                        Function.Call(Hash.SET_VEHICLE_COLOURS, vehicle, Id, secondary);
-                        break;
-                    case ColorSlot.Secondary:
-                        Function.Call(Hash.SET_VEHICLE_COLOURS, vehicle, primary, Id);
-                        break;
-                    case ColorSlot.Pearlescent:
-                        Function.Call(Hash.SET_VEHICLE_EXTRA_COLOURS, vehicle, Id, wheel);
-                        break;
-                    case ColorSlot.Wheels:
-                        Function.Call(Hash.SET_VEHICLE_EXTRA_COLOURS, vehicle, pearlescent, Id);
-                        break;
-                }
-
+                menu.ModValue = Id;
             }
 
             #endregion

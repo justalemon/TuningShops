@@ -9,11 +9,11 @@
 
         public ColorMetals(ColorSlot slot) : base(slot, "Metal")
         {
-            Add(new ColorItem("Brushed Steel", 117, slot));
-            Add(new ColorItem("Brushed Black Steel", 118, slot));
-            Add(new ColorItem("Brushed Aluminum", 119, slot));
-            Add(new ColorItem("Pure Gold", 158, slot));
-            Add(new ColorItem("Brushed Gold", 159, slot));
+            Add(new ColorItem(this, "Brushed Steel", 117, slot));
+            Add(new ColorItem(this, "Brushed Black Steel", 118, slot));
+            Add(new ColorItem(this, "Brushed Aluminum", 119, slot));
+            Add(new ColorItem(this, "Pure Gold", 158, slot));
+            Add(new ColorItem(this, "Brushed Gold", 159, slot));
         }
 
         #endregion
