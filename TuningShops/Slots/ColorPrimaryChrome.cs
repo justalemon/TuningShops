@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public ColorPrimaryChrome() : base(ColorSlot.Primary)
+        public ColorPrimaryChrome() : base(ColorSlot.Primary, 1200)
         {
         }
 

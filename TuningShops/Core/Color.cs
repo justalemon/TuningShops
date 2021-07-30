@@ -119,7 +119,7 @@ namespace TuningShops.Core
         /// <summary>
         /// Represnets the item used to select a color.
         /// </summary>
-        public class ColorItem : NativeItem
+        public class ColorItem : ModItem
         {
             #region Fields
 
@@ -142,7 +142,7 @@ namespace TuningShops.Core
 
             #region Constructor
 
-            public ColorItem(Color menu, string name, int id, ColorSlot slot) : base(name)
+            public ColorItem(Color menu, string name, int id, ColorSlot slot, int value) : base(name, "", value)
             {
                 this.menu = menu;
                 Id = id;

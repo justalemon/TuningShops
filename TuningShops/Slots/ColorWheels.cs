@@ -7,7 +7,7 @@
     {
         #region Constructor
 
-        public ColorWheels() : base(ColorSlot.Wheels)
+        public ColorWheels() : base(ColorSlot.Wheels, 500)
         {
         }
 

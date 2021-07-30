@@ -7,9 +7,9 @@
     {
         #region Constructor
 
-        public ColorChrome(ColorSlot slot) : base(slot, "Chrome")
+        public ColorChrome(ColorSlot slot, int value) : base(slot, "Chrome")
         {
-            Add(new ColorItem(this, "Chrome", 120, slot));
+            Add(new ColorItem(this, "Chrome", 120, slot, value));
         }
 
         #endregion

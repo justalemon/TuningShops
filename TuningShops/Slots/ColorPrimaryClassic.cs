@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public ColorPrimaryClassic() : base(ColorSlot.Primary, "Classic")
+        public ColorPrimaryClassic() : base(ColorSlot.Primary, "Classic", 400)
         {
         }
 

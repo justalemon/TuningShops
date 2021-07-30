@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public ColorPearlescent() : base(ColorSlot.Pearlescent, "")
+        public ColorPearlescent() : base(ColorSlot.Pearlescent, "", 1100)
         {
         }
 

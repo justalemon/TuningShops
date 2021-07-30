@@ -7,13 +7,13 @@
     {
         #region Constructor
 
-        public ColorMetals(ColorSlot slot) : base(slot, "Metal")
+        public ColorMetals(ColorSlot slot, int value) : base(slot, "Metal")
         {
-            Add(new ColorItem(this, "Brushed Steel", 117, slot));
-            Add(new ColorItem(this, "Brushed Black Steel", 118, slot));
-            Add(new ColorItem(this, "Brushed Aluminum", 119, slot));
-            Add(new ColorItem(this, "Pure Gold", 158, slot));
-            Add(new ColorItem(this, "Brushed Gold", 159, slot));
+            Add(new ColorItem(this, "Brushed Steel", 117, slot, value));
+            Add(new ColorItem(this, "Brushed Black Steel", 118, slot, value));
+            Add(new ColorItem(this, "Brushed Aluminum", 119, slot, value));
+            Add(new ColorItem(this, "Pure Gold", 158, slot, value));
+            Add(new ColorItem(this, "Brushed Gold", 159, slot, value));
         }
 
         #endregion

@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     {
         #region Constructor
 
-        public ColorSecondaryMatte() : base(ColorSlot.Secondary)
+        public ColorSecondaryMatte() : base(ColorSlot.Secondary, 1000)
         {
         }
 
