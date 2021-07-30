@@ -36,6 +36,8 @@ namespace TuningShops.Core
         {
             UseMouse = false;
             Opening += BaseType_Opening;
+            SelectedIndexChanged += BaseType_SelectedIndexChanged;
+            ItemActivated += BaseType_ItemActivated;
             Closed += BaseType_Closed;
         }
 
@@ -86,6 +88,29 @@ namespace TuningShops.Core
             LastValue = ModValue;
 
             SelectCurrent(vehicle);
+        }
+
+        private void BaseType_SelectedIndexChanged(object sender, SelectedEventArgs e)
+        {
+            ModItem item = Items[e.Index] as ModItem;
+
+            if (item == null)
+            {
+                return;
+            }
+
+            ModValue = item.Index;
+        }
+        private void BaseType_ItemActivated(object sender, ItemActivatedArgs e)
+        {
+            ModItem item = e.Item as ModItem;
+
+            if (item == null)
+            {
+                return;
+            }
+
+            LastValue = item.Index;
         }
         private void BaseType_Closed(object sender, EventArgs e)
         {
