@@ -38,13 +38,6 @@ namespace TuningShops.Slots
             Add(new TireSmokeItem("Brown", Color.FromArgb(255, 180, 130, 97)));
             Add(new TireSmokeItem("Patriot", Color.FromArgb(255, 0, 0, 0)));
 
-            Shown += (sender, e) =>
-            {
-            };
-            Closed += (sender, e) =>
-            {
-            };
-
             Shown += LSCTireSmoke_Shown;
             Closed += LSCTireSmoke_Closed;
         }
