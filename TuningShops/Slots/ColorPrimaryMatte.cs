@@ -1,4 +1,5 @@
 ﻿using TuningShops.Core;
+using TuningShops.Items;
 
 namespace TuningShops.Slots
 {

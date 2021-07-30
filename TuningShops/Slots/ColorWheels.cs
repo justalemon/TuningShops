@@ -1,4 +1,6 @@
-﻿namespace TuningShops.Slots
+﻿using TuningShops.Items;
+
+namespace TuningShops.Slots
 {
     /// <summary>
     /// Applies Wheel colors to the primary slot.
