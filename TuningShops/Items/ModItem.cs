@@ -1,6 +1,6 @@
 ﻿using LemonUI.Menus;
 
-namespace TuningShops.Core
+namespace TuningShops.Items
 {
     /// <summary>
     /// The basic item for all of the modifications.
