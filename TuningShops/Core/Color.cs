@@ -75,6 +75,10 @@ namespace TuningShops.Core
                 }
             }
         }
+        /// <summary>
+        /// The color slot that this menu controls.
+        /// </summary>
+        public ColorSlot Slot { get; }
 
         #endregion
 
@@ -82,6 +86,7 @@ namespace TuningShops.Core
 
         public Color(ColorSlot slot, string type) : base($"{slot} Color" + (string.IsNullOrWhiteSpace(type) ? "" : $": {type}"))
         {
+            Slot = slot;
         }
 
         #endregion
