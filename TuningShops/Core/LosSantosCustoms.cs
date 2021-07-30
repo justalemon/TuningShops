@@ -3,6 +3,7 @@ using GTA.Native;
 using LemonUI.Menus;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace TuningShops.Core
 {
@@ -72,6 +73,17 @@ namespace TuningShops.Core
 
         #region Properties
 
+        /// <inheritdoc/>
+        public override int ModValue
+        {
+            get => Function.Call<int>(Hash.GET_VEHICLE_MOD, Game.Player.Character.CurrentVehicle, Slot);
+            set
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+                Function.Call(Hash.SET_​VEHICLE_​MOD_​KIT, vehicle, 0);
+                Function.Call(Hash.SET_VEHICLE_MOD, vehicle, Slot, value, false);
+            }
+        }
         /// <summary>
         /// If this menu should be repopulate when being opened.
         /// </summary>

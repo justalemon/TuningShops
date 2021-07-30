@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using System.Reflection;
 using TuningShops.Core;
 
 namespace TuningShops.Slots
@@ -11,6 +12,17 @@ namespace TuningShops.Slots
     /// </summary>
     public class Liveries : BaseType
     {
+        #region Properties
+
+        /// <inheritdoc/>
+        public override int ModValue
+        {
+            get => Function.Call<int>(Hash.GET_VEHICLE_LIVERY, Game.Player.Character.CurrentVehicle);
+            set => Function.Call(Hash.SET_VEHICLE_LIVERY, Game.Player.Character.CurrentVehicle, value);
+        }
+
+        #endregion
+
         #region Constructor
 
         public Liveries() : base("Liveries")

@@ -16,6 +16,15 @@ namespace TuningShops.Core
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// The value of the modification.
+        /// </summary>
+        public abstract int ModValue { get; set; }
+
+        #endregion
+
         #region Constructor
 
         public BaseType(string title) : base("", title)

@@ -11,6 +11,17 @@ namespace TuningShops.Slots
     /// </summary>
     public class Plate : BaseType
     {
+        #region Properties
+
+        /// <inheritdoc/>
+        public override int ModValue
+        {
+            get => Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, Game.Player.Character.CurrentVehicle);
+            set => Function.Call(Hash.SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX, Game.Player.Character.CurrentVehicle, value);
+        }
+
+        #endregion
+
         #region Constructor
 
         public Plate() : base("Plate")

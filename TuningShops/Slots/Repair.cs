@@ -9,6 +9,19 @@ namespace TuningShops.Slots
     /// </summary>
     public class Repair : BaseType
     {
+        #region Properties
+
+        /// <inheritdoc/>
+        public override int ModValue
+        {
+            get => 0;
+            set
+            {
+            }
+        }
+
+        #endregion
+
         #region Constructor
 
         public Repair() : base("Repair Vehicle")
