@@ -13,13 +13,18 @@ namespace TuningShops.Core
         /// The value of this modification.
         /// </summary>
         public virtual int Value { get; }
+        /// <summary>
+        /// The index of the modification.
+        /// </summary>
+        public virtual int Index { get; }
 
         #endregion
 
         #region Properties
 
-        public ModItem(string name, string description, int value) : base(name, description, $"${value}")
+        public ModItem(int index, string name, string description, int value) : base(name, description, $"${value}")
         {
+            Index = index;
             Value = value;
         }
 
