@@ -111,6 +111,11 @@ namespace TuningShops.Core
                 return;
             }
 
+            if (!Money.ChargeIfPossible(item.Value))
+            {
+                return;
+            }
+
             LastValue = item.Index;
         }
         private void BaseType_Closed(object sender, EventArgs e)
