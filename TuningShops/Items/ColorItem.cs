@@ -14,7 +14,7 @@
     /// <summary>
     /// Represnets the item used to select a color.
     /// </summary>
-    public class ColorItem : ModItem
+    public class ColorItem : CoreItem
     {
         #region Properties
 

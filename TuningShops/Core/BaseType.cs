@@ -3,6 +3,7 @@ using LemonUI.Menus;
 using System;
 using System.ComponentModel;
 using TuningShops.Cameras;
+using TuningShops.Items;
 
 namespace TuningShops.Core
 {
@@ -92,7 +93,7 @@ namespace TuningShops.Core
 
         private void BaseType_SelectedIndexChanged(object sender, SelectedEventArgs e)
         {
-            ModItem item = Items[e.Index] as ModItem;
+            CoreItem item = Items[e.Index] as CoreItem;
 
             if (item == null)
             {
@@ -103,7 +104,7 @@ namespace TuningShops.Core
         }
         private void BaseType_ItemActivated(object sender, ItemActivatedArgs e)
         {
-            ModItem item = e.Item as ModItem;
+            CoreItem item = e.Item as CoreItem;
 
             if (item == null)
             {

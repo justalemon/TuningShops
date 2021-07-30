@@ -5,7 +5,7 @@ namespace TuningShops.Items
     /// <summary>
     /// The basic item for all of the modifications.
     /// </summary>
-    public class ModItem : NativeItem
+    public class CoreItem : NativeItem
     {
         #region Properties
 
@@ -22,7 +22,7 @@ namespace TuningShops.Items
 
         #region Properties
 
-        public ModItem(int index, string name, string description, int value) : base(name, description, $"${value}")
+        public CoreItem(int index, string name, string description, int value) : base(name, description, $"${value}")
         {
             Index = index;
             Value = value;
