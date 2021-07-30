@@ -1,8 +1,7 @@
 ﻿using GTA;
 using GTA.Native;
-using LemonUI.Menus;
-using System;
 using TuningShops.Core;
+using TuningShops.Items;
 
 namespace TuningShops.Slots
 {
@@ -24,21 +23,21 @@ namespace TuningShops.Slots
 
         public LSCHeadlights() : base(22, "Headlights")
         {
-            Add(new ItemHeadlights("CMOD_LGT_0", false, -1));
-            Add(new ItemHeadlights("CMOD_LGT_1", true, -1));
-            Add(new ItemHeadlights("CMOD_LGT_2", true, 0));
-            Add(new ItemHeadlights("CMOD_LGT_3", true, 1));
-            Add(new ItemHeadlights("CMOD_LGT_4", true, 2));
-            Add(new ItemHeadlights("CMOD_LGT_5", true, 3));
-            Add(new ItemHeadlights("CMOD_LGT_6", true, 4));
-            Add(new ItemHeadlights("CMOD_LGT_7", true, 5));
-            Add(new ItemHeadlights("CMOD_LGT_8", true, 6));
-            Add(new ItemHeadlights("CMOD_LGT_9", true, 7));
-            Add(new ItemHeadlights("CMOD_LGT_10", true, 8));
-            Add(new ItemHeadlights("CMOD_LGT_11", true, 9));
-            Add(new ItemHeadlights("CMOD_LGT_12", true, 10));
-            Add(new ItemHeadlights("CMOD_LGT_13", true, 11));
-            Add(new ItemHeadlights("CMOD_LGT_14", true, 12));
+            Add(new HeadlightsItem("CMOD_LGT_0", false, -1));
+            Add(new HeadlightsItem("CMOD_LGT_1", true, -1));
+            Add(new HeadlightsItem("CMOD_LGT_2", true, 0));
+            Add(new HeadlightsItem("CMOD_LGT_3", true, 1));
+            Add(new HeadlightsItem("CMOD_LGT_4", true, 2));
+            Add(new HeadlightsItem("CMOD_LGT_5", true, 3));
+            Add(new HeadlightsItem("CMOD_LGT_6", true, 4));
+            Add(new HeadlightsItem("CMOD_LGT_7", true, 5));
+            Add(new HeadlightsItem("CMOD_LGT_8", true, 6));
+            Add(new HeadlightsItem("CMOD_LGT_9", true, 7));
+            Add(new HeadlightsItem("CMOD_LGT_10", true, 8));
+            Add(new HeadlightsItem("CMOD_LGT_11", true, 9));
+            Add(new HeadlightsItem("CMOD_LGT_12", true, 10));
+            Add(new HeadlightsItem("CMOD_LGT_13", true, 11));
+            Add(new HeadlightsItem("CMOD_LGT_14", true, 12));
 
             Opening += (sender, e) =>Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 2);
             Closing += (sender, e) => Function.Call(Hash.SET_VEHICLE_LIGHTS, Game.Player.Character.CurrentVehicle, 0);
@@ -61,64 +60,6 @@ namespace TuningShops.Slots
         /// <inheritdoc/>
         public override void SelectCurrent(Vehicle vehicle)
         {
-        }
-
-        #endregion
-
-        #region Headlights Item
-
-        /// <summary>
-        /// The item that changes the current headlights.
-        /// </summary>
-        public class ItemHeadlights : NativeItem
-        {
-            #region Properties
-
-            /// <summary>
-            /// If xenon should be turned on.
-            /// </summary>
-            public bool Xenon { get; }
-            /// <summary>
-            /// The color of the Xenon headlighs.
-            /// </summary>
-            public int Color { get; }
-
-            #endregion
-
-            #region Constructors
-
-            public ItemHeadlights(string label, bool xenon, int color) : base(Function.Call<string>(Hash._GET_LABEL_TEXT, label))
-            {
-                Xenon = xenon;
-                Color = color;
-
-                Activated += ItemHeadlights_Activated;
-            }
-
-            #endregion
-
-            #region Events
-
-            private void ItemHeadlights_Activated(object sender, EventArgs e)
-            {
-                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-                if (vehicle == null)
-                {
-                    return;
-                }
-
-                Function.Call(Hash.TOGGLE_VEHICLE_MOD, vehicle, 22, Xenon);
-
-                if (!Xenon)
-                {
-                    return;
-                }
-
-                Function.Call(Hash._SET_VEHICLE_XENON_LIGHTS_COLOR, vehicle, Color);
-            }
-
-            #endregion
         }
 
         #endregion
