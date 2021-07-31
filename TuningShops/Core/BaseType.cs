@@ -21,6 +21,10 @@ namespace TuningShops.Core
         #region Properties
 
         /// <summary>
+        /// The name of this slot.
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
         /// The last modification value used on this shop.
         /// </summary>
         public int LastValue { get; set; }
@@ -33,8 +37,9 @@ namespace TuningShops.Core
 
         #region Constructor
 
-        public BaseType(string title) : base("", title)
+        public BaseType(string name) : base("", name)
         {
+            Name = name;
             UseMouse = false;
             Opening += BaseType_Opening;
             SelectedIndexChanged += BaseType_SelectedIndexChanged;
