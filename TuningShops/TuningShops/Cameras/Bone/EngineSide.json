@@ -1,0 +1,15 @@
+{
+    "id": "fc60b8fb-6b4d-473a-8d51-54b53744dc0f",
+    "offset_camera": {
+        "x": -2,
+        "y": 0.25,
+        "z": 2
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 5,
+    "bone_name": "engine"
+}
