@@ -1,0 +1,15 @@
+{
+    "id": "003dedba-70d1-4dfc-bb67-06d19fa051af",
+    "offset_camera": {
+        "x": 0,
+        "y": 0,
+        "z": 2.25
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": -0.75,
+        "z": 0
+    },
+    "flags": 5,
+    "bone_name": "bonnet"
+}
