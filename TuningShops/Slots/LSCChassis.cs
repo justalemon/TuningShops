@@ -3,13 +3,13 @@ using TuningShops.Core;
 namespace TuningShops.Slots
 {
     /// <summary>
-    /// The roll cage menu option.
+    /// The chassis/roll cage menu option.
     /// </summary>
-    public class LSCRollCage : LosSantosCustoms
+    public class LSCChassis : LosSantosCustoms
     {
         #region Constructor
 
-        public LSCRollCage() : base(5, "Roll Cage")
+        public LSCChassis() : base(5, "Chassis")
         {
         }
 
