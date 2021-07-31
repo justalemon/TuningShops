@@ -14,7 +14,8 @@ namespace TuningShops.Overrides
     {
         #region Fields
 
-        private static readonly Dictionary<Model, Dictionary<string, Guid>> overrides = new Dictionary<Model, Dictionary<string, Guid>>();
+        private static readonly Dictionary<Model, Dictionary<string, Guid>> cameras = new Dictionary<Model, Dictionary<string, Guid>>();
+        private static readonly Dictionary<Model, Dictionary<string, string>> names = new Dictionary<Model, Dictionary<string, string>>();
 
         #endregion
 
@@ -35,27 +36,46 @@ namespace TuningShops.Overrides
 
                 foreach (Override @override in @new)
                 {
-                    Dictionary<string, Guid> dict;
-
-                    if (overrides.ContainsKey(@override.Model))
+                    Dictionary<string, Guid> cam;
+                    if (cameras.ContainsKey(@override.Model))
                     {
-                        dict = overrides[@override.Model];
+                        cam = cameras[@override.Model];
                     }
                     else
                     {
-                        dict = new Dictionary<string, Guid>();
-                        overrides.Add(@override.Model, dict);
+                        cam = new Dictionary<string, Guid>();
+                        cameras.Add(@override.Model, cam);
                     }
 
-                    foreach (KeyValuePair<string, Guid> newOverride in @override.Cameras)
+                    foreach (KeyValuePair<string, Guid> newCamera in @override.Cameras)
                     {
-                        if (dict.ContainsKey(newOverride.Key))
+                        if (cam.ContainsKey(newCamera.Key))
                         {
-                            Notification.Show($"~o~Warning~s~: Model {@override.Model} already has an Override for {newOverride.Key}!");
+                            Notification.Show($"~o~Warning~s~: Model {@override.Model} already has a Camera Override for {newCamera.Key}!");
                             continue;
                         }
+                        cam.Add(newCamera.Key, newCamera.Value);
+                    }
 
-                        dict.Add(newOverride.Key, newOverride.Value);
+                    Dictionary<string, string> name;
+                    if (names.ContainsKey(@override.Model))
+                    {
+                        name = names[@override.Model];
+                    }
+                    else
+                    {
+                        name = new Dictionary<string, string>();
+                        names.Add(@override.Model, name);
+                    }
+
+                    foreach (KeyValuePair<string, string> newName in @override.Names)
+                    {
+                        if (name.ContainsKey(newName.Key))
+                        {
+                            Notification.Show($"~o~Warning~s~: Model {@override.Model} already has a Name Override for {newName.Key}!");
+                            continue;
+                        }
+                        name.Add(newName.Key, newName.Value);
                     }
                 }
             }
@@ -78,9 +98,9 @@ namespace TuningShops.Overrides
         /// <returns>true if there was an override found, false otherwise.</returns>
         public static bool GetCameraOverride(string name, Model model, out Guid id)
         {
-            if (overrides.ContainsKey(model))
+            if (cameras.ContainsKey(model))
             {
-                if (overrides[model].TryGetValue(name, out Guid found))
+                if (cameras[model].TryGetValue(name, out Guid found))
                 {
                     id = found;
                     return true;
@@ -91,11 +111,32 @@ namespace TuningShops.Overrides
             return false;
         }
         /// <summary>
+        /// Gets the name for a menu.
+        /// </summary>
+        /// <param name="name">The name of the menu.</param>
+        /// <param name="model">The model to look for.</param>
+        /// <param name="id">The found name, or an empty string.</param>
+        /// <returns>true if a custom name was found, false otherwise.</returns>
+        public static bool GetName(string name, Model model, out string @class)
+        {
+            if (names.ContainsKey(model))
+            {
+                if (names[model].TryGetValue(name, out string found))
+                {
+                    @class = found;
+                    return true;
+                }
+            }
+
+            @class = "";
+            return false;
+        }
+        /// <summary>
         /// Populates all of the overrides.
         /// </summary>
         public static void Populate()
         {
-            overrides.Clear();
+            cameras.Clear();
 
             string path = Path.Combine(TuningShops.location, "Overrides");
 

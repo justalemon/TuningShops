@@ -20,5 +20,10 @@ namespace TuningShops.Overrides
         /// </summary>
         [JsonProperty("cameras", Required = Required.Always)]
         public Dictionary<string, Guid> Cameras { get; set; }
+        /// <summary>
+        /// The menu name overrides.
+        /// </summary>
+        [JsonProperty("names", Required = Required.Always)]
+        public Dictionary<string, string> Names { get; set; }
     }
 }

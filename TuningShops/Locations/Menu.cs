@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using TuningShops.Cameras;
 using TuningShops.Core;
+using TuningShops.Overrides;
 
 namespace TuningShops.Locations
 {
@@ -76,6 +77,15 @@ namespace TuningShops.Locations
             {
                 if (menu.CanUse(vehicle))
                 {
+                    if (OverrideManager.GetName(menu.GetType().FullName, model, out string name))
+                    {
+                        menu.Subtitle = name;
+                    }
+                    else
+                    {
+                        menu.Subtitle = menu.Name;
+                    }
+
                     AddSubMenu(menu);
                 }
             }
