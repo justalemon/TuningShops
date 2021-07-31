@@ -6,6 +6,7 @@ using System.Reflection;
 using TuningShops.Cameras;
 using TuningShops.Locations;
 using TuningShops.Memory;
+using TuningShops.Overrides;
 
 namespace TuningShops
 {
@@ -50,6 +51,7 @@ namespace TuningShops
         {
             LocationManager.Populate();
             CameraManager.Populate();
+            OverrideManager.Populate();
 
             Tick -= TuningShops_Tick_Init;
             Tick += TuningShops_Tick_Run;

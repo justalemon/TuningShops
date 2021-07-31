@@ -3,12 +3,12 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-namespace TuningShops.Cameras
+namespace TuningShops.Overrides
 {
     /// <summary>
     /// Represents the different Overrides done by a specific vehicle.
     /// </summary>
-    public class CameraOverride
+    public class Override
     {
         /// <summary>
         /// The Model that uses this set of overrides.
@@ -16,9 +16,9 @@ namespace TuningShops.Cameras
         [JsonProperty("model", Required = Required.Always)]
         public Model Model { get; set; }
         /// <summary>
-        /// The overrides to apply.
+        /// The camera overrides.
         /// </summary>
-        [JsonProperty("overrides", Required = Required.Always)]
-        public Dictionary<string, Guid> Overrides { get; set; }
+        [JsonProperty("cameras", Required = Required.Always)]
+        public Dictionary<string, Guid> Cameras { get; set; }
     }
 }
