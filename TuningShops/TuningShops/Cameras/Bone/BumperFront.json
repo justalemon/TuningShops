@@ -1,0 +1,15 @@
+{
+    "id": "0de26cf0-0c51-472f-9310-0092f65790b1",
+    "offset_camera": {
+        "x": 0,
+        "y": 5,
+        "z": 0
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "flags": 17,
+    "bone_name": "bumper_f"
+}
