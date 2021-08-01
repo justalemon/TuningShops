@@ -14,5 +14,6 @@ namespace TuningShops.Cameras
         WideFov = 4,
         FromDriver = 8,
         CenterCameraX = 16,
+        CameraRelativeSize = 32,
     }
 }

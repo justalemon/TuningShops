@@ -67,12 +67,17 @@ namespace TuningShops.Cameras
             }
             vehicle.IsInteriorLightOn = true;
 
+            (_, Vector3 frontTopRight) = vehicle.Model.Dimensions;
+
             Vector3 bonePos = bone.RelativePosition;
-            Vector3 camPos = Flags.HasFlag(CameraFlags.FromDriver) ? vehicle.GetPositionOffset(vehicle.GetPedOnSeat(VehicleSeat.Driver).Bones[Bone.SkelHead].Position) : bonePos;
+            Vector3 baseCamPos = Flags.HasFlag(CameraFlags.FromDriver) ? vehicle.GetPositionOffset(vehicle.GetPedOnSeat(VehicleSeat.Driver).Bones[Bone.SkelHead].Position) : bonePos;
+            Vector3 camOffset = Flags.HasFlag(CameraFlags.CameraRelativeSize) ? new Vector3(CameraOffset.X * frontTopRight.X, CameraOffset.Y * frontTopRight.Y, CameraOffset.Z * frontTopRight.Z) : CameraOffset;
 
             Vector3 target = new Vector3(Flags.HasFlag(CameraFlags.CenterBoneX) ? 0 : bonePos.X, bonePos.Y, bonePos.Z) + BoneOffset;
 
-            camera = World.CreateCamera(vehicle.GetOffsetPosition(new Vector3(Flags.HasFlag(CameraFlags.CenterCameraX) ? 0 : camPos.X + CameraOffset.X, camPos.Y + CameraOffset.Y, camPos.Z + CameraOffset.Z)), Vector3.Zero, Flags.HasFlag(CameraFlags.WideFov) ? 50 : 30);
+            Vector3 relativeCamPos = new Vector3(Flags.HasFlag(CameraFlags.CenterCameraX) ? 0 : (baseCamPos.X + camOffset.X), baseCamPos.Y + camOffset.Y, baseCamPos.Z + camOffset.Z);
+
+            camera = World.CreateCamera(vehicle.GetOffsetPosition(relativeCamPos), Vector3.Zero, Flags.HasFlag(CameraFlags.WideFov) ? 50 : 30);
             camera.PointAt(vehicle.GetOffsetPosition(target));
             World.RenderingCamera = camera;
         }
