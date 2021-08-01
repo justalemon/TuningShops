@@ -176,6 +176,7 @@ namespace TuningShops.Core
                     case 0: return "Street Transmission";
                     case 1: return "Sport Transmission";
                     case 2: return "Race Transmission";
+                    case 3: return "Super Transmission";
                 }
             }
             else if (Slot == 15)
@@ -187,6 +188,7 @@ namespace TuningShops.Core
                     case 1: return "Street Suspension";
                     case 2: return "Sport Suspension";
                     case 3: return "Competition Suspension";
+                    case 4: return "Race Suspension";
                 }
             }
             else if (Slot == 16)
