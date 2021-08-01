@@ -2,7 +2,7 @@
     "id": "1403c06e-9093-430a-aba5-e07659583633",
     "offset_camera": {
         "x": 0,
-        "y": 5,
+        "y": 2,
         "z": 0
     },
     "offset_bone": {
@@ -10,6 +10,6 @@
         "y": 0,
         "z": 0
     },
-    "flags": 17,
+    "flags": 49,
     "bone_name": "headlight_l"
 }
