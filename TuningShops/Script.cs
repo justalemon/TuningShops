@@ -1,4 +1,5 @@
 ﻿using GTA;
+using GTA.UI;
 using LemonUI;
 using System;
 using System.IO;
@@ -58,6 +59,22 @@ namespace TuningShops
         }
         private void TuningShops_Tick_Run(object sender, EventArgs e)
         {
+            if (Game.WasCheatStringJustEntered("tsloc"))
+            {
+                LocationManager.Populate();
+                Notification.Show($"~q~Locations have been reloaded!");
+            }
+            else if (Game.WasCheatStringJustEntered("tscam"))
+            {
+                CameraManager.Populate();
+                Notification.Show($"~q~Cameras have been reloaded!");
+            }
+            else if (Game.WasCheatStringJustEntered("tsover"))
+            {
+                OverrideManager.Populate();
+                Notification.Show($"~q~Overrides have been reloaded!");
+            }
+
             pool.Process();
             LocationManager.Process();
         }
