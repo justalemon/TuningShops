@@ -1,7 +1,7 @@
 {
     "id": "dd182935-09ae-45e9-b81c-888a09afbd69",
     "offset_camera": {
-        "x": -3,
+        "x": -2,
         "y": 0,
         "z": 0
     },
@@ -10,6 +10,6 @@
         "y": 0,
         "z": 0
     },
-    "flags": 0,
+    "flags": 32,
     "bone_name": "wheel_lf"
 }
