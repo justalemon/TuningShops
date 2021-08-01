@@ -1,0 +1,15 @@
+{
+    "id": "0ed0892a-6d38-40b0-9faa-a5759bb14e3e",
+    "offset_camera": {
+        "x": 0,
+        "y": -3,
+        "z": 2
+    },
+    "offset_bone": {
+        "x": 0,
+        "y": 0,
+        "z": 0.75
+    },
+    "flags": 17,
+    "bone_name": "chassis"
+}
