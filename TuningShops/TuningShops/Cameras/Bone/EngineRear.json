@@ -2,14 +2,14 @@
     "id": "f70350c4-884f-4984-bf95-af79bc791e62",
     "offset_camera": {
         "x": 0,
-        "y": -2,
-        "z": 2
+        "y": -0.5,
+        "z": 4
     },
     "offset_bone": {
         "x": 0,
         "y": 0,
         "z": 0
     },
-    "flags": 17,
+    "flags": 49,
     "bone_name": "engine"
 }

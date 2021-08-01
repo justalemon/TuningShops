@@ -3,13 +3,13 @@
     "offset_camera": {
         "x": -2,
         "y": 0.25,
-        "z": 2
+        "z": 1
     },
     "offset_bone": {
         "x": 0,
         "y": 0,
         "z": 0
     },
-    "flags": 5,
+    "flags": 37,
     "bone_name": "engine"
 }
