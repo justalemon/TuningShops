@@ -137,6 +137,7 @@ namespace TuningShops.Overrides
         public static void Populate()
         {
             cameras.Clear();
+            names.Clear();
 
             string path = Path.Combine(TuningShops.location, "Overrides");
 
