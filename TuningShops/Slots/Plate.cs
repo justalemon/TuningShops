@@ -1,7 +1,5 @@
 ﻿using GTA;
 using GTA.Native;
-using LemonUI.Menus;
-using System;
 using TuningShops.Core;
 using TuningShops.Items;
 
