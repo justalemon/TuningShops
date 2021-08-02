@@ -174,6 +174,7 @@ namespace TuningShops.Locations
                     if (vehicle != null)
                     {
                         vehicle.IsPositionFrozen = false;
+                        Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 0);
                     }
 
                     CameraCore.Destroy();
@@ -196,6 +197,8 @@ namespace TuningShops.Locations
 
                 if (pos.DistanceTo(location.Trigger) < 5 && Game.IsControlJustPressed(Control.Context) && vehicle != null)
                 {
+                    Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 2);
+
                     vehicle.PositionNoOffset = location.VehiclePos;
                     vehicle.Heading = location.VehicleHeading;
 
