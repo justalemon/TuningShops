@@ -2,6 +2,7 @@
 using GTA.Math;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace TuningShops.Cameras
 {
@@ -27,6 +28,11 @@ namespace TuningShops.Cameras
         /// </summary>
         [JsonProperty("flags", Required = Required.Always)]
         public CameraFlags Flags { get; set; }
+        /// <summary>
+        /// The doors that need to be opened or closed for the camera to work correctly.
+        /// </summary>
+        [JsonProperty("doors", Required = Required.Always)]
+        public List<VehicleDoorIndex> Doors { get; set; }
 
         #endregion
 
