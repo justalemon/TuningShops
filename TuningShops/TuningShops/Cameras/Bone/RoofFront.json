@@ -11,5 +11,7 @@
         "z": 0.75
     },
     "flags": 49,
+    "doors": [
+    ],
     "bone_name": "chassis"
 }

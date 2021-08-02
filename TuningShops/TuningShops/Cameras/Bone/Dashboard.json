@@ -11,5 +11,7 @@
         "z": 0
     },
     "flags": 7,
+    "doors": [
+    ],
     "bone_name": "steeringwheel"
 }

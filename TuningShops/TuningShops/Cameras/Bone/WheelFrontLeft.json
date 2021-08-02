@@ -11,5 +11,7 @@
         "z": 0
     },
     "flags": 32,
+    "doors": [
+    ],
     "bone_name": "wheel_lf"
 }

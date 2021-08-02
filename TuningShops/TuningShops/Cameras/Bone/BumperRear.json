@@ -11,5 +11,7 @@
         "z": 0
     },
     "flags": 39,
+    "doors": [
+    ],
     "bone_name": "bumper_R"
 }

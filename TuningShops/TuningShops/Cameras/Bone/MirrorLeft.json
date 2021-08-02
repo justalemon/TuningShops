@@ -11,5 +11,7 @@
         "z": 0.3
     },
     "flags": 0,
+    "doors": [
+    ],
     "bone_name": "door_dside_f"
 }

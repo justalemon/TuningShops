@@ -11,5 +11,8 @@
         "z": 0
     },
     "flags": 17,
+    "doors": [
+        4
+    ],
     "bone_name": "bonnet"
 }

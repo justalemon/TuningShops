@@ -11,5 +11,8 @@
         "z": 0
     },
     "flags": 14,
+    "doors": [
+        0
+    ],
     "bone_name": "door_dside_f"
 }

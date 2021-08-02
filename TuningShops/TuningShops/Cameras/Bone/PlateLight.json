@@ -11,5 +11,7 @@
         "z": -0.1
     },
     "flags": 0,
+    "doors": [
+    ],
     "bone_name": "platelight"
 }
