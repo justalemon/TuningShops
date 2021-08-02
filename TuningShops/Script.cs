@@ -1,4 +1,5 @@
 ﻿using GTA;
+using GTA.Native;
 using GTA.UI;
 using LemonUI;
 using System;
@@ -81,9 +82,22 @@ namespace TuningShops
 
         private void TuningShops_Aborted(object sender, EventArgs e)
         {
-            Game.Player.CanControlCharacter = true;
             pool.HideAll();
-            Game.Player.Character.Opacity = 255;
+
+            if (LocationManager.Active != null)
+            {
+                Game.Player.CanControlCharacter = true;
+                Game.Player.Character.IsVisible = true;
+
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle != null)
+                {
+                    vehicle.IsPositionFrozen = false;
+                    Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 0);
+                }
+            }
+
             CameraCore.Destroy();
             LocationManager.DoCleanup();
         }
