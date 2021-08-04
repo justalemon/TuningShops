@@ -1,0 +1,91 @@
+[
+    {
+        "model": "ninef",
+        "cameras": {
+            "TuningShops.Slots.LSCEngine": "f70350c4-884f-4984-bf95-af79bc791e62",
+            "TuningShops.Slots.LSCTransmission": "f70350c4-884f-4984-bf95-af79bc791e62",
+            "TuningShops.Slots.LSCTurbo": "f70350c4-884f-4984-bf95-af79bc791e62"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "ninef2",
+        "cameras": {
+            "TuningShops.Slots.LSCChassis": "3ae929cd-d74c-49c7-8577-1fc26042ef0f",
+            "TuningShops.Slots.LSCEngine": "f70350c4-884f-4984-bf95-af79bc791e62",
+            "TuningShops.Slots.LSCTransmission": "f70350c4-884f-4984-bf95-af79bc791e62",
+            "TuningShops.Slots.LSCTurbo": "f70350c4-884f-4984-bf95-af79bc791e62"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "banshee",
+        "cameras": {
+            "TuningShops.Slots.LSCEngine": "fc60b8fb-6b4d-473a-8d51-54b53744dc0f",
+            "TuningShops.Slots.LSCHood": "003dedba-70d1-4dfc-bb67-06d19fa051af",
+            "TuningShops.Slots.LSCTransmission": "fc60b8fb-6b4d-473a-8d51-54b53744dc0f",
+            "TuningShops.Slots.LSCTurbo": "fc60b8fb-6b4d-473a-8d51-54b53744dc0f"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "buffalo",
+        "cameras": {
+            "TuningShops.Slots.LSCBumperRear": "e204a672-7bed-47e8-a581-bb1bcd53b244"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "comet2",
+        "cameras": {
+            "TuningShops.Slots.LSCEngine": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCRoof": "3ae929cd-d74c-49c7-8577-1fc26042ef0f",
+            "TuningShops.Slots.LSCTransmission": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCTurbo": "00000000-0000-0000-0000-000000000000"
+        },
+        "names": {
+            "TuningShops.Slots.LSCRoof": "Bodywork"
+        }
+    },
+    {
+        "model": "coquette",
+        "cameras": {
+            "TuningShops.Slots.LSCBumperRear": "e204a672-7bed-47e8-a581-bb1bcd53b244",
+            "TuningShops.Slots.LSCChassis": "1419aeee-2536-4318-81fa-1a10575b28b3"
+        },
+        "names": {
+            "TuningShops.Slots.LSCChassis": "Roll Cages"
+        }
+    },
+    {
+        "model": "feltzer2",
+        "cameras": {
+            "TuningShops.Slots.LSCBumperFront": "0de26cf0-0c51-472f-9310-0092f65790b1"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "futo",
+        "cameras": {
+            "TuningShops.Slots.LSCChassis": "1419aeee-2536-4318-81fa-1a10575b28b3",
+            "TuningShops.Slots.LSCRoof": "0ed0892a-6d38-40b0-9faa-a5759bb14e3e"
+        },
+        "names": {
+            "TuningShops.Slots.LSCChassis": "Roll Cages"
+        }
+    },
+    {
+        "model": "penumbra",
+        "cameras": {
+            "TuningShops.Slots.LSCChassis": "1419aeee-2536-4318-81fa-1a10575b28b3"
+        },
+        "names": {
+            "TuningShops.Slots.LSCChassis": "Roll Cages"
+        }
+    }
+]

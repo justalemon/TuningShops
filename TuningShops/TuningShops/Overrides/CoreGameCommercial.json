@@ -1,0 +1,39 @@
+[
+    {
+        "model": "benson",
+        "cameras": {
+            "TuningShops.Slots.LSCTurbo": "fc60b8fb-6b4d-473a-8d51-54b53744dc0f"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "biff",
+        "cameras": {
+            "TuningShops.Slots.LSCTurbo": "fc60b8fb-6b4d-473a-8d51-54b53744dc0f"
+        },
+        "names": {
+        }
+    },
+    {
+        "model": "cerberus",
+        "cameras": {
+            "TuningShops.Slots.BOMWAerials": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.BOMWArchCovers": "0de26cf0-0c51-472f-9310-0092f65790b1",
+            "TuningShops.Slots.BOMWPlaque": "24d68b34-ed11-4dce-a584-7b2707cf7669",
+            "TuningShops.Slots.BOMWStruts": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCHood": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCTransmission": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCTurbo": "00000000-0000-0000-0000-000000000000"
+        },
+        "names": {
+            "TuningShops.Slots.BOMWAerials": "Spikes",
+            "TuningShops.Slots.BOMWAirFilter": "Boost",
+            "TuningShops.Slots.BOMWArchCovers": "Ram Weapons",
+            "TuningShops.Slots.BOMWPlaque": "Bodywork Decorations",
+            "TuningShops.Slots.BOMWStruts": "Vertical Jump",
+            "TuningShops.Slots.LSCChasis": "Armor Plating",
+            "TuningShops.Slots.LSCRoof": "Secondary Weapons"
+        }
+    }
+]

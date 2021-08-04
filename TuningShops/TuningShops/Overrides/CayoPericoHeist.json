@@ -1,0 +1,12 @@
+[
+    {
+        "model": "avisa",
+        "cameras": {
+            "TuningShops.Slots.LSCBrakes": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCEngine": "00000000-0000-0000-0000-000000000000",
+            "TuningShops.Slots.LSCSuspension": "00000000-0000-0000-0000-000000000000"
+        },
+        "names": {
+        }
+    }
+]
