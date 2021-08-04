@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project baseDir="..\bin\Release" outputDir="..\Confused" xmlns="http://confuser.codeplex.com">
+    <rule preset="none" pattern="true">
+        <protection id="anti debug" />
+        <protection id="anti dump" />
+        <protection id="anti ildasm" />
+        <protection id="anti tamper" />
+        <protection id="constants" />
+        <protection id="ctrl flow" />
+        <protection id="invalid metadata" />
+        <protection id="ref proxy" />
+        <protection id="rename" />
+        <protection id="resources" />
+    </rule>
+    <module path="TuningShops.dll" />
+    <probePath>C:\Users\lemon\.nuget\packages\scripthookvdotnet3\3.1.0\lib\net48</probePath>
+    <probePath>C:\Users\lemon\.nuget\packages\lemonui.shvdn3\1.4.0\lib\net48</probePath>
+</project>
