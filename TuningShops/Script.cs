@@ -40,6 +40,11 @@ namespace TuningShops
                 gVehicleModelInfoVarGlobal = (CVehicleModelInfoVarGlobal**)(address + *(int*)(address + 3) + 7);
             }
 
+            // Debug tools for Debug builds
+#if DEBUG
+            pool.Add(CameraManager.DebugMenu);
+#endif
+
             // And add the tick event and start working
             Tick += TuningShops_Tick_Init;
             Aborted += TuningShops_Aborted;
@@ -75,6 +80,9 @@ namespace TuningShops
                 OverrideManager.Populate();
                 Notification.Show($"~q~Overrides have been reloaded!");
             }
+#if DEBUG
+            CameraManager.DebugMenu.Visible = !CameraManager.DebugMenu.Visible;
+#endif
 
             pool.Process();
             LocationManager.Process();

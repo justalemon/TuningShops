@@ -1,5 +1,6 @@
 ﻿using GTA;
 using GTA.UI;
+using LemonUI.Menus;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,20 @@ namespace TuningShops.Cameras
 
         private static readonly Dictionary<string, Guid> associations = new Dictionary<string, Guid>();
         private static readonly Dictionary<Guid, CameraCore> cameras = new Dictionary<Guid, CameraCore>();
+
+        #endregion
+
+        #region Properties
+
+#if DEBUG
+        /// <summary>
+        /// The menu used to test the different cameras.
+        /// </summary>
+        public static NativeMenu DebugMenu { get; } = new NativeMenu("", "Manual Camera Activation")
+        {
+            Width = 500
+        };
+#endif
 
         #endregion
 
@@ -46,6 +61,10 @@ namespace TuningShops.Cameras
                     }
 
                     cameras.Add(cameraToBone.Id, cameraToBone);
+
+#if DEBUG
+                    DebugMenu.Add(new CameraDebugItem(Path.GetFileName(path), cameraToBone));
+#endif
                 }
                 catch (Exception ex)
                 {
@@ -84,7 +103,15 @@ namespace TuningShops.Cameras
         public static void Populate()
         {
             cameras.Clear();
-            cameras.Add(Guid.Empty, new GeneralCamera());
+#if DEBUG
+            DebugMenu.Clear();
+#endif
+            GeneralCamera general = new GeneralCamera();
+            cameras.Add(Guid.Empty, general);
+#if DEBUG
+            DebugMenu.Add(new CameraDebugItem("GENERAL", general));
+#endif
+
             PopulateSpecific<BoneCameraPosition>(Path.Combine(TuningShops.location, "Cameras", "Bone"));
             PopulateSpecific<ModCameraPosition>(Path.Combine(TuningShops.location, "Cameras", "Mod"));
             PopulateAssociations();
