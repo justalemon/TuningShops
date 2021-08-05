@@ -81,7 +81,10 @@ namespace TuningShops
                 Notification.Show($"~q~Overrides have been reloaded!");
             }
 #if DEBUG
-            CameraManager.DebugMenu.Visible = !CameraManager.DebugMenu.Visible;
+            else if (Game.WasCheatStringJustEntered("tscamdbg"))
+            {
+                CameraManager.DebugMenu.Visible = !CameraManager.DebugMenu.Visible;
+            }
 #endif
 
             pool.Process();
