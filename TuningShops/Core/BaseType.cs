@@ -149,6 +149,8 @@ namespace TuningShops.Core
             }
 
             LastValue = item.Index;
+
+            UpdateBadges();
         }
         private void BaseType_Closed(object sender, EventArgs e)
         {
