@@ -33,6 +33,8 @@ namespace TuningShops.Slots
 
         public Repair() : base("Repair Vehicle")
         {
+            ShowsAsNonPurchased = true;
+
             Opening += Repair_Opening;
 
             Add(item);
