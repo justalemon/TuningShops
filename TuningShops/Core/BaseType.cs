@@ -76,7 +76,7 @@ namespace TuningShops.Core
         /// <summary>
         /// Updates the right badge in all of the menu items.
         /// </summary>
-        public void UpdateBadges()
+        public void UpdateBadges(bool forceNotPurchased = false)
         {
             CoreItem selected = (CoreItem)SelectedItem;
 
@@ -84,8 +84,8 @@ namespace TuningShops.Core
             {
                 CoreItem item = (CoreItem)rawItem;
 
-                item.RightBadgeSet = selected == item ? set : null;
-                item.AltTitle = selected == item ? "" : $"${item.Value}";
+                item.RightBadgeSet = selected == item && !forceNotPurchased ? set : null;
+                item.AltTitle = selected == item && !forceNotPurchased ? "" : $"${item.Value}";
 
                 if (item.RightBadgeSet == null)
                 {
@@ -122,7 +122,6 @@ namespace TuningShops.Core
 
             SelectCurrent(vehicle);
         }
-
         private void BaseType_SelectedIndexChanged(object sender, SelectedEventArgs e)
         {
             CoreItem item = Items[e.Index] as CoreItem;
