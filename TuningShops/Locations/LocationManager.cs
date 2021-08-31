@@ -195,7 +195,7 @@ namespace TuningShops.Locations
 
                 World.DrawMarker(MarkerType.VerticalCylinder, location.Trigger, Vector3.Zero, Vector3.Zero, new Vector3(location.TriggerSize, location.TriggerSize, 1), Color.Purple);
 
-                if (pos.DistanceTo(location.Trigger) < 5 && vehicle != null)
+                if (pos.DistanceTo(location.Trigger) < (location.TriggerSize * 0.5f) && vehicle != null)
                 {
                     Screen.ShowHelpTextThisFrame($"Press ~INPUT_CONTEXT~ to modify your vehicle.");
 
