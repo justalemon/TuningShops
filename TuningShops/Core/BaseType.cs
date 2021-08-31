@@ -14,6 +14,13 @@ namespace TuningShops.Core
     {
         #region Fields
 
+        private static readonly BadgeSet set = new BadgeSet()
+        {
+            HoveredDictionary = "commonmenu",
+            HoveredTexture = "shop_garage_icon_b",
+            NormalDictionary = "commonmenu",
+            NormalTexture = "shop_garage_icon_a"
+        };
         private Model lastModel = 0;
 
         #endregion
@@ -66,6 +73,21 @@ namespace TuningShops.Core
         /// Repopulates the number of menu items.
         /// </summary>
         public abstract void Repopulate();
+        /// <summary>
+        /// Updates the right badge in all of the menu items.
+        /// </summary>
+        public void UpdateBadges()
+        {
+            CoreItem selected = (CoreItem)SelectedItem;
+
+            foreach (NativeItem rawItem in Items)
+            {
+                CoreItem item = (CoreItem)rawItem;
+
+                item.RightBadgeSet = selected == item ? set : null;
+                item.AltTitle = selected == item ? "" : $"${item.Value}";
+            }
+        }
 
         #endregion
 

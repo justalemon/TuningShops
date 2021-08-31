@@ -120,6 +120,7 @@ namespace TuningShops.Core
         public override void SelectCurrent(Vehicle vehicle)
         {
             SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD, vehicle, Slot) + 1;
+            UpdateBadges();
         }
         /// <summary>
         /// Populates the menu with the items based on the mod slot.

@@ -49,6 +49,7 @@ namespace TuningShops.Slots
         public override void SelectCurrent(Vehicle vehicle)
         {
             SelectedIndex = Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, vehicle);
+            UpdateBadges();
         }
 
         #endregion

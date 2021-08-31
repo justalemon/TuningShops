@@ -65,6 +65,7 @@ namespace TuningShops.Slots
         public override void SelectCurrent(Vehicle vehicle)
         {
             SelectedIndex = Function.Call<bool>(Hash.IS_TOGGLE_MOD_ON, vehicle, 18) ? 1 : 0;
+            UpdateBadges();
         }
 
         #endregion
