@@ -86,6 +86,11 @@ namespace TuningShops.Core
 
                 item.RightBadgeSet = selected == item ? set : null;
                 item.AltTitle = selected == item ? "" : $"${item.Value}";
+
+                if (item.RightBadgeSet == null)
+                {
+                    item.RightBadge = null;
+                }
             }
         }
 
