@@ -1,6 +1,5 @@
 ﻿using GTA.Native;
 using GTA;
-using LemonUI.Menus;
 using System;
 
 namespace TuningShops.Items
@@ -8,7 +7,7 @@ namespace TuningShops.Items
     /// <summary>
     /// The item that changes the current headlights.
     /// </summary>
-    public class HeadlightsItem : NativeItem
+    public class HeadlightsItem : CoreItem
     {
         #region Properties
 
@@ -25,7 +24,7 @@ namespace TuningShops.Items
 
         #region Constructors
 
-        public HeadlightsItem(string label, bool xenon, int color) : base(Function.Call<string>(Hash._GET_LABEL_TEXT, label))
+        public HeadlightsItem(string label, bool xenon, int color) : base(0, Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", 1000)
         {
             Xenon = xenon;
             Color = color;
