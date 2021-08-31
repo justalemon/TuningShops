@@ -1,5 +1,6 @@
 ﻿using GTA;
 using GTA.Native;
+using LemonUI.Menus;
 using System;
 using TuningShops.Items;
 
@@ -93,12 +94,31 @@ namespace TuningShops.Core
 
         #region Functions
 
+        /// <inheritdoc/>
         public override bool CanUse(Vehicle vehicle) => Function.Call<bool>(Hash.IS_​VEHICLE_​SPRAYABLE, vehicle);
+        /// <inheritdoc/>
         public override void Repopulate()
         {
         }
+        /// <inheritdoc/>
         public override void SelectCurrent(Vehicle vehicle)
         {
+            int colorIndex = ModValue;
+
+            foreach (NativeItem rawItem in Items)
+            {
+                ColorItem item = (ColorItem)rawItem;
+
+                if (item.Index == colorIndex)
+                {
+                    SelectedItem = rawItem;
+                    UpdateBadges();
+                    return;
+                }
+            }
+
+            SelectedIndex = 0;
+            UpdateBadges(true);
         }
 
         #endregion
