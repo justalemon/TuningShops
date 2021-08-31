@@ -1,8 +1,8 @@
 ﻿using GTA;
 using GTA.Native;
-using LemonUI.Menus;
 using System;
 using TuningShops.Core;
+using TuningShops.Items;
 
 namespace TuningShops.Slots
 {
@@ -22,8 +22,8 @@ namespace TuningShops.Slots
 
         public LSCTurbo() : base(18, "Turbo")
         {
-            NativeItem n = new NativeItem("None");
-            NativeItem y = new NativeItem("Turbo Tuning");
+            CoreItem n = new CoreItem(0, "None", "", 0);
+            CoreItem y = new CoreItem(1, "Turbo Tuning", "", 500);
 
             n.Activated += N_Activated;
             y.Activated += Y_Activated;
