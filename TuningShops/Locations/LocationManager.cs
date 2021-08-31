@@ -195,23 +195,28 @@ namespace TuningShops.Locations
 
                 World.DrawMarker(MarkerType.VerticalCylinder, location.Trigger, Vector3.Zero, Vector3.Zero, new Vector3(location.TriggerSize, location.TriggerSize, 1), Color.Purple);
 
-                if (pos.DistanceTo(location.Trigger) < 5 && Game.IsControlJustPressed(Control.Context) && vehicle != null)
+                if (pos.DistanceTo(location.Trigger) < 5 && vehicle != null)
                 {
-                    Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 2);
+                    Screen.ShowHelpTextThisFrame($"Press ~INPUT_CONTEXT~ to modify your vehicle.");
 
-                    vehicle.PositionNoOffset = location.VehiclePos;
-                    vehicle.Heading = location.VehicleHeading;
-
-                    if (location.PlaceOnGround)
+                    if (Game.IsControlJustPressed(Control.Context))
                     {
-                        vehicle.PlaceOnGround();
+                        Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 2);
+
+                        vehicle.PositionNoOffset = location.VehiclePos;
+                        vehicle.Heading = location.VehicleHeading;
+
+                        if (location.PlaceOnGround)
+                        {
+                            vehicle.PlaceOnGround();
+                        }
+
+                        vehicle.IsPositionFrozen = true;
+
+                        location.Menu.Visible = true;
+                        Active = location;
+                        return;
                     }
-
-                    vehicle.IsPositionFrozen = true;
-
-                    location.Menu.Visible = true;
-                    Active = location;
-                    return;
                 }
             }
         }
