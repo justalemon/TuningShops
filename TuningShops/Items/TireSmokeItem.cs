@@ -1,15 +1,11 @@
-﻿using GTA.Native;
-using GTA;
-using LemonUI.Menus;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace TuningShops.Items
 {
     /// <summary>
     /// The item used to select the tire smoke options.
     /// </summary>
-    public class TireSmokeItem : NativeItem
+    public class TireSmokeItem : CoreItem
     {
         #region Properties
 
@@ -22,7 +18,7 @@ namespace TuningShops.Items
 
         #region Constructor
 
-        public TireSmokeItem(string text, Color color) : base($"{text} Tire Smoke")
+        public TireSmokeItem(string text, Color color, int price) : base(0, $"{text} Tire Smoke", "", price)
         {
             Color = color;
         }

@@ -30,17 +30,17 @@ namespace TuningShops.Slots
 
         public LSCTireSmoke() : base(20, "Tire Smoke")
         {
-            Add(new TireSmokeItem("White", Color.FromArgb(255, 255, 255, 255)));
-            Add(new TireSmokeItem("Black", Color.FromArgb(255, 20, 20, 20)));
-            Add(new TireSmokeItem("Blue", Color.FromArgb(255, 0, 174, 239)));
-            Add(new TireSmokeItem("Yellow", Color.FromArgb(255, 252, 238, 0)));
-            Add(new TireSmokeItem("Orange", Color.FromArgb(255, 255, 127, 0)));
-            Add(new TireSmokeItem("Red", Color.FromArgb(255, 255, 6, 6)));
-            Add(new TireSmokeItem("Purple", Color.FromArgb(255, 100, 79, 142)));
-            Add(new TireSmokeItem("Green", Color.FromArgb(255, 102, 152, 104)));
-            Add(new TireSmokeItem("Pink", Color.FromArgb(255, 203, 54, 148)));
-            Add(new TireSmokeItem("Brown", Color.FromArgb(255, 180, 130, 97)));
-            Add(new TireSmokeItem("Patriot", Color.FromArgb(255, 0, 0, 0)));
+            Add(new TireSmokeItem("White", Color.FromArgb(255, 255, 255, 255), 1000));
+            Add(new TireSmokeItem("Black", Color.FromArgb(255, 20, 20, 20), 1250));
+            Add(new TireSmokeItem("Blue", Color.FromArgb(255, 0, 174, 239), 1500));
+            Add(new TireSmokeItem("Yellow", Color.FromArgb(255, 252, 238, 0), 1750));
+            Add(new TireSmokeItem("Purple", Color.FromArgb(255, 100, 79, 142), 1900));
+            Add(new TireSmokeItem("Orange", Color.FromArgb(255, 255, 127, 0), 2000));
+            Add(new TireSmokeItem("Green", Color.FromArgb(255, 102, 152, 104), 2150));
+            Add(new TireSmokeItem("Red", Color.FromArgb(255, 255, 6, 6), 2250));
+            Add(new TireSmokeItem("Pink", Color.FromArgb(255, 203, 54, 148), 2500));
+            Add(new TireSmokeItem("Brown", Color.FromArgb(255, 180, 130, 97), 2500));
+            Add(new TireSmokeItem("Patriot", Color.FromArgb(255, 0, 0, 0), 2500));
 
             Shown += LSCTireSmoke_Shown;
             SelectedIndexChanged += LSCTireSmoke_SelectedIndexChanged;
