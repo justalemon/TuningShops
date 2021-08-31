@@ -7,22 +7,39 @@ namespace TuningShops.Items
     /// </summary>
     public class CoreItem : NativeItem
     {
-        #region Properties
+        #region Fields
 
-        /// <summary>
-        /// The value of this modification.
-        /// </summary>
-        public virtual int Value { get; }
-        /// <summary>
-        /// The index of the modification.
-        /// </summary>
-        public virtual int Index { get; }
+        private int value = 0;
 
         #endregion
 
         #region Properties
 
-        public CoreItem(int index, string name, string description, int value) : base(name, description, $"${value}")
+        /// <summary>
+        /// The value of this modification.
+        /// </summary>
+        public int Value
+        {
+            get => value;
+            set
+            {
+                this.value = value;
+                if (RightBadgeSet == null)
+                {
+                    AltTitle = $"${value}";
+                }
+            }
+        }
+        /// <summary>
+        /// The index of the modification.
+        /// </summary>
+        public int Index { get; }
+
+        #endregion
+
+        #region Properties
+
+        public CoreItem(int index, string name, string description, int value) : base(name, description)
         {
             Index = index;
             Value = value;
