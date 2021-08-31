@@ -39,6 +39,10 @@ namespace TuningShops.Core
         /// The value of the modification.
         /// </summary>
         public abstract int ModValue { get; set; }
+        /// <summary>
+        /// If the items should always be shown as not purchased
+        /// </summary>
+        public bool ShowsAsNonPurchased { get; set; } = false;
 
         #endregion
 
@@ -149,7 +153,7 @@ namespace TuningShops.Core
 
             LastValue = item.Index;
 
-            UpdateBadges();
+            UpdateBadges(ShowsAsNonPurchased);
         }
         private void BaseType_Closed(object sender, EventArgs e)
         {
