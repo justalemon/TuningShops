@@ -96,5 +96,22 @@ namespace TuningShops.Locations
         /// </summary>
         [JsonIgnore]
         public Ped Ped { get; internal set; }
+
+        /// <summary>
+        /// Clears the vehicles near the vehicle tuning location.
+        /// </summary>
+        public void ClearNearby()
+        {
+            Vehicle playerVehicle = Game.Player.Character.CurrentVehicle;
+            Vehicle[] vehicles = World.GetNearbyVehicles(VehiclePos, TriggerSize);
+
+            foreach (Vehicle vehicle in vehicles)
+            {
+                if (vehicle != playerVehicle)
+                {
+                    vehicle.Delete();
+                }
+            }
+        }
     }
 }

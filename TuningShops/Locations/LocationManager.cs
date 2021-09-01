@@ -201,6 +201,8 @@ namespace TuningShops.Locations
 
                     if (Game.IsControlJustPressed(Control.Context))
                     {
+                        location.ClearNearby();
+
                         Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 2);
 
                         vehicle.PositionNoOffset = location.VehiclePos;
