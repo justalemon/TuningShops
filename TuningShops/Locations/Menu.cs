@@ -29,7 +29,7 @@ namespace TuningShops.Locations
         {
             this.location = location;
             Banner = texture;
-            UseMouse = false;
+            CloseOnInvalidClick = false;
             Opening += MainMenu_Opening;
             Shown += Menu_Shown;
         }

@@ -51,7 +51,7 @@ namespace TuningShops.Core
         public BaseType(string name) : base("", name)
         {
             Name = name;
-            UseMouse = false;
+            CloseOnInvalidClick = false;
             Opening += BaseType_Opening;
             SelectedIndexChanged += BaseType_SelectedIndexChanged;
             ItemActivated += BaseType_ItemActivated;
