@@ -15,20 +15,14 @@ namespace TuningShops.Items
         /// If xenon should be turned on.
         /// </summary>
         public bool Xenon { get; }
-        /// <summary>
-        /// The color of the Xenon headlighs.
-        /// </summary>
-        public int Color { get; }
 
         #endregion
 
         #region Constructors
 
-        public HeadlightsItem(string label, bool xenon, int color) : base(0, Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", 1000)
+        public HeadlightsItem(string label, bool xenon, int color) : base(color, Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", 1000)
         {
             Xenon = xenon;
-            Color = color;
-
             Activated += ItemHeadlights_Activated;
         }
 
@@ -52,7 +46,7 @@ namespace TuningShops.Items
                 return;
             }
 
-            Function.Call(Hash._SET_VEHICLE_XENON_LIGHTS_COLOR, vehicle, Color);
+            Function.Call(Hash._SET_VEHICLE_XENON_LIGHTS_COLOR, vehicle, Index);  // Just in case
         }
 
         #endregion

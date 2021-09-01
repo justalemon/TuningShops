@@ -1,5 +1,6 @@
 ﻿using GTA;
 using GTA.Native;
+using LemonUI.Menus;
 using TuningShops.Core;
 using TuningShops.Items;
 
@@ -12,6 +13,14 @@ namespace TuningShops.Slots
     {
         #region Properties
 
+        /// <summary>
+        /// The Current Xenon Color index.
+        /// </summary>
+        public override int ModValue
+        {
+            get => Function.Call<int>(Hash._GET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle);
+            set => Function.Call(Hash._SET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle, value);
+        }
         /// <summary>
         /// If the menu should be repopulated.
         /// </summary>
@@ -55,8 +64,24 @@ namespace TuningShops.Slots
             return model.IsVehicle || model.IsBike;
         }
         /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override unsafe void SelectCurrent(Vehicle vehicle)
         {
+            int index = ModValue;
+
+            foreach (NativeItem rawItem in Items)
+            {
+                HeadlightsItem item = (HeadlightsItem)rawItem;
+
+                if (item.Index == index)
+                {
+                    SelectedItem = rawItem;
+                    UpdateBadges();
+                    return;
+                }
+            }
+
+            SelectedIndex = 0;
+            UpdateBadges(true);
         }
 
         #endregion
