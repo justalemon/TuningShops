@@ -18,8 +18,27 @@ namespace TuningShops.Slots
         /// </summary>
         public override int ModValue
         {
-            get => Function.Call<int>(Hash._GET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle);
-            set => Function.Call(Hash._SET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle, value);
+            get
+            {
+                if (!Function.Call<bool>(Hash.IS_TOGGLE_MOD_ON, Game.Player.Character.CurrentVehicle, 22))
+                {
+                    return -2;
+                }
+
+                return Function.Call<int>(Hash._GET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle);
+            }
+            set
+            {
+                foreach (NativeItem rawItem in Items)
+                {
+                    HeadlightsItem item = rawItem as HeadlightsItem;
+
+                    if (item.Index == value)
+                    {
+                        item.Apply();
+                    }
+                }
+            }
         }
         /// <summary>
         /// If the menu should be repopulated.
@@ -32,7 +51,7 @@ namespace TuningShops.Slots
 
         public LSCHeadlights() : base(22, "Headlights")
         {
-            Add(new HeadlightsItem("CMOD_LGT_0", false, -1));
+            Add(new HeadlightsItem("CMOD_LGT_0", false, -2));
             Add(new HeadlightsItem("CMOD_LGT_1", true, -1));
             Add(new HeadlightsItem("CMOD_LGT_2", true, 0));
             Add(new HeadlightsItem("CMOD_LGT_3", true, 1));
@@ -66,7 +85,13 @@ namespace TuningShops.Slots
         /// <inheritdoc/>
         public override unsafe void SelectCurrent(Vehicle vehicle)
         {
-            int index = ModValue;
+            if (!Function.Call<bool>(Hash.IS_TOGGLE_MOD_ON, Game.Player.Character.CurrentVehicle, 22))
+            {
+                SelectedIndex = 0;
+                UpdateBadges();
+            }
+
+            int index = Function.Call<int>(Hash._GET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle);
 
             foreach (NativeItem rawItem in Items)
             {

@@ -32,6 +32,18 @@ namespace TuningShops.Items
 
         private void ItemHeadlights_Activated(object sender, EventArgs e)
         {
+            Apply();
+        }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Applies the configuration of the headlights.
+        /// </summary>
+        public void Apply()
+        {
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
 
             if (vehicle == null)
