@@ -121,6 +121,32 @@ namespace TuningShops.Slots
             Model model = vehicle.Model;
             return model.IsVehicle || model.IsBike || model.IsBicycle;
         }
+        public override void SelectCurrent(Vehicle vehicle)
+        {
+            int r, g, b = 0;
+
+            unsafe
+            {
+                Function.Call(Hash.GET_VEHICLE_TYRE_SMOKE_COLOR, vehicle, &r, &g, &b);
+            }
+
+            Color color = Color.FromArgb(r, g, b);
+
+            foreach (NativeItem rawItem in Items)
+            {
+                TireSmokeItem item = (TireSmokeItem)rawItem;
+
+                if (item.Color == color)
+                {
+                    SelectedItem = rawItem;
+                    UpdateBadges();
+                    return;
+                }
+            }
+
+            SelectedIndex = 0;
+            UpdateBadges(true);
+        }
 
         #endregion
     }
