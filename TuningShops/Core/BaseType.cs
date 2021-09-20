@@ -141,12 +141,7 @@ namespace TuningShops.Core
         {
             CoreItem item = e.Item as CoreItem;
 
-            if (item == null)
-            {
-                return;
-            }
-
-            if (!Money.ChargeIfPossible(item.Value))
+            if (item == null || item.RightBadgeSet != null || !Money.ChargeIfPossible(item.Value))
             {
                 return;
             }
