@@ -1,9 +1,6 @@
 ﻿using GTA;
 using GTA.Native;
-using LemonUI.Menus;
-using System;
 using System.Collections.Generic;
-using System.Reflection;
 using TuningShops.Items;
 
 namespace TuningShops.Core
@@ -11,7 +8,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Represents a basic Los Santos Customs slot.
     /// </summary>
-    public class LosSantosCustoms : BaseType
+    public abstract class LosSantosCustoms : BaseType
     {
         #region Fields
 
