@@ -20,7 +20,7 @@
     <PackageReference Include="ScriptHookVDotNet3" Version="3.1.0">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="LemonUI.SHVDN3" Version="1.5.0">
+    <PackageReference Include="LemonUI.SHVDN3" Version="1.5.1">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
     <None Update="TuningShops\**\*.json">
