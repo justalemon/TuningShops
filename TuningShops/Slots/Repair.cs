@@ -63,6 +63,8 @@ namespace TuningShops.Slots
         public override void SelectCurrent(Vehicle vehicle)
         {
         }
+        /// <inheritdoc/>
+        public override int GetPrice(int index) => 0;
 
         #endregion
     }

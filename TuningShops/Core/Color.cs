@@ -120,6 +120,8 @@ namespace TuningShops.Core
             SelectedIndex = 0;
             UpdateBadges(true);
         }
+        /// <inheritdoc/>
+        public override int GetPrice(int index) => 0;
 
         #endregion
     }

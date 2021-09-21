@@ -7,7 +7,7 @@
     {
         #region Constructor
 
-        public ModItem(int index, string name) : base(index, name, "", 0)  // TODO: Make Price Calculations
+        public ModItem(int index, string name, int price) : base(index, name, "", price)
         {
         }
 

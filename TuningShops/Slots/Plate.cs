@@ -51,6 +51,8 @@ namespace TuningShops.Slots
             SelectedIndex = Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, vehicle);
             UpdateBadges();
         }
+        /// <inheritdoc/>
+        public override int GetPrice(int index) => 0;
 
         #endregion
     }

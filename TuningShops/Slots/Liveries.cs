@@ -1,5 +1,6 @@
 ﻿using GTA;
 using GTA.Native;
+using System;
 using TuningShops.Core;
 using TuningShops.Items;
 
@@ -52,7 +53,7 @@ namespace TuningShops.Slots
             for (int i = -1; i < Function.Call<int>(Hash.GET_VEHICLE_LIVERY_COUNT, vehicle); i++)
             {
                 string label = i == -1 ? "NONE" : Function.Call<string>(Hash.GET_LIVERY_NAME, vehicle, i);
-                Add(new CoreItem(i, Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", 0));
+                Add(new CoreItem(i, Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", GetPrice(i)));
             }
         }
         /// <inheritdoc/>
@@ -60,6 +61,18 @@ namespace TuningShops.Slots
         {
             SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_LIVERY, vehicle) + 1;
             UpdateBadges();
+        }
+        /// <inheritdoc/>
+        public override int GetPrice(int index)
+        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return 0;
+            }
+
+            return (int)Math.Ceiling(200 * ((index + 1) * 1.1f));
         }
 
         #endregion

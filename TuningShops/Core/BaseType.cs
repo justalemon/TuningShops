@@ -78,6 +78,11 @@ namespace TuningShops.Core
         /// </summary>
         public abstract void Repopulate();
         /// <summary>
+        /// Gets the price for a specific Mod Index.
+        /// </summary>
+        /// <returns>The value for the specified mod.</returns>
+        public abstract int GetPrice(int index);
+        /// <summary>
         /// Updates the right badge in all of the menu items.
         /// </summary>
         public void UpdateBadges(bool forceNotPurchased = false)

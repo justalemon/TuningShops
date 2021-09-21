@@ -1,5 +1,6 @@
 ﻿using GTA;
 using GTA.Native;
+using System;
 using System.Collections.Generic;
 using TuningShops.Items;
 
@@ -135,8 +136,25 @@ namespace TuningShops.Core
 
             for (int i = -1; i < Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot); i++)
             {
-                Add(new ModItem(i, GetModName(i)));
+                Add(new ModItem(i, GetModName(i), GetPrice(i)));
             }
+        }
+        /// <inheritdoc/>
+        public override int GetPrice(int index)
+        {
+            if (index == -1)
+            {
+                return 200;
+            }
+
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return 0;
+            }
+
+            return (int)Math.Ceiling(200 * ((index + 1) * 2.1f));
         }
         /// <summary>
         /// Gets the name of the mod on the specified index.

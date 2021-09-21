@@ -22,7 +22,7 @@ namespace TuningShops.Slots
 
         public LSCTurbo() : base(18, "Turbo")
         {
-            CoreItem n = new CoreItem(0, "None", "", 0);
+            CoreItem n = new CoreItem(0, "None", "", 200);
             CoreItem y = new CoreItem(1, "Turbo Tuning", "", 500);
 
             n.Activated += N_Activated;
