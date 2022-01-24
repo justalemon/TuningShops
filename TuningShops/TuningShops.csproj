@@ -17,10 +17,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="ScriptHookVDotNet3" Version="3.1.0">
+    <PackageReference Include="ScriptHookVDotNet3" Version="3.4.0">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="LemonUI.SHVDN3" Version="1.5.1">
+    <PackageReference Include="LemonUI.SHVDN3" Version="1.6.0">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
     <None Update="TuningShops\**\*.json">
