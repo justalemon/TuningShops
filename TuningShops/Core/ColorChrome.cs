@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Sets a chromed color.
     /// </summary>
-    public class ColorChrome : Color
+    public abstract class ColorChrome : Color
     {
         #region Constructor
 

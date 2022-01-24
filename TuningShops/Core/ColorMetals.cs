@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Sets a metal color.
     /// </summary>
-    public class ColorMetals : Color
+    public abstract class ColorMetals : Color
     {
         #region Constructor
 
