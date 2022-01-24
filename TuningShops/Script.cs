@@ -32,7 +32,7 @@ namespace TuningShops
             // Get the pattern of the global vehicle info
             unsafe
             {
-                byte* address = MemoryPatterns.FindPattern("\x48\x8B\x0D\x00\x00\x00\x00\x44\x8B\xC6\x8B\xD5\x8B\xD8", "xxx????xxxxxxx");
+                IntPtr address = Game.FindPattern("\x48\x8B\x0D\x00\x00\x00\x00\x44\x8B\xC6\x8B\xD5\x8B\xD8", "xxx????xxxxxxx");
                 if (address == null)
                 {
                     throw new NullReferenceException(nameof(address));
