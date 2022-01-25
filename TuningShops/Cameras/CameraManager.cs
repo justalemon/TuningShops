@@ -13,7 +13,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// Manages all of the Part specific Cameras.
     /// </summary>
-    public static class CameraManager
+    internal static class CameraManager
     {
         #region Fields
 

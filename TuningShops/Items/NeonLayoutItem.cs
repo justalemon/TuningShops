@@ -2,7 +2,7 @@
 
 namespace TuningShops.Items
 {
-    public enum NeonLayout
+    internal enum NeonLayout
     {
         None,
         Front,
@@ -17,7 +17,7 @@ namespace TuningShops.Items
     /// <summary>
     /// The item used to select the layout of the player's vehicle.
     /// </summary>
-    public class NeonLayoutItem : CoreItem
+    internal class NeonLayoutItem : CoreItem
     {
         #region Fields
 

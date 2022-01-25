@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The brakes menu option.
     /// </summary>
-    public class LSCBrakes : LosSantosCustoms
+    internal class LSCBrakes : LosSantosCustoms
     {
         #region Constructor
 

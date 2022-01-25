@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The engine menu option.
     /// </summary>
-    public class LSCEngine : LosSantosCustoms
+    internal class LSCEngine : LosSantosCustoms
     {
         #region Constructor
 

@@ -10,7 +10,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The menu option to change the layout of the neon.
     /// </summary>
-    public class NeonLayout : BaseType
+    internal class NeonLayout : BaseType
     {
         #region Properties
 

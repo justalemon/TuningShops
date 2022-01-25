@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The transmission menu option.
     /// </summary>
-    public class LSCTransmission : LosSantosCustoms
+    internal class LSCTransmission : LosSantosCustoms
     {
         #region Constructor
 

@@ -6,7 +6,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Applies Matte colors to the primary slot.
     /// </summary>
-    public class ColorPrimaryMatte : ColorMatte
+    internal class ColorPrimaryMatte : ColorMatte
     {
         #region Constructor
 

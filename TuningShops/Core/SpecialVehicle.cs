@@ -6,7 +6,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Menu options for special vehicles like the Terrorbyte.
     /// </summary>
-    public abstract class SpecialVehicle : BaseType
+    internal abstract class SpecialVehicle : BaseType
     {
         #region Properties
 

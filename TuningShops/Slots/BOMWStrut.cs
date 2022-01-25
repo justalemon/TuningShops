@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The struts option.
     /// </summary>
-    public class BOMWStruts : LosSantosCustoms
+    internal class BOMWStruts : LosSantosCustoms
     {
         #region Constructor
 

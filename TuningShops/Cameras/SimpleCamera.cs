@@ -9,7 +9,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// Represents the position of a Camera relative to a vehicle.
     /// </summary>
-    public abstract class SimpleCamera : CameraCore
+    internal abstract class SimpleCamera : CameraCore
     {
         #region Properties
 

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The speakers option.
     /// </summary>
-    public class BOMWSpeakers : LosSantosCustoms
+    internal class BOMWSpeakers : LosSantosCustoms
     {
         #region Constructor
 

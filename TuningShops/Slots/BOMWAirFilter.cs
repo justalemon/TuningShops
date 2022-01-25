@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The air filter option.
     /// </summary>
-    public class BOMWAirFilter : LosSantosCustoms
+    internal class BOMWAirFilter : LosSantosCustoms
     {
         #region Constructor
 

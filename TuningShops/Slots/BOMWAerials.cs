@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The aerials option.
     /// </summary>
-    public class BOMWAerials : LosSantosCustoms
+    internal class BOMWAerials : LosSantosCustoms
     {
         #region Constructor
 

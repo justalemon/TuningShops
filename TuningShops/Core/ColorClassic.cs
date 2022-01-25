@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Sets a classic color.
     /// </summary>
-    public abstract class ColorClassic : Color
+    internal abstract class ColorClassic : Color
     {
         #region Constructor
 

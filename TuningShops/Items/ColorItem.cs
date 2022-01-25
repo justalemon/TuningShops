@@ -3,7 +3,7 @@
     /// <summary>
     /// The slot used for the color.
     /// </summary>
-    public enum ColorSlot
+    internal enum ColorSlot
     {
         Primary,
         Secondary,
@@ -14,7 +14,7 @@
     /// <summary>
     /// Represnets the item used to select a color.
     /// </summary>
-    public class ColorItem : CoreItem
+    internal class ColorItem : CoreItem
     {
         #region Properties
 

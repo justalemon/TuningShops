@@ -10,7 +10,7 @@ namespace TuningShops.Locations
     /// <summary>
     /// Represents the location of a tuning shop.
     /// </summary>
-    public class Location
+    internal class Location
     {
         /// <summary>
         /// The name of this Shop.

@@ -11,7 +11,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The tire smoke menu option.
     /// </summary>
-    public class LSCTireSmoke : LosSantosCustoms
+    internal class LSCTireSmoke : LosSantosCustoms
     {
         #region Properties
 

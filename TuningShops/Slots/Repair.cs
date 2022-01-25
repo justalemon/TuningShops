@@ -8,7 +8,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Menu option used to repair the vehicle.
     /// </summary>
-    public class Repair : BaseType
+    internal class Repair : BaseType
     {
         #region Fields
 

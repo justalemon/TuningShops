@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The horns menu option.
     /// </summary>
-    public class LSCHorns : LosSantosCustoms
+    internal class LSCHorns : LosSantosCustoms
     {
         #region Constructor
 

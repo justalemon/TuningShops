@@ -7,7 +7,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// The General camera.
     /// </summary>
-    public class GeneralCamera : CameraCore
+    internal class GeneralCamera : CameraCore
     {
         #region Constructor
 

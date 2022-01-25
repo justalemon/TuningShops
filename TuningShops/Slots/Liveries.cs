@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The base liveries on the menu.
     /// </summary>
-    public class Liveries : BaseType
+    internal class Liveries : BaseType
     {
         #region Properties
 

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The spoilers menu option.
     /// </summary>
-    public class LSCSpoilers : LosSantosCustoms
+    internal class LSCSpoilers : LosSantosCustoms
     {
         #region Constructor
 

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The seats option.
     /// </summary>
-    public class BOMWSeats : LosSantosCustoms
+    internal class BOMWSeats : LosSantosCustoms
     {
         #region Constructor
 

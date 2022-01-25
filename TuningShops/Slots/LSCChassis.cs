@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The chassis/roll cage menu option.
     /// </summary>
-    public class LSCChassis : LosSantosCustoms
+    internal class LSCChassis : LosSantosCustoms
     {
         #region Constructor
 

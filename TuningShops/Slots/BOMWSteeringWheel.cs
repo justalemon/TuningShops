@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The steering wheel option.
     /// </summary>
-    public class BOMWSteeringWheel : LosSantosCustoms
+    internal class BOMWSteeringWheel : LosSantosCustoms
     {
         #region Constructor
 

@@ -6,7 +6,7 @@ namespace TuningShops
     /// <summary>
     /// Tools used to charge the player for the modifications.
     /// </summary>
-    public static class Money
+    internal static class Money
     {
         /// <summary>
         /// Charges the player a specific amount of money if possible.

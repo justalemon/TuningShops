@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Sets a wheel color.
     /// </summary>
-    public abstract class ColorWheels : Color
+    internal abstract class ColorWheels : Color
     {
         #region Constructor
 

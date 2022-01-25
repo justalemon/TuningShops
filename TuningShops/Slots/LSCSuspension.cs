@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The suspension menu option.
     /// </summary>
-    public class LSCSuspension : LosSantosCustoms
+    internal class LSCSuspension : LosSantosCustoms
     {
         #region Constructor
 

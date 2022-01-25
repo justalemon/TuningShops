@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The grille menu option.
     /// </summary>
-    public class LSCGrille : LosSantosCustoms
+    internal class LSCGrille : LosSantosCustoms
     {
         #region Constructor
 

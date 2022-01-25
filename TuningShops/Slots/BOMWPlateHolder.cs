@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The plate holder option.
     /// </summary>
-    public class BOMWPlateHolder : LosSantosCustoms
+    internal class BOMWPlateHolder : LosSantosCustoms
     {
         #region Constructor
 

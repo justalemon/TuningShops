@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The rear bumper menu option.
     /// </summary>
-    public class LSCBumperRear : LosSantosCustoms
+    internal class LSCBumperRear : LosSantosCustoms
     {
         #region Constructor
 

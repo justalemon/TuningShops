@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The dashboard option.
     /// </summary>
-    public class BOMWDashboard : LosSantosCustoms
+    internal class BOMWDashboard : LosSantosCustoms
     {
         #region Constructor
 

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The side skirt menu option.
     /// </summary>
-    public class LSCSideSkirt : LosSantosCustoms
+    internal class LSCSideSkirt : LosSantosCustoms
     {
         #region Constructor
 

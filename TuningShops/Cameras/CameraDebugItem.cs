@@ -8,7 +8,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// The item that temporarely activates the camera.
     /// </summary>
-    public class CameraDebugItem : NativeItem
+    internal class CameraDebugItem : NativeItem
     {
         #region Properties
 

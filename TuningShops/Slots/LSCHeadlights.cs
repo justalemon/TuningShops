@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Menu used for specifically changing Xenon Lights.
     /// </summary>
-    public class LSCHeadlights : LosSantosCustoms
+    internal class LSCHeadlights : LosSantosCustoms
     {
         #region Properties
 

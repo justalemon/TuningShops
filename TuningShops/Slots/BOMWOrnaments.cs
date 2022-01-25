@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The ornaments option.
     /// </summary>
-    public class BOMWOrnaments : LosSantosCustoms
+    internal class BOMWOrnaments : LosSantosCustoms
     {
         #region Constructor
 

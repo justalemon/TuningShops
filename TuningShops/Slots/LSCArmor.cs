@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The armor menu option.
     /// </summary>
-    public class LSCArmor : LosSantosCustoms
+    internal class LSCArmor : LosSantosCustoms
     {
         #region Constructor
 

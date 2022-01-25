@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The trim option.
     /// </summary>
-    public class BOMWTrim : LosSantosCustoms
+    internal class BOMWTrim : LosSantosCustoms
     {
         #region Constructor
 

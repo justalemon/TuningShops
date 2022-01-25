@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the type of mod of a vehicle.
     /// </summary>
-    public enum EVehicleModType
+    internal enum EVehicleModType
     {
         VMT_SPOILER = 0,
         VMT_BUMPER_F = 1,

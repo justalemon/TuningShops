@@ -13,7 +13,7 @@ namespace TuningShops.Locations
     /// <summary>
     /// Represents a main menu in a specific location.
     /// </summary>
-    public class Menu : NativeMenu
+    internal class Menu : NativeMenu
     {
         #region Fields
 

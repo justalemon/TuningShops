@@ -7,7 +7,7 @@ namespace TuningShops.Items
     /// <summary>
     /// The item that changes the current headlights.
     /// </summary>
-    public class HeadlightsItem : CoreItem
+    internal class HeadlightsItem : CoreItem
     {
         #region Properties
 

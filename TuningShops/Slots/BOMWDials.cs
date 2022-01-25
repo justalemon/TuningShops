@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The dials option.
     /// </summary>
-    public class BOMWDials : LosSantosCustoms
+    internal class BOMWDials : LosSantosCustoms
     {
         #region Constructor
 

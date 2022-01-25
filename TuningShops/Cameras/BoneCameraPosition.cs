@@ -7,7 +7,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// A Camera that points to a specific bone.
     /// </summary>
-    public class BoneCameraPosition : SimpleCamera
+    internal class BoneCameraPosition : SimpleCamera
     {
         #region Properties
 

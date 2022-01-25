@@ -18,7 +18,7 @@ namespace TuningShops.Locations
     /// <summary>
     /// Manages the different locations in the game world.
     /// </summary>
-    public static class LocationManager
+    internal static class LocationManager
     {
         #region Fields
 

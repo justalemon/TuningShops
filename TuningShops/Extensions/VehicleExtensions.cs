@@ -6,14 +6,14 @@ namespace TuningShops.Extensions
     /// <summary>
     /// Extensions used for vehicles, trailers and others related.
     /// </summary>
-    public static class VehicleExtensions
+    internal static class VehicleExtensions
     {
         /// <summary>
         /// Gets the trailer of a big rig.
         /// </summary>
         /// <param name="vehicle">The vehicle trailer hooked to the vehicle.</param>
         /// <returns>The trailer being hooked, null if there is none.</returns>
-        public static Vehicle GetTrailer(this Vehicle vehicle)
+        internal static Vehicle GetTrailer(this Vehicle vehicle)
         {
             if (vehicle == null)
             {

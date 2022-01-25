@@ -10,7 +10,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// A camera that points to a specific eVehicleModType.
     /// </summary>
-    public class ModCameraPosition : SimpleCamera
+    internal class ModCameraPosition : SimpleCamera
     {
         #region Properties
 

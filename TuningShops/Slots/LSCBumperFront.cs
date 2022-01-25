@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The front bumper menu option.
     /// </summary>
-    public class LSCBumperFront : LosSantosCustoms
+    internal class LSCBumperFront : LosSantosCustoms
     {
         #region Constructor
 

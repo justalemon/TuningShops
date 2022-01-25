@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The exhaust menu option.
     /// </summary>
-    public class LSCExhaust : LosSantosCustoms
+    internal class LSCExhaust : LosSantosCustoms
     {
         #region Constructor
 

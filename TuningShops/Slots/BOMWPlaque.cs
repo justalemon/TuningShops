@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The plaque option.
     /// </summary>
-    public class BOMWPlaque : LosSantosCustoms
+    internal class BOMWPlaque : LosSantosCustoms
     {
         #region Constructor
 

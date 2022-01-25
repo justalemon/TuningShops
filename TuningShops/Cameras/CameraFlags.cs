@@ -6,7 +6,7 @@ namespace TuningShops.Cameras
     /// Different tweaks for the Vehicle Camera.
     /// </summary>
     [Flags]
-    public enum CameraFlags
+    internal enum CameraFlags
     {
         None = 0,
         CenterBoneX = 1,

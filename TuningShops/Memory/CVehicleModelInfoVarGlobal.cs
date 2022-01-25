@@ -3,7 +3,7 @@
 namespace TuningShops.Memory
 {
     [StructLayout(LayoutKind.Explicit)]
-    public struct CVehicleModelInfoVarGlobal
+    internal struct CVehicleModelInfoVarGlobal
     {
         [FieldOffset(0x58)]
         public AtArray<CVehicleKit> Kits;

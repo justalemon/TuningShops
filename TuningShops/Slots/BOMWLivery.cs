@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The livery option.
     /// </summary>
-    public class BOMWLivery : LosSantosCustoms
+    internal class BOMWLivery : LosSantosCustoms
     {
         #region Constructor
 

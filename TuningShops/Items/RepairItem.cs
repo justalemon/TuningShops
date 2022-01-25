@@ -4,7 +4,7 @@ using System;
 
 namespace TuningShops.Items
 {
-    public class RepairItem : CoreItem
+    internal class RepairItem : CoreItem
     {
         #region Properties
 

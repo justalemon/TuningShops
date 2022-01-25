@@ -7,7 +7,7 @@ namespace TuningShops.Cameras
     /// <summary>
     /// Represents the basics of the different vehicle cameras.
     /// </summary>
-    public abstract class CameraCore
+    internal abstract class CameraCore
     {
         #region Fields
 

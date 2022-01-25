@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The doors option.
     /// </summary>
-    public class BOMWDoors : LosSantosCustoms
+    internal class BOMWDoors : LosSantosCustoms
     {
         #region Constructor
 

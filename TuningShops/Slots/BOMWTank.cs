@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The tank option.
     /// </summary>
-    public class BOMWTank : LosSantosCustoms
+    internal class BOMWTank : LosSantosCustoms
     {
         #region Constructor
 

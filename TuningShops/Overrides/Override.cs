@@ -8,7 +8,7 @@ namespace TuningShops.Overrides
     /// <summary>
     /// Represents the different Overrides done by a specific vehicle.
     /// </summary>
-    public class Override
+    internal class Override
     {
         /// <summary>
         /// The Model that uses this set of overrides.

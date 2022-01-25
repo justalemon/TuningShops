@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The trunk option.
     /// </summary>
-    public class BOMWTrunk : LosSantosCustoms
+    internal class BOMWTrunk : LosSantosCustoms
     {
         #region Constructor
 

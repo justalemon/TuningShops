@@ -5,7 +5,7 @@ namespace TuningShops.Items
     /// <summary>
     /// The item used to select the tire smoke options.
     /// </summary>
-    public class TireSmokeItem : CoreItem
+    internal class TireSmokeItem : CoreItem
     {
         #region Properties
 

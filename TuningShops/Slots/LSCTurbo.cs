@@ -9,7 +9,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The turbo menu option.
     /// </summary>
-    public class LSCTurbo : LosSantosCustoms
+    internal class LSCTurbo : LosSantosCustoms
     {
         #region Properties
 

@@ -5,7 +5,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Sets a matte color.
     /// </summary>
-    public abstract class ColorMatte : Color
+    internal abstract class ColorMatte : Color
     {
         #region Constructor
 

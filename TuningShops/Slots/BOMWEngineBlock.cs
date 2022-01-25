@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The engine block option.
     /// </summary>
-    public class BOMWEngineBlock : LosSantosCustoms
+    internal class BOMWEngineBlock : LosSantosCustoms
     {
         #region Constructor
 

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The roof menu option.
     /// </summary>
-    public class LSCRoof : LosSantosCustoms
+    internal class LSCRoof : LosSantosCustoms
     {
         #region Constructor
 

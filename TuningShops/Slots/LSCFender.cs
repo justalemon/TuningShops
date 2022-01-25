@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The fender menu option.
     /// </summary>
-    public class LSCFender : LosSantosCustoms
+    internal class LSCFender : LosSantosCustoms
     {
         #region Constructor
 

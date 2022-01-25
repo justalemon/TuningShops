@@ -9,7 +9,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Represents the core for the color selection menus.
     /// </summary>
-    public abstract class Color : BaseType
+    internal abstract class Color : BaseType
     {
         #region Properties
 

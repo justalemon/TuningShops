@@ -3,7 +3,7 @@
 namespace TuningShops.Memory
 {
     [StructLayout(LayoutKind.Explicit, Size = 0x68)]
-    public struct CVehicleModVisible
+    internal struct CVehicleModVisible
     {
         [FieldOffset(0x10)]
         public uint modelName;

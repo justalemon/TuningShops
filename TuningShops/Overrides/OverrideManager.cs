@@ -10,7 +10,7 @@ namespace TuningShops.Overrides
     /// <summary>
     /// Manages the vehicle specific overrides.
     /// </summary>
-    public static class OverrideManager
+    internal static class OverrideManager
     {
         #region Fields
 

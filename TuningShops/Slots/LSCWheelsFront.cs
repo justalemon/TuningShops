@@ -6,7 +6,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The front wheel menu option on a bike.
     /// </summary>
-    public class LSCWheelsFront : LosSantosCustoms
+    internal class LSCWheelsFront : LosSantosCustoms
     {
         #region Constructor
 

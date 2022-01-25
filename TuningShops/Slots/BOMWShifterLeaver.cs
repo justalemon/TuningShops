@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The shifter leaver option.
     /// </summary>
-    public class BOMWShifterLeaver : LosSantosCustoms
+    internal class BOMWShifterLeaver : LosSantosCustoms
     {
         #region Constructor
 

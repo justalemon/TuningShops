@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the different Bones of a Vehicle.
     /// </summary>
-    public enum EVehicleModBone : uint
+    internal enum EVehicleModBone : uint
     {
         none = 4294967295,
         chassis = 0,

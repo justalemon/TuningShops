@@ -8,7 +8,7 @@ namespace TuningShops.Locations
     /// <summary>
     /// The Spawn information of a Ped.
     /// </summary>
-    public class ShopPed
+    internal class ShopPed
     {
         /// <summary>
         /// The position of the ped over the counter.

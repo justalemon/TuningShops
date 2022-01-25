@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The windows option.
     /// </summary>
-    public class BOMWWindows : LosSantosCustoms
+    internal class BOMWWindows : LosSantosCustoms
     {
         #region Constructor
 

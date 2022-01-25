@@ -8,7 +8,7 @@ namespace TuningShops.Converters
     /// <summary>
     /// Converts a Vector3 to JSON and vice versa.
     /// </summary>
-    public class Vector3Converter : JsonConverter<Vector3?>
+    internal class Vector3Converter : JsonConverter<Vector3?>
     {
         public override Vector3? ReadJson(JsonReader reader, Type objectType, Vector3? existingValue, bool hasExistingValue, JsonSerializer serializer)
         {

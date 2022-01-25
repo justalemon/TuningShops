@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// The arch covers option.
     /// </summary>
-    public class BOMWArchCovers : LosSantosCustoms
+    internal class BOMWArchCovers : LosSantosCustoms
     {
         #region Constructor
 

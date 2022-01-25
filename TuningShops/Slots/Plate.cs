@@ -8,7 +8,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Menu used to change the plate frame.
     /// </summary>
-    public class Plate : BaseType
+    internal class Plate : BaseType
     {
         #region Properties
 
