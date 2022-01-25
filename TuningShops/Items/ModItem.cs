@@ -1,7 +1,7 @@
 ﻿namespace TuningShops.Items
 {
     /// <summary>
-    /// The item used to select Los Santos Customs modifications.
+    /// The item used to select Los Santos Customs and Benny's Original Motor Works modifications.
     /// </summary>
     public class ModItem : CoreItem
     {

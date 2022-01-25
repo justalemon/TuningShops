@@ -7,7 +7,7 @@ using TuningShops.Items;
 namespace TuningShops.Core
 {
     /// <summary>
-    /// Represents a basic Los Santos Customs slot.
+    /// Represents a basic Los Santos Customs or Benny's Original Motor Works slot.
     /// </summary>
     public abstract class LosSantosCustoms : BaseType
     {

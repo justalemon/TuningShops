@@ -2,6 +2,9 @@
 
 namespace TuningShops.Items
 {
+    /// <summary>
+    /// The different layours offered in GTA V.
+    /// </summary>
     internal enum NeonLayout
     {
         None,

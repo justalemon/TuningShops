@@ -4,6 +4,9 @@ using System;
 
 namespace TuningShops.Items
 {
+    /// <summary>
+    /// Item used to repair the vehicle.
+    /// </summary>
     internal class RepairItem : CoreItem
     {
         #region Properties
