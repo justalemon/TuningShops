@@ -19,7 +19,7 @@ namespace TuningShops.Slots
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModValue
+        public override int ModificationIndex
         {
             get => 0;
             set

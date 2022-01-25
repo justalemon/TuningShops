@@ -13,7 +13,7 @@ namespace TuningShops.Slots
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModValue
+        public override int ModificationIndex
         {
             get => Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, Game.Player.Character.CurrentVehicle);
             set => Function.Call(Hash.SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX, Game.Player.Character.CurrentVehicle, value);

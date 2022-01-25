@@ -16,7 +16,7 @@ namespace TuningShops.Slots
         /// <summary>
         /// The Current Xenon Color index.
         /// </summary>
-        public override int ModValue
+        public override int ModificationIndex
         {
             get
             {

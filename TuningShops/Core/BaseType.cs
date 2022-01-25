@@ -32,13 +32,14 @@ namespace TuningShops.Core
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// The last modification value used on this shop.
+        /// The index of the modification applied before the menu was opened.
         /// </summary>
-        public int LastValue { get; set; }
+        public int LastIndex { get; set; }
         /// <summary>
-        /// The value of the modification.
+        /// The current index of the modification.
+        /// If the modification has no index, 
         /// </summary>
-        public abstract int ModValue { get; set; }
+        public abstract int ModificationIndex { get; set; }
         /// <summary>
         /// If the items should always be shown as not purchased
         /// </summary>
@@ -127,7 +128,7 @@ namespace TuningShops.Core
                 lastModel = model;
             }
 
-            LastValue = ModValue;
+            LastIndex = ModificationIndex;
 
             SelectCurrent(vehicle);
         }
@@ -140,7 +141,7 @@ namespace TuningShops.Core
                 return;
             }
 
-            ModValue = item.Index;
+            ModificationIndex = item.Index;
         }
         private void BaseType_ItemActivated(object sender, ItemActivatedArgs e)
         {
@@ -151,13 +152,13 @@ namespace TuningShops.Core
                 return;
             }
 
-            LastValue = item.Index;
+            LastIndex = item.Index;
 
             UpdateBadges(ShowsAsNonPurchased);
         }
         private void BaseType_Closed(object sender, EventArgs e)
         {
-            ModValue = LastValue;
+            ModificationIndex = LastIndex;
         }
 
         #endregion

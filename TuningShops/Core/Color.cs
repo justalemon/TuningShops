@@ -14,7 +14,7 @@ namespace TuningShops.Core
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModValue
+        public override int ModificationIndex
         {
             get
             {
@@ -103,7 +103,7 @@ namespace TuningShops.Core
         /// <inheritdoc/>
         public override void SelectCurrent(Vehicle vehicle)
         {
-            int colorIndex = ModValue;
+            int colorIndex = ModificationIndex;
 
             foreach (NativeItem rawItem in Items)
             {

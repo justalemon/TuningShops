@@ -15,7 +15,7 @@ namespace TuningShops.Core
         /// </summary>
         public abstract string DecoratorName { get; }
         /// <inheritdoc/>
-        public override int ModValue
+        public override int ModificationIndex
         {
             get
             {
