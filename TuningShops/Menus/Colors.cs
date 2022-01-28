@@ -9,7 +9,7 @@ namespace TuningShops.Menus
     /// <summary>
     /// Represents the core for the color selection menus.
     /// </summary>
-    internal abstract class Color : ModificationSlot<int>
+    internal abstract class Colors : ModificationSlot<int>
     {
         #region Properties
 
@@ -89,7 +89,7 @@ namespace TuningShops.Menus
 
         #region Constructor
 
-        public Color(ColorSlot slot, string type) : base($"{slot} Color" + (string.IsNullOrWhiteSpace(type) ? "" : $": {type}"))
+        public Colors(ColorSlot slot, string type) : base($"{slot} Color" + (string.IsNullOrWhiteSpace(type) ? "" : $": {type}"))
         {
             Slot = slot;
         }
@@ -109,7 +109,7 @@ namespace TuningShops.Menus
 
             foreach (NativeItem rawItem in Items)
             {
-                ColorItem item = (ColorItem)rawItem;
+                ColorsItem item = (ColorsItem)rawItem;
 
                 if (item.Id == colorIndex)
                 {

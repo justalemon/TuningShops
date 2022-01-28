@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Applies Pearlescent colors to the primary slot.
     /// </summary>
-    internal class ColorPearlescent : ColorClassic
+    internal class ColorPearlescent : ColorsClassic
     {
         #region Constructor
 

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Applies Metals colors to the secondary slot.
     /// </summary>
-    internal class ColorSecondaryMetals : ColorMetals
+    internal class ColorSecondaryMetals : ColorsMetals
     {
         #region Constructor
 

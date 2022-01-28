@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Applies Classic colors to the primary slot.
     /// </summary>
-    internal class ColorPrimaryClassic : ColorClassic
+    internal class ColorPrimaryClassic : ColorsClassic
     {
         #region Constructor
 

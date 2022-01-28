@@ -18,7 +18,7 @@ namespace TuningShops.Menus
     /// <summary>
     /// Represnets the item used to select a color.
     /// </summary>
-    internal class ColorItem : StoreItem
+    internal class ColorsItem : StoreItem
     {
         #region Properties
 
@@ -35,7 +35,7 @@ namespace TuningShops.Menus
 
         #region Constructor
 
-        public ColorItem(string name, int id, ColorSlot slot, int value) : base(name, "", value)
+        public ColorsItem(string name, int id, ColorSlot slot, int value) : base(name, "", value)
         {
             Id = id;
             Slot = slot;

@@ -5,7 +5,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Applies Chrome colors to the secondary slot.
     /// </summary>
-    internal class ColorSecondaryChrome : ColorChrome
+    internal class ColorSecondaryChrome : ColorsChrome
     {
         #region Constructor
 
