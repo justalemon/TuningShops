@@ -7,11 +7,11 @@ namespace TuningShops.Cameras
     /// <summary>
     /// The General camera.
     /// </summary>
-    internal class GeneralCamera : CustomCamera
+    internal class AngledCamera : CustomCamera
     {
         #region Constructor
 
-        public GeneralCamera()
+        public AngledCamera()
         {
             Id = Guid.Empty;
         }
