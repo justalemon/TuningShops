@@ -10,12 +10,27 @@ namespace TuningShops.Slots
     /// <summary>
     /// The menu option to change the layout of the neon.
     /// </summary>
-    internal class NeonLayout : BaseType
+    internal class NeonLayout : ModificationSlot<NeonLayoutEnum>
     {
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModificationIndex
+        public override bool CanBeUsed
+        {
+            get
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle == null)
+                {
+                    return false;
+                }
+
+                return vehicle.Wheels.Count >= 4;
+            }
+        }
+        /// <inheritdoc/>
+        public override NeonLayoutEnum CurrentModification
         {
             get
             {
@@ -28,35 +43,35 @@ namespace TuningShops.Slots
 
                 if (!left && !right && !front && !back)
                 {
-                    return (int)NeonLayoutEnum.None;
+                    return NeonLayoutEnum.None;
                 }
                 else if (!left && !right && front && !back)
                 {
-                    return (int)NeonLayoutEnum.Front;
+                    return NeonLayoutEnum.Front;
                 }
                 else if (!left && !right && !front && back)
                 {
-                    return (int)NeonLayoutEnum.Back;
+                    return NeonLayoutEnum.Back;
                 }
                 else if (left && right && !front && !back)
                 {
-                    return (int)NeonLayoutEnum.Sides;
+                    return NeonLayoutEnum.Sides;
                 }
                 else if (!left && !right && front && back)
                 {
-                    return (int)NeonLayoutEnum.FrontAndBack;
+                    return NeonLayoutEnum.FrontAndBack;
                 }
                 else if (left && right && front && !back)
                 {
-                    return (int)NeonLayoutEnum.FrontAndSides;
+                    return NeonLayoutEnum.FrontAndSides;
                 }
                 else if (left && right && !front && back)
                 {
-                    return (int)NeonLayoutEnum.BackAndSides;
+                    return NeonLayoutEnum.BackAndSides;
                 }
                 else if (left && right && front && back)
                 {
-                    return (int)NeonLayoutEnum.FrontBackAndSides;
+                    return NeonLayoutEnum.FrontBackAndSides;
                 }
                 else
                 {
@@ -64,14 +79,14 @@ namespace TuningShops.Slots
                     Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
                     Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
                     Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
-                    return (int)NeonLayoutEnum.FrontBackAndSides;
+                    return NeonLayoutEnum.FrontBackAndSides;
                 }
             }
             set
             {
                 Vehicle vehicle = Game.Player.Character.CurrentVehicle;
 
-                switch ((NeonLayoutEnum)value)
+                switch (value)
                 {
                     case NeonLayoutEnum.None:
                         Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
@@ -142,24 +157,12 @@ namespace TuningShops.Slots
         #region Functions
 
         /// <inheritdoc/>
-        public override bool CanUse(Vehicle vehicle) => vehicle.Wheels.Count >= 4;
-        /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override void SelectCurrent()
         {
         }
         /// <inheritdoc/>
         public override void Repopulate()
         {
-        }
-        /// <inheritdoc/>
-        public override int GetPrice(int index)
-        {
-            if (Items.Count >= index)
-            {
-                return 0;
-            }
-
-            return ((NeonLayoutItem)Items[index]).Value;
         }
 
         #endregion

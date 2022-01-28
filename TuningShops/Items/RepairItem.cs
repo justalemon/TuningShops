@@ -1,13 +1,14 @@
 ﻿using GTA;
 using GTA.Native;
 using System;
+using TuningShops.Core;
 
 namespace TuningShops.Items
 {
     /// <summary>
     /// Item used to repair the vehicle.
     /// </summary>
-    internal class RepairItem : CoreItem
+    internal class RepairItem : StoreItem
     {
         #region Properties
 
@@ -30,7 +31,7 @@ namespace TuningShops.Items
 
         #region Constructor
 
-        public RepairItem() : base(0, "Repair", "", 0)
+        public RepairItem() : base("Repair", 0)
         {
             Activated += RepairItem_Activated;
         }
@@ -41,10 +42,10 @@ namespace TuningShops.Items
 
         private void RepairItem_Activated(object sender, EventArgs e)
         {
-            if (Money.ChargeIfPossible(Value))
+            if (Money.ChargeIfPossible(Price))
             {
                 Game.Player.Character.CurrentVehicle?.Repair();
-                Value = 0;
+                Price = 0;
             }
         }
 
@@ -57,7 +58,13 @@ namespace TuningShops.Items
         /// </summary>
         public void UpdatePrice()
         {
-            Value = RepairPrice;
+            Price = RepairPrice;
+        }
+        /// <summary>
+        /// Does nothing.
+        /// </summary>
+        public override void Apply()
+        {
         }
 
         #endregion

@@ -1,5 +1,4 @@
-﻿using GTA;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using TuningShops.Core;
 using TuningShops.Items;
 
@@ -8,7 +7,7 @@ namespace TuningShops.Slots
     /// <summary>
     /// Menu option used to repair the vehicle.
     /// </summary>
-    internal class Repair : BaseType
+    internal class Repair : ModificationSlot
     {
         #region Fields
 
@@ -19,13 +18,7 @@ namespace TuningShops.Slots
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModificationIndex
-        {
-            get => 0;
-            set
-            {
-            }
-        }
+        public override bool CanBeUsed => true;
 
         #endregion
 
@@ -54,17 +47,13 @@ namespace TuningShops.Slots
         #region Functions
 
         /// <inheritdoc/>
-        public override bool CanUse(Vehicle vehicle) => true;
-        /// <inheritdoc/>
         public override void Repopulate()
         {
         }
         /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override void SelectCurrent()
         {
         }
-        /// <inheritdoc/>
-        public override int GetPrice(int index) => 0;
 
         #endregion
     }

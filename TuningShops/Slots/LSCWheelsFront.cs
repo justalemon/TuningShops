@@ -8,20 +8,30 @@ namespace TuningShops.Slots
     /// </summary>
     internal class LSCWheelsFront : LosSantosCustoms
     {
-        #region Constructor
+        #region Properties
 
-        public LSCWheelsFront() : base(23, "Front Wheel")
+        /// <inheritdoc/>
+        public override bool CanBeUsed
         {
+            get
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle == null)
+                {
+                    return false;
+                }
+
+                return base.CanBeUsed && vehicle.Model.IsBike;
+            }
         }
 
         #endregion
 
-        #region Functions
+        #region Constructor
 
-        /// <inheritdoc/>
-        public override bool CanUse(Vehicle vehicle)
+        public LSCWheelsFront() : base(23, "Front Wheel")
         {
-            return base.CanUse(vehicle) && vehicle.Model.IsBike;
         }
 
         #endregion

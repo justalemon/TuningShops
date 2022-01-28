@@ -8,9 +8,9 @@ using TuningShops.Items;
 namespace TuningShops.Core
 {
     /// <summary>
-    /// Represents the basics for a Mod Slot Type.
+    /// The core of the different Modification Slots.
     /// </summary>
-    public abstract class BaseType : NativeMenu
+    public abstract class ModificationSlot : NativeMenu
     {
         #region Fields
 
@@ -21,7 +21,6 @@ namespace TuningShops.Core
             NormalDictionary = "commonmenu",
             NormalTexture = "shop_garage_icon_a"
         };
-        private Model lastModel = 0;
 
         #endregion
 
@@ -32,29 +31,90 @@ namespace TuningShops.Core
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// The index of the modification applied before the menu was opened.
-        /// </summary>
-        public int LastIndex { get; set; }
-        /// <summary>
-        /// The current index of the modification.
-        /// If the modification has no index, 
-        /// </summary>
-        public abstract int ModificationIndex { get; set; }
-        /// <summary>
         /// If the items should always be shown as not purchased
         /// </summary>
         public bool ShowsAsNonPurchased { get; set; } = false;
+        /// <summary>
+        /// If this Modification Slot can be used by the current player's vehicle.
+        /// </summary>
+        public abstract bool CanBeUsed { get; }
 
         #endregion
 
         #region Constructor
 
-        public BaseType(string name) : base("", name)
+        public ModificationSlot(string name) : base("", name)
         {
             Name = name;
             CloseOnInvalidClick = false;
+        }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Selets the currently used modification by the vehicle.
+        /// </summary>
+        public abstract void SelectCurrent();
+        /// <summary>
+        /// Repopulates the number of menu items.
+        /// </summary>
+        public abstract void Repopulate();
+        /// <summary>
+        /// Updates the right badge in all of the menu items.
+        /// </summary>
+        public void UpdateBadges(bool forceNotPurchased = false)
+        {
+            StoreItem selected = (StoreItem)SelectedItem;
+
+            foreach (NativeItem rawItem in Items)
+            {
+                StoreItem item = (StoreItem)rawItem;
+
+                item.RightBadgeSet = selected == item && !forceNotPurchased ? set : null;
+                item.AltTitle = selected == item && !forceNotPurchased ? "" : $"${item.Price}";
+
+                if (item.RightBadgeSet == null)
+                {
+                    item.RightBadge = null;
+                }
+            }
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// Represents the basics for a Mod Slot Type.
+    /// </summary>
+    public abstract class ModificationSlot<T> : ModificationSlot
+    {
+        #region Fields
+
+        private Model lastModel = 0;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// The modification that was present before the menu was opened.
+        /// </summary>
+        public virtual T LastModification { get; set; }
+        /// <summary>
+        /// The current modification selected.
+        /// </summary>
+        public virtual T CurrentModification { get; set; }
+
+        #endregion
+
+        #region Constructor
+
+        public ModificationSlot(string name) : base(name)
+        {
             Opening += BaseType_Opening;
-            SelectedIndexChanged += BaseType_SelectedIndexChanged;
+            SelectedIndexChanged += ModificationSlot_SelectedIndexChanged;
             ItemActivated += BaseType_ItemActivated;
             Closed += BaseType_Closed;
         }
@@ -63,46 +123,6 @@ namespace TuningShops.Core
 
         #region Functions
 
-        /// <summary>
-        /// If the specified vehicle can use the menu functions.
-        /// </summary>
-        /// <param name="vehicle"></param>
-        /// <returns>true if the vehicle can use the options of the menu, false otherwise.</returns>
-        public abstract bool CanUse(Vehicle vehicle);
-        /// <summary>
-        /// Selets the currently used modification by the vehicle.
-        /// </summary>
-        /// <param name="vehicle">The vehicle to check.</param>
-        public abstract void SelectCurrent(Vehicle vehicle);
-        /// <summary>
-        /// Repopulates the number of menu items.
-        /// </summary>
-        public abstract void Repopulate();
-        /// <summary>
-        /// Gets the price for a specific Mod Index.
-        /// </summary>
-        /// <returns>The value for the specified mod.</returns>
-        public abstract int GetPrice(int index);
-        /// <summary>
-        /// Updates the right badge in all of the menu items.
-        /// </summary>
-        public void UpdateBadges(bool forceNotPurchased = false)
-        {
-            CoreItem selected = (CoreItem)SelectedItem;
-
-            foreach (NativeItem rawItem in Items)
-            {
-                CoreItem item = (CoreItem)rawItem;
-
-                item.RightBadgeSet = selected == item && !forceNotPurchased ? set : null;
-                item.AltTitle = selected == item && !forceNotPurchased ? "" : $"${item.Value}";
-
-                if (item.RightBadgeSet == null)
-                {
-                    item.RightBadge = null;
-                }
-            }
-        }
 
         #endregion
 
@@ -128,37 +148,32 @@ namespace TuningShops.Core
                 lastModel = model;
             }
 
-            LastIndex = ModificationIndex;
+            LastModification = CurrentModification;
 
-            SelectCurrent(vehicle);
+            SelectCurrent();
         }
-        private void BaseType_SelectedIndexChanged(object sender, SelectedEventArgs e)
+        private void ModificationSlot_SelectedIndexChanged(object sender, SelectedEventArgs e)
         {
-            CoreItem item = Items[e.Index] as CoreItem;
-
-            if (item == null)
+            if (SelectedItem is StoreItem item)
             {
-                return;
+                item.Apply();
             }
-
-            ModificationIndex = item.Index;
         }
         private void BaseType_ItemActivated(object sender, ItemActivatedArgs e)
         {
-            CoreItem item = e.Item as CoreItem;
+            StoreItem item = e.Item as StoreItem;
 
-            if (item == null || item.RightBadgeSet != null || !Money.ChargeIfPossible(item.Value))
+            if (item == null || item.RightBadgeSet != null || !Money.ChargeIfPossible(item.Price))
             {
                 return;
             }
 
-            LastIndex = item.Index;
-
+            LastModification = CurrentModification;
             UpdateBadges(ShowsAsNonPurchased);
         }
         private void BaseType_Closed(object sender, EventArgs e)
         {
-            ModificationIndex = LastIndex;
+            CurrentModification = LastModification;
         }
 
         #endregion

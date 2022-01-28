@@ -8,12 +8,12 @@ namespace TuningShops.Slots
     /// <summary>
     /// Menu used to change the plate frame.
     /// </summary>
-    internal class Plate : BaseType
+    internal class Plate : ModificationSlot<int>
     {
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModificationIndex
+        public override int CurrentModification
         {
             get => Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, Game.Player.Character.CurrentVehicle);
             set => Function.Call(Hash.SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX, Game.Player.Character.CurrentVehicle, value);
@@ -27,7 +27,7 @@ namespace TuningShops.Slots
         {
             for (int i = 0; i < Function.Call<int>(Hash.GET_NUMBER_OF_VEHICLE_NUMBER_PLATES); i++)
             {
-                Add(new CoreItem(i, $"Plate {i}", "", 500));
+                Add(new PlateItem(i, $"Plate {i}", 500));
             }
         }
 
@@ -35,10 +35,21 @@ namespace TuningShops.Slots
 
         #region Functions
 
-        /// <summary>
-        /// Checks if the vehicle takes a plate.
-        /// </summary>
-        public override bool CanUse(Vehicle vehicle) => vehicle.Bones.Contains("platelight");
+        /// <inheritdoc/>
+        public override bool CanBeUsed
+        {
+            get
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle == null)
+                {
+                    return false;
+                }
+
+                return vehicle.Bones.Contains("platelight");
+            }
+        }
         /// <summary>
         /// Does nothing.
         /// </summary>
@@ -46,13 +57,18 @@ namespace TuningShops.Slots
         {
         }
         /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override void SelectCurrent()
         {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+
             SelectedIndex = Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, vehicle);
             UpdateBadges();
         }
-        /// <inheritdoc/>
-        public override int GetPrice(int index) => 0;
 
         #endregion
     }

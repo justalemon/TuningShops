@@ -9,12 +9,14 @@ namespace TuningShops.Core
     /// <summary>
     /// Represents the core for the color selection menus.
     /// </summary>
-    internal abstract class Color : BaseType
+    internal abstract class Color : ModificationSlot<int>
     {
         #region Properties
 
-        /// <inheritdoc/>
-        public override int ModificationIndex
+        /// <summary>
+        /// The current color set in the vehicle.
+        /// </summary>
+        public override int CurrentModification
         {
             get
             {
@@ -76,6 +78,8 @@ namespace TuningShops.Core
                 }
             }
         }
+        /// <inheritdoc/>
+        public override bool CanBeUsed => Function.Call<bool>(Hash.IS_​VEHICLE_​SPRAYABLE, Game.Player.Character.CurrentVehicle);
         /// <summary>
         /// The color slot that this menu controls.
         /// </summary>
@@ -95,21 +99,19 @@ namespace TuningShops.Core
         #region Functions
 
         /// <inheritdoc/>
-        public override bool CanUse(Vehicle vehicle) => Function.Call<bool>(Hash.IS_​VEHICLE_​SPRAYABLE, vehicle);
-        /// <inheritdoc/>
         public override void Repopulate()
         {
         }
         /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override void SelectCurrent()
         {
-            int colorIndex = ModificationIndex;
+            int colorIndex = CurrentModification;
 
             foreach (NativeItem rawItem in Items)
             {
                 ColorItem item = (ColorItem)rawItem;
 
-                if (item.Index == colorIndex)
+                if (item.Id == colorIndex)
                 {
                     SelectedItem = rawItem;
                     UpdateBadges();
@@ -120,8 +122,6 @@ namespace TuningShops.Core
             SelectedIndex = 0;
             UpdateBadges(true);
         }
-        /// <inheritdoc/>
-        public override int GetPrice(int index) => 0;
 
         #endregion
     }

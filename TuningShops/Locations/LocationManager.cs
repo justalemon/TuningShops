@@ -98,24 +98,33 @@ namespace TuningShops.Locations
 
                 Menu menu = new Menu(location, texture);
                 TuningShops.pool.Add(menu);
-                location.Menu = menu; foreach (string @class in location.Mods)
+
+                location.Menu = menu;
+                
+                foreach (string @class in location.Mods)
                 {
                     Type type = assembly.GetType(@class);
 
-                    if (type == null || !type.IsSubclassOf(typeof(BaseType)) || type == typeof(BaseType))
+                    if (type == null || !type.IsSubclassOf(typeof(ModificationSlot)) || type == typeof(ModificationSlot))
                     {
                         Notification.Show($"~o~Warning~s~: Modification Type {@class} is not valid!");
                         continue;
                     }
 
-                    BaseType newMenu;
+                    ModificationSlot newMenu;
                     try
                     {
-                        newMenu = (BaseType)Activator.CreateInstance(type);
+                        newMenu = (ModificationSlot)Activator.CreateInstance(type);
                     }
                     catch (MissingMethodException)
                     {
                         Notification.Show($"~o~Warning~s~: Unable to load {@class}: No matching public constructor");
+                        continue;
+                    }
+                    catch (TargetInvocationException e)
+                    {
+                        Notification.Show($"~o~Warning~s~: Unable to load {@class}\n{e.GetType().Name}: {e.Message}");
+                        Notification.Show(e.StackTrace);
                         continue;
                     }
 
@@ -133,7 +142,8 @@ namespace TuningShops.Locations
             }
             catch (Exception ex)
             {
-                Notification.Show($"~o~Warning~s~: Unable to load {Path.GetFileName(path)}:\n{ex.Message}");
+                Notification.Show($"~o~Warning~s~: Unable to load {Path.GetFileName(path)}\n{ex.GetType().Name}: {ex.Message}");
+                Notification.Show(ex.StackTrace);
             }
         }
 

@@ -9,7 +9,7 @@ namespace TuningShops.Core
     /// <summary>
     /// Represents a basic Los Santos Customs or Benny's Original Motor Works slot.
     /// </summary>
-    public abstract class LosSantosCustoms : BaseType
+    public abstract class LosSantosCustoms : ModificationSlot<int>
     {
         #region Fields
 
@@ -73,7 +73,7 @@ namespace TuningShops.Core
         #region Properties
 
         /// <inheritdoc/>
-        public override int ModificationIndex
+        public override int CurrentModification
         {
             get => Function.Call<int>(Hash.GET_VEHICLE_MOD, Game.Player.Character.CurrentVehicle, Slot);
             set
@@ -83,6 +83,8 @@ namespace TuningShops.Core
                 Function.Call(Hash.SET_VEHICLE_MOD, vehicle, Slot, value, false);
             }
         }
+        /// <inheritdoc/>
+        public override bool CanBeUsed => Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, Game.Player.Character.CurrentVehicle, Slot) > 0;
         /// <summary>
         /// If this menu should be repopulate when being opened.
         /// </summary>
@@ -105,19 +107,10 @@ namespace TuningShops.Core
 
         #region Functions
 
-        /// <summary>
-        /// Checks if the vehicle has enough slots to populate the menu.
-        /// </summary>
-        /// <param name="vehicle">The vehicle to check.</param>
-        /// <returns>true if the vehicle has enough slots to be populated, false otherwise.</returns>
-        public override bool CanUse(Vehicle vehicle)
-        {
-            return Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot) > 0;
-        }
         /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override void SelectCurrent()
         {
-            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD, vehicle, Slot) + 1;
+            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_MOD, Game.Player.Character.CurrentVehicle, Slot) + 1;
             UpdateBadges();
         }
         /// <summary>
@@ -136,25 +129,8 @@ namespace TuningShops.Core
 
             for (int i = -1; i < Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, vehicle, Slot); i++)
             {
-                Add(new ModItem(i, GetModName(i), GetPrice(i)));
+                Add(new ModIndexItem(Slot, i, GetModName(i), i == -1 ? 200 : (int)Math.Ceiling(200 * ((i + 1) * 2.1f))));
             }
-        }
-        /// <inheritdoc/>
-        public override int GetPrice(int index)
-        {
-            if (index == -1)
-            {
-                return 200;
-            }
-
-            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-            if (vehicle == null)
-            {
-                return 0;
-            }
-
-            return (int)Math.Ceiling(200 * ((index + 1) * 2.1f));
         }
         /// <summary>
         /// Gets the name of the mod on the specified index.

@@ -125,7 +125,7 @@ namespace TuningShops.Cameras
         /// Gets a Camera for the specified Mod Menu.
         /// </summary>
         /// <param name="base">The menu to use as a base.</param>
-        public static CameraCore Get(BaseType @base)
+        public static CameraCore Get<T>(T @base)
         {
             Model model = Game.Player.Character.CurrentVehicle.Model;
             Type type = @base.GetType();

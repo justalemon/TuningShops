@@ -13,10 +13,26 @@ namespace TuningShops.Slots
     {
         #region Properties
 
+        /// <inheritdoc/>
+        public override bool CanBeUsed
+        {
+            get
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle == null)
+                {
+                    return false;
+                }
+
+                Model model = vehicle.Model;
+                return model.IsVehicle || model.IsBike;
+            }
+        }
         /// <summary>
         /// The Current Xenon Color index.
         /// </summary>
-        public override int ModificationIndex
+        public override int CurrentModification
         {
             get
             {
@@ -33,7 +49,7 @@ namespace TuningShops.Slots
                 {
                     HeadlightsItem item = rawItem as HeadlightsItem;
 
-                    if (item.Index == value)
+                    if (item.Color == value)
                     {
                         item.Apply();
                     }
@@ -72,18 +88,8 @@ namespace TuningShops.Slots
 
         #region Functions
 
-        /// <summary>
-        /// Checks if the vehicle can use the Headlights option.
-        /// </summary>
-        /// <param name="vehicle">The vehicle to check.</param>
-        /// <returns>true if the vehicle can use headlights, false otherwise.</returns>
-        public override bool CanUse(Vehicle vehicle)
-        {
-            Model model = vehicle.Model;
-            return model.IsVehicle || model.IsBike;
-        }
         /// <inheritdoc/>
-        public override unsafe void SelectCurrent(Vehicle vehicle)
+        public override unsafe void SelectCurrent()
         {
             if (!Function.Call<bool>(Hash.IS_TOGGLE_MOD_ON, Game.Player.Character.CurrentVehicle, 22))
             {
@@ -97,7 +103,7 @@ namespace TuningShops.Slots
             {
                 HeadlightsItem item = (HeadlightsItem)rawItem;
 
-                if (item.Index == index)
+                if (item.Color == index)
                 {
                     SelectedItem = rawItem;
                     UpdateBadges();

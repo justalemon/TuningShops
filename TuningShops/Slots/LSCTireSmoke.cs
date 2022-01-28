@@ -15,6 +15,22 @@ namespace TuningShops.Slots
     {
         #region Properties
 
+        /// <inheritdoc/>
+        public override bool CanBeUsed
+        {
+            get
+            {
+                Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (vehicle == null)
+                {
+                    return false;
+                }
+
+                Model model = vehicle.Model;
+                return model.IsVehicle || model.IsBike || model.IsBicycle;
+            }
+        }
         /// <summary>
         /// If the Tire Smoke option should be repopulated.
         /// </summary>
@@ -43,7 +59,6 @@ namespace TuningShops.Slots
             Add(new TireSmokeItem("Patriot", Color.FromArgb(255, 0, 0, 0), 2500));
 
             Shown += LSCTireSmoke_Shown;
-            SelectedIndexChanged += LSCTireSmoke_SelectedIndexChanged;
             ItemActivated += LSCTireSmoke_ItemActivated;
             Closed += LSCTireSmoke_Closed;
         }
@@ -68,20 +83,6 @@ namespace TuningShops.Slots
             vehicle.IsPositionFrozen = false;
             vehicle.CanTiresBurst = false;
             Function.Call(Hash.TASK_VEHICLE_TEMP_ACTION, ped, vehicle, 30, 60 * 60 * 24);
-        }
-        private void LSCTireSmoke_SelectedIndexChanged(object sender, SelectedEventArgs e)
-        {
-            TireSmokeItem item = Items[e.Index] as TireSmokeItem;
-
-            if (item == null)
-            {
-                return;
-            }
-
-            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-            Function.Call(Hash.TOGGLE_VEHICLE_MOD, vehicle, 20, true);
-            Function.Call(Hash.SET_VEHICLE_TYRE_SMOKE_COLOR, vehicle, item.Color.R, item.Color.G, item.Color.B);
         }
         private void LSCTireSmoke_ItemActivated(object sender, ItemActivatedArgs e)
         {
@@ -111,18 +112,16 @@ namespace TuningShops.Slots
 
         #region Functions
 
-        /// <summary>
-        /// Checks if the vehicle can use the Tire Smoke options.
-        /// </summary>
-        /// <param name="vehicle">The vehicle to check.</param>
-        /// <returns>true if the vehicle can use it, false otherwise.</returns>
-        public override bool CanUse(Vehicle vehicle)
+        /// <inheritdoc/>
+        public override void SelectCurrent()
         {
-            Model model = vehicle.Model;
-            return model.IsVehicle || model.IsBike || model.IsBicycle;
-        }
-        public override void SelectCurrent(Vehicle vehicle)
-        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+
             int r, g, b = 0;
 
             unsafe

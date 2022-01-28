@@ -9,16 +9,20 @@ namespace TuningShops.Slots
     /// <summary>
     /// The base liveries on the menu.
     /// </summary>
-    internal class Liveries : BaseType
+    internal class Liveries : ModificationSlot<int>
     {
         #region Properties
 
-        /// <inheritdoc/>
-        public override int ModificationIndex
+        /// <summary>
+        /// The current Livery index.
+        /// </summary>
+        public override int CurrentModification
         {
             get => Function.Call<int>(Hash.GET_VEHICLE_LIVERY, Game.Player.Character.CurrentVehicle);
             set => Function.Call(Hash.SET_VEHICLE_LIVERY, Game.Player.Character.CurrentVehicle, value);
         }
+        /// <inheritdoc/>
+        public override bool CanBeUsed => Function.Call<int>(Hash.GET_VEHICLE_LIVERY_COUNT, Game.Player.Character.CurrentVehicle) > 0;
 
         #endregion
 
@@ -33,15 +37,6 @@ namespace TuningShops.Slots
         #region Functions
 
         /// <summary>
-        /// Checks if the vehicle has liveries available.
-        /// </summary>
-        /// <param name="vehicle">The vehicle to check.</param>
-        /// <returns>true if the vehicle has liveries available, false otherwise.</returns>
-        public override bool CanUse(Vehicle vehicle)
-        {
-            return Function.Call<int>(Hash.GET_VEHICLE_LIVERY_COUNT, vehicle) > 0;
-        }
-        /// <summary>
         /// Adds the list of Liveries to the menu.
         /// </summary>
         public override void Repopulate()
@@ -53,26 +48,14 @@ namespace TuningShops.Slots
             for (int i = -1; i < Function.Call<int>(Hash.GET_VEHICLE_LIVERY_COUNT, vehicle); i++)
             {
                 string label = i == -1 ? "NONE" : Function.Call<string>(Hash.GET_LIVERY_NAME, vehicle, i);
-                Add(new CoreItem(i, Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", GetPrice(i)));
+                Add(new LiveryItem(i, Function.Call<string>(Hash._GET_LABEL_TEXT, label), (int)Math.Ceiling(200 * ((i + 1) * 1.1f))));
             }
         }
         /// <inheritdoc/>
-        public override void SelectCurrent(Vehicle vehicle)
+        public override void SelectCurrent()
         {
-            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_LIVERY, vehicle) + 1;
+            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_LIVERY, Game.Player.Character.CurrentVehicle) + 1;
             UpdateBadges();
-        }
-        /// <inheritdoc/>
-        public override int GetPrice(int index)
-        {
-            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-
-            if (vehicle == null)
-            {
-                return 0;
-            }
-
-            return (int)Math.Ceiling(200 * ((index + 1) * 1.1f));
         }
 
         #endregion

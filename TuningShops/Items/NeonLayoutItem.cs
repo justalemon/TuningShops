@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using GTA;
+using GTA.Native;
+using System.Collections.Generic;
+using TuningShops.Core;
 
 namespace TuningShops.Items
 {
@@ -20,7 +23,7 @@ namespace TuningShops.Items
     /// <summary>
     /// The item used to select the layout of the player's vehicle.
     /// </summary>
-    internal class NeonLayoutItem : CoreItem
+    internal class NeonLayoutItem : StoreItem
     {
         #region Fields
 
@@ -34,6 +37,7 @@ namespace TuningShops.Items
         internal static readonly Dictionary<NeonLayout, int> values = new Dictionary<NeonLayout, int>()
         {
             { NeonLayout.None, 100 },
+            { NeonLayout.Front, 100 },
             { NeonLayout.Back, 1000 },
             { NeonLayout.Sides, 1250 },
             { NeonLayout.FrontAndBack, 1800 },
@@ -44,10 +48,84 @@ namespace TuningShops.Items
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// The NeonLayout managed by this item.
+        /// </summary>
+        public NeonLayout Layout { get; }
+
+        #endregion
+
         #region Constructors
 
-        public NeonLayoutItem(NeonLayout layout) : base((int)layout, names.ContainsKey(layout) ? names[layout] : names.ToString(), "", values[layout])
+        public NeonLayoutItem(NeonLayout layout) : base(names.ContainsKey(layout) ? names[layout] : layout.ToString(), values[layout])
         {
+            Layout = layout;
+        }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Applies the neon layout.
+        /// </summary>
+        public override void Apply()
+        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            switch (Layout)
+            {
+                case NeonLayout.None:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    break;
+                case NeonLayout.Front:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    break;
+                case NeonLayout.Back:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    break;
+                case NeonLayout.Sides:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    break;
+                case NeonLayout.FrontAndBack:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    break;
+                case NeonLayout.FrontAndSides:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    break;
+                case NeonLayout.BackAndSides:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    break;
+                case NeonLayout.FrontBackAndSides:
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    break;
+            }
         }
 
         #endregion

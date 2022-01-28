@@ -17,7 +17,7 @@ namespace TuningShops.Locations
     {
         #region Fields
 
-        private readonly List<BaseType> menus = new List<BaseType>();
+        private readonly List<ModificationSlot> menus = new List<ModificationSlot>();
         private Location location;
         private Model lastModel = 0;
 
@@ -42,7 +42,7 @@ namespace TuningShops.Locations
         /// Adds a specific menu as part of this location.
         /// </summary>
         /// <param name="menu">The menu to add.</param>
-        public void AddMenu(BaseType menu)
+        public void AddMenu(ModificationSlot menu)
         {
             if (menus.Contains(menu))
             {
@@ -73,9 +73,9 @@ namespace TuningShops.Locations
             }
 
             Clear();
-            foreach (BaseType menu in menus)
+            foreach (ModificationSlot menu in menus)
             {
-                if (menu.CanUse(vehicle))
+                if (menu.CanBeUsed)
                 {
                     if (OverrideManager.GetName(menu.GetType().FullName, model, out string name))
                     {
