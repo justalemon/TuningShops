@@ -5,8 +5,11 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using TuningShops.Core;
 using TuningShops.Overrides;
+
+#if DEBUG
+using TuningShops.Debugging;
+#endif
 
 namespace TuningShops.Cameras
 {
@@ -106,7 +109,7 @@ namespace TuningShops.Cameras
 #if DEBUG
             DebugMenu.Clear();
 #endif
-            GeneralCamera general = new GeneralCamera();
+            AngledCamera general = new AngledCamera();
             cameras.Add(Guid.Empty, general);
 #if DEBUG
             DebugMenu.Add(new CameraDebugItem("GENERAL", general));

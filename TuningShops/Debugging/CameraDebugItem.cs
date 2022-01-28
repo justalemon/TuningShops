@@ -2,8 +2,9 @@
 using GTA;
 using LemonUI.Menus;
 using System;
+using TuningShops.Cameras;
 
-namespace TuningShops.Cameras
+namespace TuningShops.Debugging
 {
     /// <summary>
     /// The item that temporarely activates the camera.
