@@ -84,7 +84,7 @@ namespace TuningShops.Locations
         /// The menu used at this location.
         /// </summary>
         [JsonIgnore]
-        public Menu Menu { get; internal set; }
+        public MainMenu Menu { get; internal set; }
         /// <summary>
         /// The Blip used to mark the location of the Food Shop.
         /// </summary>

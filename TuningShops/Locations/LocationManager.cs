@@ -96,7 +96,7 @@ namespace TuningShops.Locations
                     texture = new ScaledTexture(PointF.Empty, new SizeF(0, 108), location.BannerTXD, location.BannerTexture);
                 }
 
-                Menu menu = new Menu(location, texture);
+                MainMenu menu = new MainMenu(location, texture);
                 TuningShops.pool.Add(menu);
 
                 location.Menu = menu;

@@ -13,7 +13,7 @@ namespace TuningShops.Locations
     /// <summary>
     /// Represents a main menu in a specific location.
     /// </summary>
-    internal class Menu : NativeMenu
+    internal class MainMenu : NativeMenu
     {
         #region Fields
 
@@ -25,13 +25,13 @@ namespace TuningShops.Locations
 
         #region Constructor
 
-        public Menu(Location location, ScaledTexture texture) : base("", location.Name)
+        public MainMenu(Location location, ScaledTexture texture) : base("", location.Name)
         {
             this.location = location;
             Banner = texture;
             CloseOnInvalidClick = false;
             Opening += MainMenu_Opening;
-            Shown += Menu_Shown;
+            Shown += MainMenu_Shown;
         }
 
         #endregion
@@ -93,7 +93,7 @@ namespace TuningShops.Locations
             lastModel = model;
         }
 
-        private void Menu_Shown(object sender, EventArgs e)
+        private void MainMenu_Shown(object sender, EventArgs e)
         {
             CameraManager.Get(Guid.Empty).Create(Game.Player.Character.CurrentVehicle);
         }
