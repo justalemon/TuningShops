@@ -187,7 +187,7 @@ namespace TuningShops.Locations
                         Function.Call(Hash.SET_VEHICLE_LIGHTS, vehicle, 0);
                     }
 
-                    CameraCore.Destroy();
+                    CustomCamera.Destroy();
 
                     Active = null;
                 }

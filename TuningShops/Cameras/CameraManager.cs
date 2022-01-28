@@ -18,7 +18,7 @@ namespace TuningShops.Cameras
         #region Fields
 
         private static readonly Dictionary<string, Guid> associations = new Dictionary<string, Guid>();
-        private static readonly Dictionary<Guid, CameraCore> cameras = new Dictionary<Guid, CameraCore>();
+        private static readonly Dictionary<Guid, CustomCamera> cameras = new Dictionary<Guid, CustomCamera>();
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace TuningShops.Cameras
 
         #region Tools
 
-        private static void PopulateSpecific<T>(string path) where T : CameraCore
+        private static void PopulateSpecific<T>(string path) where T : CustomCamera
         {
             foreach (string file in Directory.EnumerateFiles(path))
             {
@@ -120,12 +120,12 @@ namespace TuningShops.Cameras
         /// Gets a Camera with a specific ID.
         /// </summary>
         /// <param name="id">The ID of the camera.</param>
-        public static CameraCore Get(Guid id) => cameras.TryGetValue(id, out CameraCore camera) ? camera : cameras[Guid.Empty];
+        public static CustomCamera Get(Guid id) => cameras.TryGetValue(id, out CustomCamera camera) ? camera : cameras[Guid.Empty];
         /// <summary>
         /// Gets a Camera for the specified Mod Menu.
         /// </summary>
         /// <param name="base">The menu to use as a base.</param>
-        public static CameraCore Get<T>(T @base)
+        public static CustomCamera Get<T>(T @base)
         {
             Model model = Game.Player.Character.CurrentVehicle.Model;
             Type type = @base.GetType();

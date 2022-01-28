@@ -15,13 +15,13 @@ namespace TuningShops.Cameras
         /// <summary>
         /// The camera that gets activated by this menu.
         /// </summary>
-        public CameraCore Camera { get; set; }
+        public CustomCamera Camera { get; set; }
 
         #endregion
 
         #region Constructor
 
-        public CameraDebugItem(string filename, CameraCore cam) : base(filename, cam.Id.ToString())
+        public CameraDebugItem(string filename, CustomCamera cam) : base(filename, cam.Id.ToString())
         {
             Camera = cam;
             Activated += CameraDebugItem_Activated;

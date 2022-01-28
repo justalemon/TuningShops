@@ -109,7 +109,7 @@ namespace TuningShops
                 }
             }
 
-            CameraCore.Destroy();
+            CustomCamera.Destroy();
             LocationManager.DoCleanup();
         }
 
