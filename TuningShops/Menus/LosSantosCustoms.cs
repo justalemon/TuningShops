@@ -2,9 +2,9 @@
 using GTA.Native;
 using System;
 using System.Collections.Generic;
-using TuningShops.Items;
+using TuningShops.Core;
 
-namespace TuningShops.Core
+namespace TuningShops.Menus
 {
     /// <summary>
     /// Represents a basic Los Santos Customs or Benny's Original Motor Works slot.

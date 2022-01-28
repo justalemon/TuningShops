@@ -2,8 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using TuningShops.Core;
-using TuningShops.Items;
+using TuningShops.Menus;
 using Color = System.Drawing.Color;
 
 namespace TuningShops.Slots

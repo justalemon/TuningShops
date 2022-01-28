@@ -2,7 +2,7 @@
 using GTA.Native;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// The slot used for the color.

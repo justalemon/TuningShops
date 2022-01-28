@@ -1,9 +1,8 @@
 ﻿using GTA;
 using GTA.Native;
-using System;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// The item used to toggle Los Santos Customs modifications.

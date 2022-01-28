@@ -3,7 +3,6 @@ using LemonUI.Menus;
 using System;
 using System.ComponentModel;
 using TuningShops.Cameras;
-using TuningShops.Items;
 
 namespace TuningShops.Core
 {

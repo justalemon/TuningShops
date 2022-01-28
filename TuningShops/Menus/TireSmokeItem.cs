@@ -1,9 +1,8 @@
 ﻿using GTA;
 using GTA.Native;
 using TuningShops.Core;
-using Color = System.Drawing.Color;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// The item used to select the tire smoke options.
@@ -15,13 +14,13 @@ namespace TuningShops.Items
         /// <summary>
         /// THe color of the tire smoke.
         /// </summary>
-        public Color Color { get; }
+        public System.Drawing.Color Color { get; }
 
         #endregion
 
         #region Constructor
 
-        public TireSmokeItem(string text, Color color, int price) : base($"{text} Tire Smoke", price)
+        public TireSmokeItem(string text, System.Drawing.Color color, int price) : base($"{text} Tire Smoke", price)
         {
             Color = color;
         }

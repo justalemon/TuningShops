@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using TuningShops.Core;
-using TuningShops.Items;
+using TuningShops.Menus;
 
 namespace TuningShops.Slots
 {

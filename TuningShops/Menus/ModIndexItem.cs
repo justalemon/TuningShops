@@ -2,7 +2,7 @@
 using GTA.Native;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// The item used to select Los Santos Customs and Benny's Original Motor Works modifications.

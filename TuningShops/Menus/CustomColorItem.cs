@@ -1,7 +1,6 @@
 ﻿using TuningShops.Core;
-using Color = System.Drawing.Color;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// Item to set custom colors.
@@ -13,13 +12,13 @@ namespace TuningShops.Items
         /// <summary>
         /// The color set by this item.
         /// </summary>
-        public Color Color { get; }
+        public System.Drawing.Color Color { get; }
 
         #endregion
 
         #region Constructors
 
-        public CustomColorItem(Color color, string name, int value) : base(name, "", value)
+        public CustomColorItem(System.Drawing.Color color, string name, int value) : base(name, "", value)
         {
             Color = color;
         }

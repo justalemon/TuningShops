@@ -2,7 +2,7 @@
 using GTA.Native;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// A regular Los Santos Customs livery.

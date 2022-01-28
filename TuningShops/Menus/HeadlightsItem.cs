@@ -3,7 +3,7 @@ using GTA;
 using System;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// The item that changes the current headlights.

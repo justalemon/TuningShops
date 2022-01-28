@@ -2,8 +2,8 @@
 using GTA.Native;
 using System;
 using TuningShops.Core;
-using TuningShops.Items;
-using NeonLayoutEnum = TuningShops.Items.NeonLayout;
+using TuningShops.Menus;
+using NeonLayoutEnum = TuningShops.Menus.NeonLayout;
 
 namespace TuningShops.Slots
 {

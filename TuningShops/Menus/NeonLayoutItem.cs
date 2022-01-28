@@ -3,7 +3,7 @@ using GTA.Native;
 using System.Collections.Generic;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// The different layours offered in GTA V.

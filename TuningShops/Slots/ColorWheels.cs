@@ -1,11 +1,12 @@
-﻿using TuningShops.Items;
+﻿using TuningShops.Menus;
+using MenusColorWheels = TuningShops.Menus.ColorWheels;
 
 namespace TuningShops.Slots
 {
     /// <summary>
     /// Applies Wheel colors to the primary slot.
     /// </summary>
-    internal class ColorWheels : Core.ColorWheels
+    internal class ColorWheels : MenusColorWheels
     {
         #region Constructor
 

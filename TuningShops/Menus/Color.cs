@@ -2,9 +2,9 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
-using TuningShops.Items;
+using TuningShops.Core;
 
-namespace TuningShops.Core
+namespace TuningShops.Menus
 {
     /// <summary>
     /// Represents the core for the color selection menus.

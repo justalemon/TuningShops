@@ -1,6 +1,4 @@
-﻿using TuningShops.Items;
-
-namespace TuningShops.Core
+﻿namespace TuningShops.Menus
 {
     /// <summary>
     /// Sets a wheel color.

@@ -3,7 +3,7 @@ using GTA.Native;
 using System;
 using TuningShops.Core;
 
-namespace TuningShops.Items
+namespace TuningShops.Menus
 {
     /// <summary>
     /// Item used to repair the vehicle.
