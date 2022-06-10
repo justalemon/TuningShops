@@ -1,6 +1,8 @@
 # TuningShops<br>[![GitHub Actions][actions-img]][actions-url] [![Patreon][patreon-img]][patreon-url] [![PayPal][paypal-img]][paypal-url] [![Discord][discord-img]][discord-url]
 
-TuningShops is a mod for Grand Theft Auto V that allows you to create 
+TuningShops is a mod for Grand Theft Auto V that allows you to create and use configurable Tuning Shops anywhere you want.
+
+You can create and use Tuning Shops in places where the game never intended them to be there, like Liberty City and Vice City!
 
 ## Download
 
