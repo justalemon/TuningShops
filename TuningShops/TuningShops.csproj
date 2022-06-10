@@ -20,7 +20,7 @@
     <PackageReference Include="ScriptHookVDotNet3" Version="3.4.0">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="LemonUI.SHVDN3" Version="1.6.0">
+    <PackageReference Include="LemonUI.SHVDN3" Version="1.7.0">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
