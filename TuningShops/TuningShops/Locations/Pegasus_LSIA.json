@@ -16,6 +16,8 @@
     "veh_heading": 328.00,
     "place_on_ground": true,
     "interior": null,
+    "dlcs_required": [
+    ],
     "ped": null,
     "mods": [
         "TuningShops.Slots.Repair",

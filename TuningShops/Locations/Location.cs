@@ -11,6 +11,8 @@ namespace TuningShops.Locations
     /// </summary>
     internal class Location
     {
+        #region Properties
+        
         /// <summary>
         /// The name of this Shop.
         /// </summary>
@@ -60,6 +62,11 @@ namespace TuningShops.Locations
         [JsonConverter(typeof(Vector3Converter))]
         public Vector3? Interior { get; set; }
         /// <summary>
+        /// The DLCs that are required for this location to load.
+        /// </summary>
+        [JsonProperty("dlcs_required", Required = Required.Always)]
+        public List<string> DlcsRequired { get; set; } = new List<string>();
+        /// <summary>
         /// The information of the shop ped.
         /// </summary>
         [JsonProperty("ped", Required = Required.AllowNull)]
@@ -95,6 +102,10 @@ namespace TuningShops.Locations
         /// </summary>
         [JsonIgnore]
         public Ped Ped { get; internal set; }
+        
+        #endregion
+        
+        #region Functions
 
         /// <summary>
         /// Clears the vehicles near the vehicle tuning location.
@@ -112,5 +123,7 @@ namespace TuningShops.Locations
                 }
             }
         }
+        
+        #endregion
     }
 }

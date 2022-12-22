@@ -52,6 +52,15 @@ namespace TuningShops.Locations
 
                 Location location = JsonConvert.DeserializeObject<Location>(contents);
 
+                foreach (string dlc in location.DlcsRequired)
+                {
+                    if (!Function.Call<bool>(Hash.IS_DLC_PRESENT, Game.GenerateHash(dlc)))
+                    {
+                        Notification.Show($"~o~Warning~s~: DLC {dlc} for location {location.Name} is not installed! Maybe you forgot to install it?");
+                        return;
+                    }
+                }
+
                 if (location.Interior.HasValue)
                 {
                     if (Function.Call<int>(Hash.GET_INTERIOR_AT_COORDS, location.Interior.Value.X, location.Interior.Value.Y, location.Interior.Value.Z) == 0)
