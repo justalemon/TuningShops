@@ -89,6 +89,23 @@ namespace TuningShops
 
             pool.Process();
             LocationManager.Process();
+
+            if (LocationManager.Active != null)
+            {
+                Function.Call(Hash.WATER_OVERRIDE_SET_OCEANNOISEMINAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_OCEANWAVEAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_OCEANWAVEMAXAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_OCEANWAVEMINAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_RIPPLEBUMPINESS, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_RIPPLEDISTURB, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_RIPPLEMAXBUMPINESS, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_RIPPLEMINBUMPINESS, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_SHOREWAVEAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_SHOREWAVEMAXAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_SHOREWAVEMINAMPLITUDE, 0.0f);
+                Function.Call(Hash.WATER_OVERRIDE_SET_STRENGTH, 0.0f);
+                Function.Call(Hash.SET_DEEP_OCEAN_SCALER, 0.0f);
+            }
         }
 
         private void TuningShops_Aborted(object sender, EventArgs e)
