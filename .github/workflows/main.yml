@@ -52,7 +52,6 @@ jobs:
         with:
           name: ${{ github.event.repository.name }}.Release
           path: bin/Release
-        working-directory: bin/Release
       - name: Repackage Files
         run: 7z a ${{ github.event.repository.name }}.zip ${{ github.workspace }}/bin/Release/*
       - name: Create Release
