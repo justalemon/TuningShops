@@ -230,9 +230,8 @@ namespace TuningShops.Locations
                         if (location.PlaceOnGround)
                         {
                             vehicle.PlaceOnGround();
+                            vehicle.IsPositionFrozen = true;
                         }
-
-                        vehicle.IsPositionFrozen = true;
 
                         location.Menu.Visible = true;
                         Active = location;

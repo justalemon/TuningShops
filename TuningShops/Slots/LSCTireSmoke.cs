@@ -2,6 +2,7 @@
 using GTA.Native;
 using LemonUI.Menus;
 using System;
+using TuningShops.Locations;
 using TuningShops.Menus;
 using Color = System.Drawing.Color;
 
@@ -102,7 +103,7 @@ namespace TuningShops.Slots
             Function.Call(Hash.SET_VEHICLE_TYRE_SMOKE_COLOR, vehicle, ActiveColor.R, ActiveColor.G, ActiveColor.B);
 
             Game.Player.CanControlCharacter = true;
-            vehicle.IsPositionFrozen = true;
+            vehicle.IsPositionFrozen = LocationManager.Active.PlaceOnGround;
             vehicle.CanTiresBurst = true;
             ped.Task.ClearAll();
         }
