@@ -8,7 +8,7 @@ You can create and use Tuning Shops in places where the game never intended them
 
 * [GitHub Releases](https://github.com/justalemon/TuningShops/releases)
 * [5mods](https://www.gta5-mods.com/scripts/tuningshops)
-* [GitHub Actions](https://github.com/justalemon/TuningShops/actions) (experimental)
+* [GitHub Actions](https://github.com/justalemon/FoodShops/actions) (experimental versions)
 
 ## Installation
 
@@ -22,7 +22,7 @@ After installing the mod, you will see some have some tuning shops available aro
 
 To customize your vehicle, go to any of the markers and press the button shown on the screen to open the purchase menu. You should now be able to see the different categories of the modifications, and inside of the categories you will have the options to modify them.
 
-[actions-img]: https://img.shields.io/github/workflow/status/justalemon/TuningShops/Compile%20Mod?label=github%20actions
+[actions-img]: https://img.shields.io/github/actions/workflow/status/justalemon/TuningShops/main.yml?branch=master&label=actions
 [actions-url]: https://github.com/justalemon/TuningShops/actions
 [patreon-img]: https://img.shields.io/badge/support-patreon-FF424D.svg
 [patreon-url]: https://www.patreon.com/lemonchan
