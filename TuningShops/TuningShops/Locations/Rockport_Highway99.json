@@ -79,7 +79,5 @@
         "TuningShops.Slots.LSCWheelsRear",
         "TuningShops.Slots.NeonLayout",
         "TuningShops.Slots.Plate"
-    ],
-    "whitelist": [],
-    "blacklist": []
+    ]
 }

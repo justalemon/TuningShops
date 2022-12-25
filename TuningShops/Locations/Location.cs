@@ -76,6 +76,7 @@ namespace TuningShops.Locations
         /// </summary>
         [JsonProperty("mods", Required = Required.Always)]
         public List<string> Mods { get; set; } = new List<string>();
+        /*
         /// <summary>
         /// The list of vehicles that are whitelisted to use this menu.
         /// </summary>
@@ -86,6 +87,7 @@ namespace TuningShops.Locations
         /// </summary>
         [JsonProperty("blacklist", Required = Required.Always)]
         public List<int> Blacklist { get; set; } = new List<int>();
+        */
 
         /// <summary>
         /// The menu used at this location.
