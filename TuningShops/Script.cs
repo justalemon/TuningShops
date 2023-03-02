@@ -24,8 +24,16 @@ namespace TuningShops
         internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
         internal static readonly ObjectPool pool = new ObjectPool();
         internal static unsafe CVehicleModelInfoVarGlobal** gVehicleModelInfoVarGlobal = null;
-        internal static Configuration configuration = ConfigurationCore.Load<Configuration>();
         internal static NativeMenu menu = null;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// The mod configuration.
+        /// </summary>
+        public static Configuration Config { get; } = ConfigurationCore.Load<Configuration>();
 
         #endregion
 
@@ -43,7 +51,7 @@ namespace TuningShops
                 gVehicleModelInfoVarGlobal = (CVehicleModelInfoVarGlobal**)(address + *(int*)(address + 3) + 7);
             }
 
-            List<NativeMenu> menus = configuration.CreateMenus();
+            List<NativeMenu> menus = Config.CreateMenus();
             menu = menus[0];
 
             foreach (NativeMenu newMenu in menus)
