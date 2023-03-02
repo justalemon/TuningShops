@@ -15,7 +15,7 @@ namespace TuningShops.Slots
         /// <inheritdoc/>
         public override int CurrentModification
         {
-            get => Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, Game.Player.Character.CurrentVehicle);
+            get => Function.Call<int>(Hash.GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX, Game.Player.Character.CurrentVehicle);
             set => Function.Call(Hash.SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX, Game.Player.Character.CurrentVehicle, value);
         }
 
@@ -66,7 +66,7 @@ namespace TuningShops.Slots
                 return;
             }
 
-            SelectedIndex = Function.Call<int>(Hash.GET_​VEHICLE_​NUMBER_​PLATE_​TEXT_​INDEX, vehicle);
+            SelectedIndex = Function.Call<int>(Hash.GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX, vehicle);
             UpdateBadges();
         }
 
