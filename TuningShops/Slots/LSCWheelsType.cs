@@ -25,7 +25,7 @@ namespace TuningShops.Slots
                 }
 
                 Model model = vehicle.Model;
-                return model.IsCar;
+                return !model.IsMotorcycle && vehicle.Wheels.Count > 0;
             }
         }
 
