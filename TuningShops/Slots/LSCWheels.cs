@@ -22,7 +22,7 @@ namespace TuningShops.Slots
                     return false;
                 }
 
-                return base.CanBeUsed && !vehicle.Model.IsBike;
+                return base.CanBeUsed && !vehicle.Model.IsBike && vehicle.Wheels.Count > 0;
             }
         }
 
