@@ -3,8 +3,10 @@ using GTA.Native;
 using GTA.UI;
 using LemonUI;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using LemonUI.Menus;
 using TuningShops.Cameras;
 using TuningShops.Locations;
 using TuningShops.Memory;
@@ -22,6 +24,8 @@ namespace TuningShops
         internal static string location = Path.Combine(new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath, "TuningShops");
         internal static readonly ObjectPool pool = new ObjectPool();
         internal static unsafe CVehicleModelInfoVarGlobal** gVehicleModelInfoVarGlobal = null;
+        internal static Configuration configuration = ConfigurationCore.Load<Configuration>();
+        internal static NativeMenu menu = null;
 
         #endregion
 
@@ -29,7 +33,6 @@ namespace TuningShops
 
         public TuningShops()
         {
-            // Get the pattern of the global vehicle info
             unsafe
             {
                 IntPtr address = Game.FindPattern("\x48\x8B\x0D\x00\x00\x00\x00\x44\x8B\xC6\x8B\xD5\x8B\xD8", "xxx????xxxxxxx");
@@ -40,12 +43,18 @@ namespace TuningShops
                 gVehicleModelInfoVarGlobal = (CVehicleModelInfoVarGlobal**)(address + *(int*)(address + 3) + 7);
             }
 
-            // Debug tools for Debug builds
+            List<NativeMenu> menus = configuration.CreateMenus();
+            menu = menus[0];
+
+            foreach (NativeMenu newMenu in menus)
+            {
+                pool.Add(newMenu);
+            }
+
 #if DEBUG
             pool.Add(CameraManager.DebugMenu);
 #endif
 
-            // And add the tick event and start working
             Tick += TuningShops_Tick_Init;
             Aborted += TuningShops_Aborted;
         }
@@ -65,7 +74,11 @@ namespace TuningShops
         }
         private void TuningShops_Tick_Run(object sender, EventArgs e)
         {
-            if (Game.WasCheatStringJustEntered("tsloc"))
+            if (menu != null && Game.WasCheatStringJustEntered("tsconfig"))
+            {
+                menu.Visible = true;
+            }
+            else if (Game.WasCheatStringJustEntered("tsloc"))
             {
                 LocationManager.Populate();
                 Notification.Show($"~q~Locations have been reloaded!");
