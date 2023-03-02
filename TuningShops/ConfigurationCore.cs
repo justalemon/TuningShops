@@ -179,6 +179,29 @@ namespace TuningShops
 
                     mainMenu.Add(intItem);
                 }
+                else if (property.PropertyType == typeof(byte))
+                {
+                    NativeItem byteItem = new NativeItem(name, description);
+                    byteItem.AltTitle = ((byte)property.GetValue(this)).ToString(CultureInfo.InvariantCulture);
+
+                    byteItem.Activated += (_, _) =>
+                    {
+                        byte current = (byte)property.GetValue(this);
+                        string input = Game.GetUserInput(current.ToString(CultureInfo.InvariantCulture));
+
+                        if (byte.TryParse(input, NumberStyles.None, CultureInfo.InvariantCulture, out byte number))
+                        {
+                            property.SetValue(this, number);
+                            byteItem.AltTitle = number.ToString(CultureInfo.InvariantCulture);
+                        }
+                        else if (!string.IsNullOrWhiteSpace(input))
+                        {
+                            Screen.ShowSubtitle($"~r~{input} is not a valid byte!");
+                        }
+                    };
+
+                    mainMenu.Add(byteItem);
+                }
                 else if (property.PropertyType == typeof(float))
                 {
                     NativeItem floatItem = new NativeItem(name, description);
