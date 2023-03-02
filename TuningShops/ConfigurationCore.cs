@@ -229,7 +229,7 @@ namespace TuningShops
 
                     mainMenu.Add(enumItem);
                 }
-                else if (property.PropertyType.GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>)))
+                else if (property.PropertyType.IsGenericType && property.PropertyType.GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>)))
                 {
                     Type listType = property.PropertyType.GetGenericArguments()[0];
                     IEnumerable existingItems = property.GetValue(this) as IEnumerable;
