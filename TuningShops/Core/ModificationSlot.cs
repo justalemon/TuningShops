@@ -120,11 +120,6 @@ namespace TuningShops.Core
 
         #endregion
 
-        #region Functions
-
-
-        #endregion
-
         #region Events
 
         private void BaseType_Opening(object sender, CancelEventArgs e)
