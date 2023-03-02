@@ -207,7 +207,7 @@ namespace TuningShops.Locations
 
             foreach (Location location in locations)
             {
-                if (pos.DistanceTo(location.Trigger) > 50)
+                if (pos.DistanceTo(location.Trigger) > TuningShops.Config.MarkerDistance)
                 {
                     continue;
                 }

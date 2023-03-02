@@ -13,6 +13,11 @@ namespace TuningShops
         [JsonProperty("marker_show")]
         public bool ShowMarkers { get; set; } = true;
         /// <summary>
+        /// The distance from the markers where they start being drawn.
+        /// </summary>
+        [JsonProperty("marker_distance")]
+        public float MarkerDistance { get; set; } = 100f;
+        /// <summary>
         /// The Red component for the Marker Color.
         /// </summary>
         [JsonProperty("marker_r")]
