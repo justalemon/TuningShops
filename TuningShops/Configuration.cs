@@ -8,6 +8,11 @@ namespace TuningShops
     public class Configuration : ConfigurationCore
     {
         /// <summary>
+        /// If the round markers should be shown in the entrance of the Tuning Shops.
+        /// </summary>
+        [JsonProperty("marker_show")]
+        public bool ShowMarkers { get; set; } = true;
+        /// <summary>
         /// The Red component for the Marker Color.
         /// </summary>
         [JsonProperty("marker_r")]

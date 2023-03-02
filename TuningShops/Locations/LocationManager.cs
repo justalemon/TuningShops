@@ -212,7 +212,10 @@ namespace TuningShops.Locations
                     continue;
                 }
 
-                World.DrawMarker(MarkerType.VerticalCylinder, location.Trigger, Vector3.Zero, Vector3.Zero, new Vector3(location.TriggerSize, location.TriggerSize, 1), Color.FromArgb(TuningShops.Config.MarkerColorA, TuningShops.Config.MarkerColorR, TuningShops.Config.MarkerColorG, TuningShops.Config.MarkerColorB));
+                if (TuningShops.Config.ShowMarkers)
+                {
+                    World.DrawMarker(MarkerType.VerticalCylinder, location.Trigger, Vector3.Zero, Vector3.Zero, new Vector3(location.TriggerSize, location.TriggerSize, 1), Color.FromArgb(TuningShops.Config.MarkerColorA, TuningShops.Config.MarkerColorR, TuningShops.Config.MarkerColorG, TuningShops.Config.MarkerColorB));
+                }
 
                 if (pos.DistanceTo(location.Trigger) < (location.TriggerSize * 0.5f) && vehicle != null)
                 {
