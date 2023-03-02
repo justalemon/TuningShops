@@ -115,7 +115,7 @@ namespace TuningShops.Overrides
         /// </summary>
         /// <param name="name">The name of the menu.</param>
         /// <param name="model">The model to look for.</param>
-        /// <param name="id">The found name, or an empty string.</param>
+        /// <param name="class">The found name, or an empty string.</param>
         /// <returns>true if a custom name was found, false otherwise.</returns>
         public static bool GetName(string name, Model model, out string @class)
         {
