@@ -37,5 +37,25 @@ namespace TuningShops
         /// </summary>
         [JsonProperty("marker_a")]
         public byte MarkerColorA { get; set; } = 200;
+        /// <summary>
+        /// The Red component for the Blip Color. This will take effect once the mod is restarted.
+        /// </summary>
+        [JsonProperty("blip_r")]
+        public byte BlipColorR { get; set; } = 128;
+        /// <summary>
+        /// The Green component for the Blip Color. This will take effect once the mod is restarted.
+        /// </summary>
+        [JsonProperty("blip_g")]
+        public byte BlipColorG { get; set; }
+        /// <summary>
+        /// The Blue component for the Blip Color. This will take effect once the mod is restarted.
+        /// </summary>
+        [JsonProperty("blip_b")]
+        public byte BlipColorB { get; set; } = 128;
+        /// <summary>
+        /// The Alpha or Transparency component for the Blip Color. This will take effect once the mod is restarted.
+        /// </summary>
+        [JsonProperty("blip_a")]
+        public byte BlipColorA { get; set; } = 200;
     }
 }

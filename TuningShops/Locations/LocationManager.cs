@@ -95,7 +95,7 @@ namespace TuningShops.Locations
 
                 location.Blip = World.CreateBlip(location.Trigger);
                 location.Blip.Sprite = BlipSprite.LosSantosCustoms;
-                Function.Call(Hash.SET_BLIP_COLOUR, location.Blip, (192 << 24) + (157 << 16) + (227 << 8) + 255);
+                Function.Call(Hash.SET_BLIP_COLOUR, location.Blip, (TuningShops.Config.BlipColorR << 24) + (TuningShops.Config.BlipColorG << 16) + (TuningShops.Config.BlipColorB << 8) + TuningShops.Config.BlipColorA);
                 location.Blip.Name = $"Tuning Shop: {location.Name}";
                 location.Blip.IsShortRange = true;
 
