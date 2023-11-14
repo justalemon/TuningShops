@@ -1,4 +1,6 @@
-﻿using TuningShops.Core;
+﻿using GTA;
+using GTA.Native;
+using TuningShops.Core;
 
 namespace TuningShops.Menus
 {
@@ -32,6 +34,14 @@ namespace TuningShops.Menus
         /// </summary>
         public override void Apply()
         {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+
+            Function.Call(Hash.SET_VEHICLE_WHEEL_TYPE, vehicle.Handle, Type);
         }
 
         #endregion
