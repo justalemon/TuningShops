@@ -48,14 +48,14 @@ namespace TuningShops.Slots
 
                 unsafe
                 {
-                    Function.Call(Hash._GET_VEHICLE_NEON_LIGHTS_COLOUR, Game.Player.Character.CurrentVehicle, &r, &g, &b);
+                    Function.Call(Hash.GET_VEHICLE_NEON_COLOUR, Game.Player.Character.CurrentVehicle, &r, &g, &b);
                 }
 
                 return Color.FromArgb(r, g, b);
             }
             set
             {
-                Function.Call(Hash._SET_VEHICLE_NEON_LIGHTS_COLOUR, Game.Player.Character.CurrentVehicle, (int)value.R, (int)value.G, (int)value.B);
+                Function.Call(Hash.SET_VEHICLE_NEON_COLOUR, Game.Player.Character.CurrentVehicle, (int)value.R, (int)value.G, (int)value.B);
             }
         }
 

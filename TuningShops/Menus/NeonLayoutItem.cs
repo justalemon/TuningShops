@@ -78,52 +78,52 @@ namespace TuningShops.Menus
             switch (Layout)
             {
                 case NeonLayout.None:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, false);
                     break;
                 case NeonLayout.Front:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, false);
                     break;
                 case NeonLayout.Back:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, true);
                     break;
                 case NeonLayout.Sides:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, false);
                     break;
                 case NeonLayout.FrontAndBack:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, true);
                     break;
                 case NeonLayout.FrontAndSides:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, false);
                     break;
                 case NeonLayout.BackAndSides:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, false);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, false);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, true);
                     break;
                 case NeonLayout.FrontBackAndSides:
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 0, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 1, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 2, true);
-                    Function.Call(Hash._SET_VEHICLE_NEON_LIGHT_ENABLED, vehicle, 3, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 0, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 1, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 2, true);
+                    Function.Call(Hash.SET_VEHICLE_NEON_ENABLED, vehicle, 3, true);
                     break;
             }
         }

@@ -207,7 +207,7 @@ namespace TuningShops.Menus
                 label = Function.Call<string>(Hash.GET_MOD_TEXT_LABEL, Game.Player.Character.CurrentVehicle, Slot, index);
             }
 
-            return Function.Call<string>(Hash._GET_LABEL_TEXT, label);
+            return Function.Call<string>(Hash.GET_FILENAME_FOR_AUDIO_CONVERSATION, label);
         }
 
         #endregion

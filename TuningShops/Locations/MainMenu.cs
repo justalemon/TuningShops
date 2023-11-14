@@ -79,11 +79,11 @@ namespace TuningShops.Locations
                 {
                     if (OverrideManager.GetName(menu.GetType().FullName, model, out string name))
                     {
-                        menu.Subtitle = name;
+                        menu.Name = name;
                     }
                     else
                     {
-                        menu.Subtitle = menu.Name;
+                        menu.Name = menu.Name;
                     }
 
                     AddSubMenu(menu);

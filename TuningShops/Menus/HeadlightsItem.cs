@@ -25,7 +25,7 @@ namespace TuningShops.Menus
 
         #region Constructors
 
-        public HeadlightsItem(string label, bool xenon, int color) : base(Function.Call<string>(Hash._GET_LABEL_TEXT, label), "", 1000)
+        public HeadlightsItem(string label, bool xenon, int color) : base(Function.Call<string>(Hash.GET_FILENAME_FOR_AUDIO_CONVERSATION, label), "", 1000)
         {
             Color = color;
             Xenon = xenon;
@@ -64,7 +64,7 @@ namespace TuningShops.Menus
                 return;
             }
 
-            Function.Call(Hash._SET_VEHICLE_XENON_LIGHTS_COLOR, vehicle, Color);  // Just in case
+            Function.Call(Hash.SET_VEHICLE_XENON_LIGHT_COLOR_INDEX, vehicle, Color);  // Just in case
         }
 
         #endregion

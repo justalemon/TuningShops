@@ -48,7 +48,7 @@ namespace TuningShops.Slots
             for (int i = -1; i < Function.Call<int>(Hash.GET_VEHICLE_LIVERY_COUNT, vehicle); i++)
             {
                 string label = i == -1 ? "NONE" : Function.Call<string>(Hash.GET_LIVERY_NAME, vehicle, i);
-                Add(new LiveryItem(i, Function.Call<string>(Hash._GET_LABEL_TEXT, label), (int)Math.Ceiling(200 * ((i + 1) * 1.1f))));
+                Add(new LiveryItem(i, Function.Call<string>(Hash.GET_FILENAME_FOR_AUDIO_CONVERSATION, label), (int)Math.Ceiling(200 * ((i + 1) * 1.1f))));
             }
         }
         /// <inheritdoc/>

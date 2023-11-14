@@ -40,7 +40,7 @@ namespace TuningShops.Slots
                     return -2;
                 }
 
-                return Function.Call<int>(Hash._GET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle);
+                return Function.Call<int>(Hash.GET_VEHICLE_XENON_LIGHT_COLOR_INDEX, Game.Player.Character.CurrentVehicle);
             }
             set
             {
@@ -96,7 +96,7 @@ namespace TuningShops.Slots
                 UpdateBadges();
             }
 
-            int index = Function.Call<int>(Hash._GET_VEHICLE_XENON_LIGHTS_COLOR, Game.Player.Character.CurrentVehicle);
+            int index = Function.Call<int>(Hash.GET_VEHICLE_XENON_LIGHT_COLOR_INDEX, Game.Player.Character.CurrentVehicle);
 
             foreach (NativeItem rawItem in Items)
             {
