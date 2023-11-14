@@ -1,8 +1,11 @@
 ﻿using GTA;
 using GTA.Native;
-using System;
+using System.Collections;
 using System.Collections.Specialized;
+using System.Linq;
+using LemonUI.Menus;
 using TuningShops.Core;
+using TuningShops.Menus;
 using Color = System.Drawing.Color;
 
 namespace TuningShops.Slots
@@ -65,9 +68,11 @@ namespace TuningShops.Slots
 
         public NeonColor() : base("Neon Color")
         {
-            for (int i = 0; i < colors.Count; i++)
+            foreach (DictionaryEntry entry in colors)
             {
-                //Add(new CustomColorItem(i, Color.White, "", 650));
+                string name = (string)entry.Key;
+                Color color = (Color)entry.Value;
+                Add(new NeonColorItem(color, name));
             }
         }
 
@@ -76,19 +81,36 @@ namespace TuningShops.Slots
         #region Functions
 
         /// <inheritdoc/>
-        public override bool CanBeUsed
-        {
-            get => throw new NotImplementedException();
-        }
+        public override bool CanBeUsed => Game.Player.Character.CurrentVehicle.Wheels.Count > 2;
         /// <inheritdoc/>
         public override void Repopulate()
         {
-            throw new NotImplementedException();
         }
         /// <inheritdoc/>
         public override void SelectCurrent()
         {
-            throw new NotImplementedException();
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+            
+            int r, g, b;
+            unsafe
+            {
+                Function.Call(Hash.GET_VEHICLE_NEON_COLOUR, vehicle.Handle, &r, &g, &b);
+            }
+            Color color = Color.FromArgb(r, g, b);
+
+            NativeItem item = Items.FirstOrDefault(x => x is NeonColorItem colorItem && colorItem.Color == color);
+
+            if (item != null)
+            {
+                SelectedItem = item;
+            }
+            
+            UpdateBadges();
         }
 
         #endregion
