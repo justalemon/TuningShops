@@ -78,6 +78,7 @@
         "TuningShops.Slots.LSCWheelsFront",
         "TuningShops.Slots.LSCWheelsRear",
         "TuningShops.Slots.NeonLayout",
+        "TuningShops.Slots.NeonColor",
         "TuningShops.Slots.Plate"
     ]
 }
