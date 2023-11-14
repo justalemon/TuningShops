@@ -79,7 +79,7 @@ namespace TuningShops.Menus
             }
         }
         /// <inheritdoc/>
-        public override bool CanBeUsed => Function.Call<bool>(Hash.IS_​VEHICLE_​SPRAYABLE, Game.Player.Character.CurrentVehicle);
+        public override bool CanBeUsed => Function.Call<bool>(Hash.IS_VEHICLE_SPRAYABLE, Game.Player.Character.CurrentVehicle);
         /// <summary>
         /// The color slot that this menu controls.
         /// </summary>

@@ -40,7 +40,7 @@ namespace TuningShops.Menus
         public override void Apply()
         {
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-            Function.Call(Hash.SET_​VEHICLE_​MOD_​KIT, vehicle, 0);
+            Function.Call(Hash.SET_VEHICLE_MOD_KIT, vehicle, 0);
             Function.Call(Hash.SET_VEHICLE_MOD, vehicle, Slot, Index, false);
         }
 
