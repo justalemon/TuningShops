@@ -57,5 +57,10 @@ namespace TuningShops
         /// </summary>
         [JsonProperty("blip_a")]
         public byte BlipColorA { get; set; } = 200;
+        /// <summary>
+        /// Whether to merge the blips into a single category without individual names. This will take effect once the mod is restarted.
+        /// </summary>
+        [JsonProperty("merge_blips")]
+        public bool MergeBlips { get; set; }
     }
 }
