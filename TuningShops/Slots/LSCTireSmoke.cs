@@ -31,10 +31,6 @@ namespace TuningShops.Slots
             }
         }
         /// <summary>
-        /// If the Tire Smoke option should be repopulated.
-        /// </summary>
-        public override bool ShouldRepopulate => false;
-        /// <summary>
         /// The color present when the menu was opened.
         /// </summary>
         public Color ActiveColor { get; set; }
@@ -144,6 +140,10 @@ namespace TuningShops.Slots
 
             SelectedIndex = 0;
             UpdateBadges(true);
+        }
+        /// <inheritdoc/>
+        public override void Repopulate()
+        {
         }
 
         #endregion

@@ -86,10 +86,6 @@ namespace TuningShops.Menus
         /// <inheritdoc/>
         public override bool CanBeUsed => Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, Game.Player.Character.CurrentVehicle, Slot) > 0;
         /// <summary>
-        /// If this menu should be repopulate when being opened.
-        /// </summary>
-        public virtual bool ShouldRepopulate => true;
-        /// <summary>
         /// The tuning slot associated with the menu.
         /// </summary>
         public int Slot { get; }
@@ -118,11 +114,6 @@ namespace TuningShops.Menus
         /// </summary>
         public override void Repopulate()
         {
-            if (!ShouldRepopulate)
-            {
-                return;
-            }
-
             Clear();
 
             Vehicle vehicle = Game.Player.Character.CurrentVehicle;

@@ -55,10 +55,6 @@ namespace TuningShops.Slots
                 }
             }
         }
-        /// <summary>
-        /// If the menu should be repopulated.
-        /// </summary>
-        public override bool ShouldRepopulate => false;
 
         #endregion
 
@@ -112,6 +108,10 @@ namespace TuningShops.Slots
 
             SelectedIndex = 0;
             UpdateBadges(true);
+        }
+        /// <inheritdoc/>
+        public override void Repopulate()
+        {
         }
 
         #endregion
