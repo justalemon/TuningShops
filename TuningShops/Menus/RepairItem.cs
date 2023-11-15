@@ -20,7 +20,13 @@ namespace TuningShops.Menus
             get
             {
                 Vehicle vehicle = Game.Player.Character.CurrentVehicle;
-                int value = Function.Call<int>((Hash)0x5873C14A52D74236, vehicle.Model);
+                int value = Function.Call<int>(Hash.GET_VEHICLE_MODEL_VALUE, vehicle.Model);
+
+                if (value <= 0)
+                {
+                    // Just in case it goes under zero
+                    value = 25000;
+                }
 
                 float percentage = vehicle.HealthFloat / vehicle.MaxHealthFloat;
                 return value - (int)(value * percentage);
