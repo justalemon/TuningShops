@@ -1,4 +1,6 @@
+using System.ComponentModel;
 using GTA;
+using GTA.Native;
 using TuningShops.Menus;
 
 namespace TuningShops.Slots
@@ -8,6 +10,12 @@ namespace TuningShops.Slots
     /// </summary>
     internal class LSCWheels : LosSantosCustoms
     {
+        #region Fields
+
+        private int lastWheelType = -1;
+        
+        #endregion
+        
         #region Properties
 
         /// <inheritdoc/>
@@ -32,6 +40,31 @@ namespace TuningShops.Slots
 
         public LSCWheels() : base(23, "Wheels")
         {
+            Opening += OnOpening;
+        }
+        
+        #endregion
+        
+        #region Event Functions
+
+        private void OnOpening(object sender, CancelEventArgs e)
+        {
+            Vehicle vehicle = Game.Player.Character.CurrentVehicle;
+
+            if (vehicle == null)
+            {
+                return;
+            }
+            
+            int wheelType = Function.Call<int>(Hash.GET_VEHICLE_WHEEL_TYPE, vehicle.Handle);
+
+            if (lastWheelType == wheelType)
+            {
+                return;
+            }
+            
+            lastWheelType = wheelType;
+            Repopulate();
         }
 
         #endregion
