@@ -89,8 +89,6 @@ namespace TuningShops.Slots
 
             int index = CurrentModification;
             NativeItem item = Items.FirstOrDefault(x => x is WheelsTypeItem wheelsItem && wheelsItem.Type == index);
-            
-            GTA.UI.Screen.ShowSubtitle($"{index} {item}");
 
             if (item != null)
             {
